@@ -68,6 +68,24 @@ a {
     box-sizing: border-box;
 }
 
+/* Global responsive helpers to prevent horizontal overflow on small screens */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img, picture, video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Ensure long text wraps instead of forcing horizontal scroll */
+body, p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
 /* BODY */
 body {
     background-color: var(--bg-dark);
