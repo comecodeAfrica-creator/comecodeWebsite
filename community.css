@@ -1,0 +1,68 @@
+.community-image{
+    width: 100%;
+    margin: 15px 0px;
+    border-radius: 12px;
+}
+
+/* Section spacing and text */
+.community-section {
+    padding: var(--section-pad) 20px;
+    text-align: center;
+    color: var(--text-main);
+}
+
+.community-section .section-title {
+    font-size: var(--h2-size);
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.community-section .section-subtitle {
+    font-size: var(--title-size);
+    color: var(--text-dim);
+    margin-bottom: var(--gap-base);
+}
+
+/* Gallery grid */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--card-gap);
+    margin-top: var(--gap-base);
+}
+
+.image-item {
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+}
+
+.image-item img,
+.community-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.image-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Hero adjustments */
+.hero-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+}
+
+.sub-hero-text {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-dim);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* CTA spacing tweak */
+.connect-section {
+    margin-top: var(--section-pad);
+}
