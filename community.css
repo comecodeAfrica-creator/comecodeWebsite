@@ -52,7 +52,7 @@
 
 /* Hero adjustments */
 .hero-title {
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(3.5rem, 6vw, 5rem) !important;
 }
 
 .sub-hero-text {
