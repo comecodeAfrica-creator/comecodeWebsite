@@ -7,15 +7,20 @@ const menu = document.querySelector('#mobile-menu');
         });
 
 
-        const items = [
-            { text: "Website", color: "#ffb46a" },
-            { text: "Apps", color: "#6ae3ff" },
+        let items = [
+            { text: "Website", color: "#6ae3ff" },
+            { text: "Apps", color: "#ffb46a" },
             { text: "Designs", color: "#6ae3ff" },
-            { text: "Identities", color: "#b56aff" }
+            { text: "Identities", color: "#ffb46a" }
         ];
 
         let index = 0;
         const title = document.querySelector(".hero-title");
+
+        const titleInitialText = title.textContent;
+        const originalColor = "#6ae3ff";
+
+        items.push({ text: titleInitialText, color: originalColor });
 
         // initial color
         title.style.color = items[0].color;
