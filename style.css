@@ -358,6 +358,65 @@ nav button {
     box-shadow: 0 18px 40px rgba(30, 144, 255, 0.45);
 }
 
+.info-section {
+    display: flex;
+    gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.card {
+    flex: 1;
+    width: 100%;
+    max-width: 380px;
+    /* controls card width */
+    height: auto;
+    /* controls card height */
+    padding: 30px 25px;
+    /* inner spacing only */
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+/* Color Themes */
+.mint {
+    background-color: #d7f1f514;
+    /* Light mint green */
+    backdrop-filter: blur(30px);
+}
+
+.peach {
+    background-color: #d7f1f514;
+    /* Light mint green */
+    backdrop-filter: blur(30px);
+    color: white !important;
+}
+
+/* Typography */
+.peach h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    color: rgb(183, 0, 228);
+}
+
+.peach p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+    .info-section {
+        flex-direction: column;
+    }
+}
 
 
 .partners-section {
