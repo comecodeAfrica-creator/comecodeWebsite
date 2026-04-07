@@ -19,13 +19,14 @@ const menu = document.querySelector('#mobile-menu');
 
         const titleInitialText = title.textContent;
         const originalColor = "#6ae3ff";
-
-        items.push({ text: titleInitialText, color: originalColor });
+        title.textContent = items[3].text;
+        title.style.color = originalColor;
+        //items.push({ text: titleInitialText, color: originalColor });
 
         // initial color
-        title.style.color = items[0].color;
+        //title.style.color = items[0].color;
 
-        setInterval(() => {
+        /*setInterval(() => {
             title.classList.add("fade-out");
 
             setTimeout(() => {
@@ -37,7 +38,7 @@ const menu = document.querySelector('#mobile-menu');
                 title.classList.add("fade-in");
             }, 500);
 
-        }, 3000);
+        }, 3000);*/
 
         const badge = document.querySelector('.trust-badge');
         let mouseTimer;
