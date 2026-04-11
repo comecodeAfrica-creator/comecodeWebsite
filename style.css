@@ -320,6 +320,7 @@ nav button {
 .hero {
     position: relative;
     min-height: 85vh;
+    height: auto;
     overflow: hidden;
     top: 0 !important;
     padding: 0px 0px;
@@ -331,12 +332,13 @@ nav button {
 }
 
 .heroContenGlassEffect {
-    height: 85vh;
+    min-height: 85vh;
+    height: auto;
     width: 100%;
     background-color: #ffffff06;
     top: 0;
     backdrop-filter: blur(30px);
-    padding: 80px 0px;
+    padding: 120px 20px 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -345,13 +347,13 @@ nav button {
 }
 
 .hero-text h1 {
-    font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+    font-size: clamp(1.8rem, 3.8vw, 3.2rem);
     color: #ffffff;
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 1.2;
     letter-spacing: -1.5px;
-    max-width: 860px;
-    margin: 0 auto 20px;
+    max-width: 780px;
+    margin: 0 auto 16px;
 }
 
 .hero-title {
