@@ -7,8 +7,13 @@
             nav.classList.toggle('active');
         });
 
-       
-       
+       //let's build button
+
+       function scrollToConnect() {
+    document.querySelector('.connect-section').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
         
 
         // TRUST BADGE
