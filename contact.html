@@ -1,213 +1,376 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contact us</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="contact.css">
-    <link rel="stylesheet" href="aos.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
-    <div class="grid-lines"></div>
-
-    <script>
-        AOS.init();
-    </script>
-
-    
-    <header>
-        <a href="index.html">
-            <div class="logo">C</div>
-        </a>
-
-        <nav id="navbar">
-            <ul class="nav-links">
-                <li><span class="dot"></span><a href="index.html">HOME</a></li>
-                <li><span class="dot"></span><a href="about.html" id="aboutNavLink">ABOUT US</a></li>
-                <li><span class="dot"></span><a href="porfolio.html">WORKS</a></li>
-                <li><span class="dot"></span><a href="backend/community.php">COMMUNITY</a></li>
-                <li class="mobile-only"><a href="contact.html"><button class="btn-outline">CONTACT NOW</button></a></li>
-            </ul>
-        </nav>
-
-        <div class="header-actions">
-            <a href="contact.html"> <button class="btn-outline desktop-only">CONTACT NOW</button></a>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </header>
+/* =====================================================
+   CONTACT PAGE — contact.css
+   Extends style.css. Black / White / Purple palette.
+   Syne for display, Inter for body.
+   ===================================================== */
 
 
+/* ===== CONTACT HERO ===== */
+.contact-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52vh;
+    padding: 140px 20px 70px;
+    background-color: #070707;
+    overflow: hidden;
+    text-align: center;
+}
+
+.contact-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(122,0,224,0.11), transparent 70%);
+    pointer-events: none;
+}
+
+.contact-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.04);
+    pointer-events: none;
+}
+
+.contact-ring-1 {
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contact-ring-2 {
+    width: 780px;
+    height: 780px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contact-hero-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 720px;
+}
+
+.contact-hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 7px 18px;
+    border-radius: 99px;
+    background: rgba(255,255,255,0.03);
+}
+
+.contact-hero-label i {
+    color: #7a00e0;
+    font-size: 0.8rem;
+}
+
+.contact-hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3.2rem, 9vw, 6.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -3px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.contact-accent {
+    color: #7a00e0;
+}
+
+.contact-hero-sub {
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto;
+}
 
 
-    <section class="branding-section porfolio-gallery-section">
-        <div class="BrandContainerGlassEffect">
-            <section class="contact-section">
-                <div class="contact-wrapper">
-            
-                    <!-- LEFT CONTENT -->
-                    <div class="contact-left" data-aos="slide-right" data-aos-duration="1000">
-                        <h1 class="contact-title">
-                            LET’S DISCUSS<br />YOUR IDEA<span class="dot">.</span>
-                        </h1>
-            
-                        <p class="contact-description">
-                            Feel free to contact us for any inquiries, collaborations, or project
-                            discussions. Our team is here to assist you.
-                        </p>
-            
-                    </div>
-            
-                    <!-- RIGHT FORM -->
-                    <div class="contact-right" data-aos="slide-left" data-aos-duration="1000">
-                        <form class="contact-form">
-                            <input type="text" placeholder="Name" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600" />
-                            <input type="email" placeholder="Email" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600" />
-                            <input type="text" placeholder="Company Name" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600" />
-            
-                            <select data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
-                                <option value="">Service</option>
-                                <option>Web Design</option>
-                                <option>UI/UX Design</option>
-                                <option>Frontend Development</option>
-                            </select>
-            
-                            <textarea placeholder="Project Details" data-aos="fade-up" data-aos-delay="500" data-aos-duration="600"></textarea>
-            
-                            <button type="submit" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="600">Send</button>
-                        </form>
-                    </div>
-            
-                </div>
+/* ===== MAIN CONTACT SECTION ===== */
+.contact-section {
+    background-color: #070707;
+    padding: clamp(60px, 8vw, 100px) 20px clamp(80px, 10vw, 140px);
+    display: flex;
+    justify-content: center;
+}
+
+.contact-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    gap: clamp(40px, 6vw, 100px);
+    align-items: flex-start;
+}
 
 
-                
-            </section>
-            
+/* ===== LEFT — contact info ===== */
+.contact-left {
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 8px;
+}
 
-  <!-- UPDATED FOOTER with correct FontAwesome social icons -->
-            <footer class="edens-footer">
-                <div class="footer-container">
-                    <div class="footer-grid">
-                        <div class="footer-col brand-col">
-                            <img src="edens-logo.png" alt="ComeCode" class="footer-logo">
-                            <p class="brand-bio">
-                                We are a data-driven, customer-centric digital marketing and web design agency
-                                in Nigeria, serving clients all over the world.
-                            </p>
-                            <div class="social-icons">
-                                <!-- UPDATE THESE href VALUES TO YOUR REAL SOCIAL MEDIA LINKS -->
-                                <a href="https://facebook.com/YOUR_PAGE" target="_blank" class="icon facebook" aria-label="Facebook">
-                                    <i class="fa-brands fa-facebook-f"></i>
-                                </a>
-                                <a href="https://twitter.com/YOUR_HANDLE" target="_blank" class="icon twitter" aria-label="Twitter / X">
-                                    <i class="fa-brands fa-x-twitter"></i>
-                                </a>
-                                <a href="https://linkedin.com/company/YOUR_COMPANY" target="_blank" class="icon linkedin" aria-label="LinkedIn">
-                                    <i class="fa-brands fa-linkedin-in"></i>
-                                </a>
-                                <a href="https://instagram.com/YOUR_HANDLE" target="_blank" class="icon instagram" aria-label="Instagram">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </a>
-                                <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" class="icon youtube" aria-label="YouTube">
-                                    <i class="fa-brands fa-youtube"></i>
-                                </a>
-                            </div>
-                        </div>
+.contact-info-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
 
-                        <div class="footer-col">
-                            <h4>SERVICES</h4>
-                            <ul class="footer-links">
-                                <li><a href="#">CAC Registration</a></li>
-                                <li><a href="#">Brand Identity</a></li>
-                                <li><a href="#">Web Development</a></li>
-                                <li><a href="#">App Development</a></li>
-                                <li><a href="#">Website Management</a></li>
-                                <li><a href="contact.html">Get Started</a></li>
-                            </ul>
-                        </div>
+.contact-info-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(122,0,224,0.14);
+    border: 1px solid rgba(122,0,224,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7a00e0;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
 
-                        <div class="footer-col">
-                            <h4>ADDRESS</h4>
-                            <address>
-                                Ugbowo, Benin City<br>
-                                Nigeria.
-                            </address>
-                        </div>
+.contact-info-label {
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
 
-                        <div class="footer-col">
-                            <h4>CONTACT</h4>
-                            <p>For more information contact us on</p>
-                            <p class="contact-highlight">+2348000000000</p>
-                            <p class="contact-email">admin@comecode.come</p>
-                            <p class="contact-email">comecode31@gmail.com</p>
-                        </div>
-                    </div>
+.contact-info-value {
+    font-size: 0.95rem;
+    color: #ffffff;
+    font-weight: 500;
+}
 
-                    <div class="footer-bottom">
-                        <p>© 2026 - ComeCode. Top software company in Nigeria. All Rights Reserved.</p>
-                    </div>
-                </div>
-            </footer>
+/* Social buttons */
+.contact-social-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
 
-        </div>
-    </div>
-    <!-- overlay button at the bottom -->
-    <div>
+.contact-social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
 
-        <div class="email-message-container" id="messageContainer">
+.contact-social-btn:hover {
+    background: rgba(122,0,224,0.2);
+    border-color: rgba(122,0,224,0.5);
+    color: #fff;
+    transform: translateY(-3px);
+}
 
-            <!-- Hidden action buttons -->
-            <a href="#">
-                <div class="email-messageButton action-btn email">
-                    <i class="fa-solid fa-envelope"></i>
-                </div>
-            </a>
+.contact-social-btn--wa:hover {
+    background: rgba(37,211,102,0.15);
+    border-color: rgba(37,211,102,0.4);
+    color: #25d366;
+}
 
-            <a href="#">
-                <div class="email-messageButton action-btn whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </div>
-            </a>
+/* Response badge */
+.contact-response-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 12px 16px;
+    line-height: 1.4;
+}
 
-            <div class="email-messageButton action-btn call">
-                <i class="fa-solid fa-phone"></i>
-            </div>
+.contact-response-badge i {
+    color: #7a00e0;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
 
-            <!-- Main toggle button -->
-            <div class="message-button" id="messageToggle">
-                <i class="fa-solid fa-comment message-icon"></i>
-                <i class="fa-solid fa-xmark close-icon"></i>
-            </div>
-
-        </div>
-
-    </div>
-
-            </div>
-            </section>
-
-   
+.contact-response-badge strong {
+    color: rgba(255,255,255,0.75);
+}
 
 
+/* ===== RIGHT — form ===== */
+.contact-right {
+    flex: 1;
+    min-width: 0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* Two fields side by side */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s ease, background 0.3s ease;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+.form-group select option {
+    background: #111111;
+    color: #fff;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255,255,255,0.2);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: rgba(122,0,224,0.6);
+    background: rgba(122,0,224,0.05);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+/* Submit button */
+.contact-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #7a00e0;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 32px;
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: fit-content;
+    transition: filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 24px rgba(122,0,224,0.3);
+    letter-spacing: 0.3px;
+}
+
+.contact-submit i {
+    transition: transform 0.3s ease;
+}
+
+.contact-submit:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(122,0,224,0.4);
+}
+
+.contact-submit:hover i {
+    transform: translateX(5px);
+}
 
 
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .contact-wrapper {
+        flex-direction: column;
+        gap: 50px;
+    }
 
+    .contact-left {
+        flex: none;
+        width: 100%;
+    }
 
+    .contact-info-block,
+    .contact-response-badge {
+        max-width: 100%;
+    }
+}
 
-    <script src="main.js"></script>
+@media (max-width: 600px) {
+    .contact-hero-title {
+        letter-spacing: -2px;
+    }
 
-   
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
 
-</body>
-
-</html>
+    .contact-submit {
+        width: 100%;
+    }
+}
