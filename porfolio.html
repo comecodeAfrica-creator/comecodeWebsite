@@ -4,34 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>comecode</title>
+    <title>Works — ComeCode</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="porfolio.css">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+    <!-- PAGE LOADER -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-logo">C</div>
+            <div class="loader-bar-track">
+                <div class="loader-bar" id="loaderBar"></div>
+            </div>
+            <p class="loader-tagline">Loading experience...</p>
+        </div>
+    </div>
+
     <div class="grid-lines"></div>
+    <script>AOS.init();</script>
 
+    <!-- HEADER -->
     <header>
-        <a href="index.html">
-            <div class="logo">C</div>
-        </a>
-
+        <a href="index.html"><div class="logo">C</div></a>
         <nav id="navbar">
             <ul class="nav-links">
                 <li><span class="dot"></span><a href="index.html">HOME</a></li>
-                <li><span class="dot"></span><a href="about.html" id="aboutNavLink">ABOUT US</a></li>
+                <li><span class="dot"></span><a href="about.html">ABOUT US</a></li>
                 <li><span class="dot"></span><a href="porfolio.html">WORKS</a></li>
                 <li><span class="dot"></span><a href="backend/community.php">COMMUNITY</a></li>
                 <li class="mobile-only"><a href="contact.html"><button class="btn-outline">CONTACT NOW</button></a></li>
             </ul>
         </nav>
-
         <div class="header-actions">
-            <a href="contact.html"> <button class="btn-outline desktop-only">CONTACT NOW</button></a>
+            <a href="contact.html"><button class="btn-outline desktop-only">CONTACT NOW</button></a>
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -41,235 +52,322 @@
     </header>
 
 
-    <!-- mainnnnnn -->
-    <main class="hero heroPorfolio">
-        <div class="trust-badge">
-            100% trusted
-            <span class="pointer"></span>
-        </div>
-        <div class="heroContenGlassEffect heroContenGlassEffectPorfolio">
-            <div class="heroContenGlassEffectContent">
-                <!-- add stroke to this one and make the fill 0. while it stays behind the other h1 with fill text -->
-                <div class="portfolio-title" data-aos="fade-up" data-aos-duration="1000">
-                    <h1 class="portfolio-heading stroke">Our Works</h1>
-                   
-                </div>
-                
+    <!-- ===== PORTFOLIO HERO ===== -->
+    <section class="port-hero">
+        <div class="port-hero-inner">
+            <div class="port-hero-label" data-aos="fade-up" data-aos-duration="700">
+                <i class="fa-solid fa-layer-group"></i> OUR WORKS
             </div>
+            <h1 class="port-hero-title" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900">
+                Selected<br><span class="port-hero-stroke">Works</span>
+            </h1>
+            <p class="port-hero-sub" data-aos="fade-up" data-aos-delay="200" data-aos-duration="900">
+                Designing and building digital products that scale — from brand identities to fully deployed web applications.
+            </p>
 
-
+            <!-- count strip -->
+            <div class="port-count-strip" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                <span><strong>50+</strong> Projects</span>
+                <span class="port-strip-dot"></span>
+                <span><strong>20+</strong> Happy Clients</span>
+                <span class="port-strip-dot"></span>
+                <span><strong>5+</strong> Industries</span>
+            </div>
         </div>
 
-        <div class="hero-glass-effect">
-
-        </div>
-
-    </main>
-    <section class="branding-section porfolio-gallery-section">
-        <div class="BrandContainerGlassEffect">
-            <section class="partners-section">
-                <div class="partners-container">
-                    <p class="partners-title" data-aos="fade-down" data-aos-duration="800">Trusted by the world's fastest-growing companies:</p>
-
-                    <div class="logo-grid" data-aos="zoom-in" data-aos-duration="1000">
-                        <img src="kenna-logo.png" alt="Kenna Partners" class="partner-logo" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="ailes-logo.png" alt="Ailes Group" class="partner-logo" data-aos="zoom-in" data-aos-delay="200">
-                        <img src="channels-logo.png" alt="Channels" class="partner-logo" data-aos="zoom-in" data-aos-delay="300">
-                        <img src="healthtracka-logo.png" alt="Healthtracka" class="partner-logo" data-aos="zoom-in" data-aos-delay="400">
-                        <img src="procept-logo.png" alt="Procept Africa" class="partner-logo" data-aos="zoom-in" data-aos-delay="500">
-                    </div>
-                </div>
-
-            </section> <br> <br>
-
-            <section class="portfolio-masonry">
-                <div class="portfolio-header" data-aos="fade-up" data-aos-duration="800">
-                    <h2>Selected Works</h2>
-                    <p>Designing & building digital products that scale</p>
-                </div>
-
-                <div class="masonry-grid" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-
-                    <div class="masonry-item" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="800">
-                        <img src="https://i.pinimg.com/736x/be/bd/dd/bebddddd7d371e943a6139dadee85596.jpg"
-                            alt="Project">
-                        <div class="overlay">
-                            <h3>SaaS Dashboard</h3>
-                            <p>UI/UX Design & Frontend</p>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item tall" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="800">
-                        <img src="https://i.pinimg.com/1200x/0d/c8/10/0dc810c1255569183350fcbc64d32fdb.jpg"
-                            alt="Project">
-                        <div class="overlay">
-                            <h3>Mobile App UI</h3>
-                            <p>Product Design</p>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="800">
-                        <img src="https://i.pinimg.com/736x/b1/bf/3d/b1bf3df29c186bd02fa15cfcb8c0def5.jpg"
-                            alt="Project">
-                        <div class="overlay">
-                            <h3>E-commerce Store</h3>
-                            <p>Shopify Development</p>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item wide" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="800">
-                        <img src="https://i.pinimg.com/736x/9e/3d/d7/9e3dd793793b608fceda93c37b442118.jpg"
-                            alt="Project">
-                        <div class="overlay">
-                            <h3>Landing Page</h3>
-                            <p>Conversion-Focused UI</p>
-                        </div>
-                    </div>
-
-                    <div class="masonry-item tall" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="800">
-                        <img src="https://i.pinimg.com/1200x/3a/b2/4c/3ab24ccd84abe5bb566c7f8e24a17306.jpg"
-                            alt="Project">
-                        <div class="overlay">
-                            <h3>Brand Identity</h3>
-                            <p>Visual Design</p>
-                        </div>
-                    </div>
-                    <div class="masonry-item tall" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="800">
-                        <img src="https://i.pinimg.com/1200x/3a/b2/4c/3ab24ccd84abe5bb566c7f8e24a17306.jpg"
-                            alt="Project">
-                        <div class="overlay">
-                            <h3>Brand Identity</h3>
-                            <p>Visual Design</p>
-                        </div>
-                    </div>
-                    <div class="masonry-item tall" data-aos="zoom-in" data-aos-delay="700" data-aos-duration="800">
-                        <img src="https://i.pinimg.com/1200x/3a/b2/4c/3ab24ccd84abe5bb566c7f8e24a17306.jpg"
-                            alt="Project">
-                        <div class="overlay">
-                            <h3>Brand Identity</h3>
-                            <p>Visual Design</p>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-  <!-- UPDATED FOOTER with correct FontAwesome social icons -->
-            <footer class="edens-footer">
-                <div class="footer-container">
-                    <div class="footer-grid">
-                        <div class="footer-col brand-col">
-                            <img src="edens-logo.png" alt="ComeCode" class="footer-logo">
-                            <p class="brand-bio">
-                                We are a data-driven, customer-centric digital marketing and web design agency
-                                in Nigeria, serving clients all over the world.
-                            </p>
-                            <div class="social-icons">
-                                <!-- UPDATE THESE href VALUES TO YOUR REAL SOCIAL MEDIA LINKS -->
-                                <a href="https://facebook.com/YOUR_PAGE" target="_blank" class="icon facebook" aria-label="Facebook">
-                                    <i class="fa-brands fa-facebook-f"></i>
-                                </a>
-                                <a href="https://twitter.com/YOUR_HANDLE" target="_blank" class="icon twitter" aria-label="Twitter / X">
-                                    <i class="fa-brands fa-x-twitter"></i>
-                                </a>
-                                <a href="https://linkedin.com/company/YOUR_COMPANY" target="_blank" class="icon linkedin" aria-label="LinkedIn">
-                                    <i class="fa-brands fa-linkedin-in"></i>
-                                </a>
-                                <a href="https://instagram.com/YOUR_HANDLE" target="_blank" class="icon instagram" aria-label="Instagram">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </a>
-                                <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" class="icon youtube" aria-label="YouTube">
-                                    <i class="fa-brands fa-youtube"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="footer-col">
-                            <h4>SERVICES</h4>
-                            <ul class="footer-links">
-                                <li><a href="#">CAC Registration</a></li>
-                                <li><a href="#">Brand Identity</a></li>
-                                <li><a href="#">Web Development</a></li>
-                                <li><a href="#">App Development</a></li>
-                                <li><a href="#">Website Management</a></li>
-                                <li><a href="contact.html">Get Started</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="footer-col">
-                            <h4>ADDRESS</h4>
-                            <address>
-                                Ugbowo, Benin City<br>
-                                Nigeria.
-                            </address>
-                        </div>
-
-                        <div class="footer-col">
-                            <h4>CONTACT</h4>
-                            <p>For more information contact us on</p>
-                            <p class="contact-highlight">+2348000000000</p>
-                            <p class="contact-email">admin@comecode.come</p>
-                            <p class="contact-email">comecode31@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div class="footer-bottom">
-                        <p>© 2026 - ComeCode. Top software company in Nigeria. All Rights Reserved.</p>
-                    </div>
-                </div>
-            </footer>
-        </div>
+        <div class="port-ring port-ring-1"></div>
+        <div class="port-ring port-ring-2"></div>
+    </section>
 
 
-        </div>
-        </div>
-        <!-- overlay button at the bottom -->
-       
-
+    <!-- ===== PARTNERS ===== -->
+    <section class="partners-section">
+        <div class="partners-container">
+            <p class="partners-title" data-aos="fade-down" data-aos-duration="800">Trusted by the world's fastest-growing companies:</p>
+            <div class="logo-grid" data-aos="zoom-in" data-aos-duration="1000">
+                <img src="kenna-logo.png" alt="Kenna Partners" class="partner-logo">
+                <img src="ailes-logo.png" alt="Ailes Group" class="partner-logo">
+                <img src="channels-logo.png" alt="Channels" class="partner-logo">
+                <img src="healthtracka-logo.png" alt="Healthtracka" class="partner-logo">
+                <img src="procept-logo.png" alt="Procept Africa" class="partner-logo">
+            </div>
         </div>
     </section>
 
 
+    <!-- ===== PORTFOLIO GRID ===== -->
+    <section class="port-grid-section">
 
- <!-- overlay button at the bottom -->
- <div>
+        <!-- Filter bar -->
+        <div class="port-filter-bar" data-aos="fade-up" data-aos-duration="700">
+            <button class="port-filter-btn active" data-filter="all">All Work</button>
+            <button class="port-filter-btn" data-filter="web">Web Dev</button>
+            <button class="port-filter-btn" data-filter="brand">Branding</button>
+            <button class="port-filter-btn" data-filter="ui">UI/UX</button>
+            <button class="port-filter-btn" data-filter="app">App Dev</button>
+        </div>
 
+        <!-- Grid -->
+        <div class="port-grid" id="portGrid">
+
+            <div class="port-item" data-category="ui" data-aos="fade-up" data-aos-delay="50" data-aos-duration="700">
+                <div class="port-item-img">
+                    <img src="https://i.pinimg.com/736x/be/bd/dd/bebddddd7d371e943a6139dadee85596.jpg" alt="SaaS Dashboard">
+                    <div class="port-item-overlay">
+                        <div class="port-item-overlay-content">
+                            <span class="port-item-tag">UI/UX Design</span>
+                            <h3>SaaS Dashboard</h3>
+                            <p>Analytics interface with real-time data visualisation and role-based views.</p>
+                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="port-item-meta">
+                    <div>
+                        <h4>SaaS Dashboard</h4>
+                        <span>UI/UX Design · Frontend</span>
+                    </div>
+                    <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+                </div>
+            </div>
+
+            <div class="port-item port-item--tall" data-category="app" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                <div class="port-item-img">
+                    <img src="https://i.pinimg.com/1200x/0d/c8/10/0dc810c1255569183350fcbc64d32fdb.jpg" alt="Mobile App">
+                    <div class="port-item-overlay">
+                        <div class="port-item-overlay-content">
+                            <span class="port-item-tag">App Dev</span>
+                            <h3>Mobile App UI</h3>
+                            <p>Cross-platform mobile experience built for performance and delight.</p>
+                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="port-item-meta">
+                    <div>
+                        <h4>Mobile App UI</h4>
+                        <span>App Dev · Product Design</span>
+                    </div>
+                    <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+                </div>
+            </div>
+
+            <div class="port-item" data-category="web" data-aos="fade-up" data-aos-delay="150" data-aos-duration="700">
+                <div class="port-item-img">
+                    <img src="https://i.pinimg.com/736x/b1/bf/3d/b1bf3df29c186bd02fa15cfcb8c0def5.jpg" alt="E-commerce Store">
+                    <div class="port-item-overlay">
+                        <div class="port-item-overlay-content">
+                            <span class="port-item-tag">Web Dev</span>
+                            <h3>E-commerce Store</h3>
+                            <p>Full Shopify store with custom theme, product management, and checkout flow.</p>
+                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="port-item-meta">
+                    <div>
+                        <h4>E-commerce Store</h4>
+                        <span>Web Dev · Shopify</span>
+                    </div>
+                    <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+                </div>
+            </div>
+
+            <div class="port-item port-item--wide" data-category="web" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                <div class="port-item-img">
+                    <img src="https://i.pinimg.com/736x/9e/3d/d7/9e3dd793793b608fceda93c37b442118.jpg" alt="Landing Page">
+                    <div class="port-item-overlay">
+                        <div class="port-item-overlay-content">
+                            <span class="port-item-tag">Web Dev</span>
+                            <h3>Conversion Landing Page</h3>
+                            <p>High-converting landing page engineered to drive leads and reduce bounce.</p>
+                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="port-item-meta">
+                    <div>
+                        <h4>Conversion Landing Page</h4>
+                        <span>Web Dev · Conversion UI</span>
+                    </div>
+                    <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+                </div>
+            </div>
+
+            <div class="port-item port-item--tall" data-category="brand" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                <div class="port-item-img">
+                    <img src="https://i.pinimg.com/1200x/3a/b2/4c/3ab24ccd84abe5bb566c7f8e24a17306.jpg" alt="Brand Identity">
+                    <div class="port-item-overlay">
+                        <div class="port-item-overlay-content">
+                            <span class="port-item-tag">Branding</span>
+                            <h3>Brand Identity</h3>
+                            <p>Complete visual identity system — logo, colours, guidelines, and collateral.</p>
+                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="port-item-meta">
+                    <div>
+                        <h4>Brand Identity</h4>
+                        <span>Branding · Visual Design</span>
+                    </div>
+                    <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+                </div>
+            </div>
+
+            <div class="port-item" data-category="brand" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                <div class="port-item-img">
+                    <img src="https://i.pinimg.com/1200x/3a/b2/4c/3ab24ccd84abe5bb566c7f8e24a17306.jpg" alt="Logo Design">
+                    <div class="port-item-overlay">
+                        <div class="port-item-overlay-content">
+                            <span class="port-item-tag">Branding</span>
+                            <h3>Logo Design</h3>
+                            <p>Wordmark and icon suite built for versatility across digital and print.</p>
+                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="port-item-meta">
+                    <div>
+                        <h4>Logo Design</h4>
+                        <span>Branding · Identity</span>
+                    </div>
+                    <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+                </div>
+            </div>
+
+            <div class="port-item" data-category="ui" data-aos="fade-up" data-aos-delay="350" data-aos-duration="700">
+                <div class="port-item-img">
+                    <img src="https://i.pinimg.com/1200x/3a/b2/4c/3ab24ccd84abe5bb566c7f8e24a17306.jpg" alt="Web App">
+                    <div class="port-item-overlay">
+                        <div class="port-item-overlay-content">
+                            <span class="port-item-tag">UI/UX</span>
+                            <h3>Web Application</h3>
+                            <p>User research, wireframes, and high-fidelity prototype for a fintech product.</p>
+                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="port-item-meta">
+                    <div>
+                        <h4>Web Application</h4>
+                        <span>UI/UX · Fintech</span>
+                    </div>
+                    <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CTA row -->
+        <div class="port-cta-row" data-aos="fade-up" data-aos-duration="700">
+            <p>Have a project in mind?</p>
+            <a href="contact.html" class="port-cta-btn">
+                Let's Talk <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="edens-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <img src="edens-logo.png" alt="ComeCode" class="footer-logo">
+                    <p class="brand-bio">We are a data-driven, customer-centric digital marketing and web design agency in Nigeria, serving clients all over the world.</p>
+                    <div class="social-icons">
+                        <a href="https://facebook.com/YOUR_PAGE" target="_blank" class="icon facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/YOUR_HANDLE" target="_blank" class="icon twitter" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://linkedin.com/company/YOUR_COMPANY" target="_blank" class="icon linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/YOUR_HANDLE" target="_blank" class="icon instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" class="icon youtube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>SERVICES</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">CAC Registration</a></li>
+                        <li><a href="#">Brand Identity</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">App Development</a></li>
+                        <li><a href="#">Website Management</a></li>
+                        <li><a href="contact.html">Get Started</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>ADDRESS</h4>
+                    <address>Ugbowo, Benin City<br>Nigeria.</address>
+                </div>
+                <div class="footer-col">
+                    <h4>CONTACT</h4>
+                    <p>For more information contact us on</p>
+                    <p class="contact-highlight">+2348000000000</p>
+                    <p class="contact-email">admin@comecode.come</p>
+                    <p class="contact-email">comecode31@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 - ComeCode. Top software company in Nigeria. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Floating contact buttons -->
     <div class="email-message-container" id="messageContainer">
-
-        <!-- Hidden action buttons -->
-     <a href="#">
-        <div class="email-messageButton action-btn email">
-            <i class="fa-solid fa-envelope"></i>
-        </div>
-     </a>
-    
-     <a href="#">
-        <div class="email-messageButton action-btn whatsapp">
-            <i class="fa-brands fa-whatsapp"></i>
-        </div>
-     </a>
-    
-        <div class="email-messageButton action-btn call">
-            <i class="fa-solid fa-phone"></i>
-        </div>
-    
-        <!-- Main toggle button -->
+        <a href="#"><div class="email-messageButton action-btn email"><i class="fa-solid fa-envelope"></i></div></a>
+        <a href="#"><div class="email-messageButton action-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></div></a>
+        <div class="email-messageButton action-btn call"><i class="fa-solid fa-phone"></i></div>
         <div class="message-button" id="messageToggle">
             <i class="fa-solid fa-comment message-icon"></i>
             <i class="fa-solid fa-xmark close-icon"></i>
         </div>
-    
     </div>
-    
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
-<script>
-  AOS.init();
-</script>
-    <script src="main.js"> </script>
+    <script src="main.js"></script>
 
+    <script>
+        // Page loader
+        window.addEventListener('load', function () {
+            const loader = document.getElementById('pageLoader');
+            const bar = document.getElementById('loaderBar');
+            bar.style.width = '100%';
+            setTimeout(function () {
+                loader.classList.add('loader-hidden');
+                setTimeout(function () { loader.style.display = 'none'; }, 600);
+            }, 1800);
+        });
+
+        // Filter
+        const filterBtns = document.querySelectorAll('.port-filter-btn');
+        const portItems  = document.querySelectorAll('.port-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                portItems.forEach(item => {
+                    const match = filter === 'all' || item.dataset.category === filter;
+                    item.style.opacity    = '0';
+                    item.style.transform  = 'scale(0.96)';
+                    setTimeout(() => {
+                        item.style.display = match ? '' : 'none';
+                        if (match) {
+                            requestAnimationFrame(() => {
+                                item.style.opacity   = '1';
+                                item.style.transform = 'scale(1)';
+                            });
+                        }
+                    }, 200);
+                });
+            });
+        });
+    </script>
 
 </body>
-
 </html>
