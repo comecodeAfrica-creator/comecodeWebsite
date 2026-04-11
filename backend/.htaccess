@@ -1,0 +1,8 @@
+<FilesMatch "\.json$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Redirect directory requests to home
+Options -Indexes
+DirectoryIndex index.php
