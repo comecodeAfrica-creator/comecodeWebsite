@@ -78,6 +78,89 @@ body {
 }
 
 
+/* ===== GLOBAL SYNE DISPLAY FONT =====
+   All major headings use Syne 800 — matches about & contact pages */
+
+h1, h2, h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+}
+
+/* Fine-tune letter spacing per heading context */
+.hero-text h1,
+.hero-title {
+    letter-spacing: -2px;
+}
+
+.services-main-title {
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -3px;
+}
+
+.packages-section-header h2 {
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -2px;
+}
+
+.connect-title,
+.testimonials-containerText h1 {
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -2px;
+}
+
+.connect-subtitle {
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.video-container-text h2 {
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -1px;
+}
+
+.about-title {
+    font-family: 'Syne', sans-serif;
+    letter-spacing: -1.5px;
+}
+
+.design-section-heading h3,
+.design-pkg-title,
+.review-title,
+.pkg-title {
+    font-family: 'Syne', sans-serif;
+}
+
+/* swipe button uses Syne to feel like a display element */
+.swipe-btn {
+    font-family: 'Syne', sans-serif;
+}
+
+/* Body copy, labels, eyebrows stay Inter */
+.sub-hero-text,
+.badge,
+.eyebrow,
+.service-card-number,
+.service-card-tags span,
+.service-card p,
+.service-card-link,
+.service-desc,
+.review-body,
+.pkg-items li,
+.design-pkg-desc,
+.design-pkg-detail,
+.packages-cta-row p,
+.connect-text,
+.brand-bio,
+.about-description p,
+.label,
+.info,
+nav a,
+footer,
+p {
+    font-family: 'Inter', sans-serif;
+}
+
+
 /* ===== PAGE LOADER ===== */
 .page-loader {
     position: fixed;
