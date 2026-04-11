@@ -7,30 +7,9 @@
             nav.classList.toggle('active');
         });
 
-        // About link — scroll AND close mobile menu
-        document.getElementById('aboutNavLink').addEventListener('click', function (e) {
-            e.preventDefault();
-            // Close menu if open
-            menu.classList.remove('is-active');
-            nav.classList.remove('active');
-            // Scroll to about section
-            setTimeout(() => {
-                const target = document.getElementById('about_target');
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-        });
-
-        //  HERO TITLE WORDS 
-        let items = [
-            { text: "Website", color: "#6ae3ff" },
-            { text: "Apps", color: "#ffb46a" },
-            { text: "Designs", color: "#6ae3ff" },
-            { text: "Identities", color: "#ffb46a" }
-        ];
-        let index = 0;
-        const title = document.querySelector(".hero-title");
-        title.textContent = items[3].text;
-        title.style.color = "#6ae3ff";
+       
+       
+        
 
         // TRUST BADGE
         const badge = document.querySelector('.trust-badge');
