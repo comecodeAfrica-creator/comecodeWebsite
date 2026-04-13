@@ -529,9 +529,10 @@ nav button {
 .info-section {
     display: flex;
     gap: 20px;
-    padding: 40px;
-    max-width: 1200px;
+    padding: 40px clamp(20px, 5vw, 80px);
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
@@ -644,6 +645,10 @@ nav button {
 }
 
 .branding-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 80px);
     display: flex;
     flex-wrap: wrap;
     gap: var(--gap-base);
@@ -702,13 +707,14 @@ nav button {
     background-color: var(--bg-dark);
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    padding: clamp(40px, 6vw, 80px) 20px;
+    width: 100%;
+    padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 80px);
 }
 
 .services-container {
-    width: clamp(320px, 95vw, 1200px);
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .services-header {
@@ -865,9 +871,9 @@ nav button {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
-    padding: clamp(60px, 10vw, 120px) 20px;
+    width: 100%;
+    padding: clamp(60px, 10vw, 120px) clamp(20px, 5vw, 80px);
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
 }
@@ -1173,12 +1179,14 @@ nav button {
     background-color: var(--bg-dark);
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 80px);
 }
 
 .about-container {
-    width: clamp(320px, 95vw, 1200px);
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -1236,19 +1244,20 @@ nav button {
 /* CONNECT */
 .connect-section {
     color: var(--text-main);
-    padding: 80px 0px;
+    padding: 80px clamp(20px, 5vw, 80px);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
+    width: 100%;
 }
 
 .connect-container {
-    width: clamp(320px, 95vw, 1200px);
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     gap: clamp(40px, 5vw, 100px);
     align-items: center;
-    padding: 40px 0px;
+    padding: 40px 0;
 }
 
 .connect-content { flex: 1 1 450px; }
@@ -1340,13 +1349,17 @@ button {
     background-color: var(--bg-dark);
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 80px);
     position: relative;
     overflow: hidden;
 }
 
-.testimonials-container { width: var(--wrapper-width); }
+.testimonials-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
 
 .testimonial-header {
     display: flex;
