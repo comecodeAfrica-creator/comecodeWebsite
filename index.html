@@ -17,12 +17,17 @@
 
     <!-- PAGE LOADER -->
     <div class="page-loader" id="pageLoader">
-        <div class="loader-content">
-            <div class="loader-logo">C</div>
-            <div class="loader-bar-track">
-                <div class="loader-bar" id="loaderBar"></div>
-            </div>
-            <p class="loader-tagline">Loading experience...</p>
+        <div class="loader-logo-wrap">
+            <svg class="loader-c-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Spinning orbit ring -->
+                <circle class="loader-orbit" cx="60" cy="60" r="52" stroke="rgba(122,0,224,0.18)" stroke-width="1" stroke-dasharray="6 6"/>
+                <!-- Arc that fills in -->
+                <circle class="loader-arc" cx="60" cy="60" r="52" stroke="#7a00e0" stroke-width="2" stroke-linecap="round"
+                    stroke-dasharray="326" stroke-dashoffset="326"/>
+                <!-- Dot that travels the arc -->
+                <circle class="loader-dot" cx="112" cy="60" r="4" fill="#7a00e0"/>
+            </svg>
+            <div class="loader-c-letter">C</div>
         </div>
     </div>
 
@@ -60,29 +65,76 @@
 
     <!-- HERO -->
     <main class="hero">
-        <div class="trust-badge" data-aos="fade-up" data-aos-duration="1000">
-            100% trusted
-            <span class="pointer"></span>
-        </div>
+
+        <!-- Background decoration -->
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-grid-overlay"></div>
+
         <div class="heroContenGlassEffect">
-            <div class="heroContenGlassEffectContent" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                <div class="hero-text"><br>
-                    <span class="badge"><i class="fa-regular fa-star" style="color:#7a00e0; margin-right:7px; font-size:0.85em;"></i>WELCOME TO ComeCode<i class="fa-regular fa-star" style="color:#7a00e0; margin-right:7px; font-size:0.85em;"></i></span>
-                    <h1 class="hero-title">Driving Business Growth Through Strategic Digital Innovation</h1>
-                    <p class="sub-hero-text">We partner with bold brands and ambitious founders to build scalable digital products,<br> sharp identities, and registered businesses <br> from first idea to full launch.</p>
-                    <br><br>
-                    <div class="hero-btn-group">
-                        <button class="swipe-btn" onclick="scrollToConnect()">
-                            <span class="text">let's build</span>
-                            <span class="arrow">›</span>
-                        </button>
-                        <a href="#solutions" class="solutions-btn">
-                            <span class="text">Solutions</span>
-                            <span class="sol-icon"><i class="fa-solid fa-compass"></i></span>
-                        </a>
-                        
+            <div class="heroContenGlassEffectContent">
+
+                <!-- Floating welcome pill -->
+                <div class="hero-welcome-pill" data-aos="fade-down" data-aos-duration="800">
+                    <span class="hero-pill-dot"></span>
+                    <i class="fa-solid fa-star" style="color:#7a00e0; font-size:0.7em;"></i>
+                    &nbsp;WELCOME TO ComeCode&nbsp;
+                    <i class="fa-solid fa-star" style="color:#7a00e0; font-size:0.7em;"></i>
+                    <span class="hero-pill-dot"></span>
+                </div>
+
+                <!-- Main headline — split lines for drama -->
+                <div class="hero-headline" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000">
+                    <div class="hero-line hero-line-1">
+                        <span class="hero-word">Driving</span>
+                        <span class="hero-word hero-word-outline">Business</span>
+                    </div>
+                    <div class="hero-line hero-line-2">
+                        <span class="hero-word">Growth</span>
+                    </div>
+                    <div class="hero-line hero-line-3">
+                        <span class="hero-word-small">Through Strategic</span>
+                        <span class="hero-word hero-word-purple">Digital</span>
+                    </div>
+                    <div class="hero-line hero-line-4">
+                        <span class="hero-word">Innovation</span>
                     </div>
                 </div>
+
+                <!-- Sub row — text + divider + stat pills -->
+                <div class="hero-sub-row" data-aos="fade-up" data-aos-delay="300" data-aos-duration="900">
+                    <p class="sub-hero-text">We partner with bold brands and ambitious founders to build scalable digital products, sharp identities, and registered businesses — from first idea to full launch.</p>
+
+                    <div class="hero-sub-divider"></div>
+
+                    <div class="hero-stat-pills">
+                        <div class="hero-stat-pill">
+                            <span class="hero-stat-num">50+</span>
+                            <span class="hero-stat-label">Projects</span>
+                        </div>
+                        <div class="hero-stat-pill">
+                            <span class="hero-stat-num">20+</span>
+                            <span class="hero-stat-label">Clients</span>
+                        </div>
+                        <div class="hero-stat-pill">
+                            <span class="hero-stat-num">100%</span>
+                            <span class="hero-stat-label">Trusted</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="hero-btn-group" data-aos="fade-up" data-aos-delay="450" data-aos-duration="800">
+                    <button class="swipe-btn" onclick="window.location.href='contact.html'">
+                        <span class="text">let's build</span>
+                        <span class="arrow">›</span>
+                    </button>
+                    <a href="#solutions" class="solutions-btn">
+                        <span class="text">Solutions</span>
+                        <span class="sol-icon"><i class="fa-solid fa-compass"></i></span>
+                    </a>
+                </div>
+
             </div>
         </div>
 
@@ -126,12 +178,28 @@
                                 </p>
                             </div>
 
-                            <button class="btn-primary" onclick="window.location.href='about.html'" >LEARN MORE &rarr;</button>
+                            <button class="btn-primary">LEARN MORE &rarr;</button>
                         </div>
                     </div>
                 </section>
 
-               
+                <section class="info-section">
+                    <div class="card mint" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1000">
+                        <h3>OUR VISION</h3>
+                        <p>Our vision is to achieve global relevant in the business technology space.</p>
+                    </div>
+
+                    <div class="card peach" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
+                        <h3>OUR MISSION</h3>
+                        <p>We will achieve our vision by delivering value to our clients all over the world</p>
+                    </div>
+
+                    <div class="card mint" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">
+                        <h3>OUR GOALS</h3>
+                        <p>Our goal is to be one of the top digital agency in Africa within the next 10 years.</p>
+                    </div>
+                </section>
+
 
                 <!-- SERVICES SECTION — Card Style with Icons -->
                 <section class="services-section" id="solutions">
@@ -442,16 +510,19 @@
 
                 </div>
 
-                
+                <div class="packages-cta-row" data-aos="fade-up" data-aos-duration="800">
+                    <p>Looking for standalone services like Brand Identity, Website, or Mobile App?</p>
+                    <a href="contact.html"><button class="btn-purple">Contact Us to Discuss &rarr;</button></a>
+                </div>
 
             </section>
 
 
-            <section class="connect-section" id="connectSec">
+            <section class="connect-section">
                 <div class="connect-container">
                     <div class="connect-content" data-aos="slide-right" data-aos-duration="1000">
                         <h2 class="connect-title">Let's <br> Connect.</h2>
-                        <h3 class="connect-subtitle">Looking for standalone services like Brand Identity, Website, or Mobile App?</h3>
+                        <h3 class="connect-subtitle">Ready to Kickstart Something Bold?</h3>
                         <p class="connect-text">
                             Don't worry, we're as serious about privacy as we are about great design.
                             We'll get back to you within 24 hours.
@@ -579,20 +650,13 @@
     <script>
         window.addEventListener('load', function () {
             const loader = document.getElementById('pageLoader');
-            const bar = document.getElementById('loaderBar');
-
-            // Animate bar to 100%
-            bar.style.width = '100%';
-
             setTimeout(function () {
                 loader.classList.add('loader-hidden');
                 setTimeout(function () {
                     loader.style.display = 'none';
-                }, 600);
-            }, 1800);
+                }, 700);
+            }, 2000);
         });
-
-        
     </script>
 
 </body>
