@@ -222,14 +222,13 @@ p {
     to   { transform: rotate(360deg); }
 }
 
-/* The C letter in the centre */
-.loader-c-letter {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 3.2rem;
-    color: #ffffff;
-    line-height: 1;
+/* The logo image in the centre */
+.loader-c-img {
+    width: 52px;
+    height: auto;
+    object-fit: contain;
     z-index: 1;
+    filter: brightness(0) invert(1);
     animation: loaderCPulse 2s ease-in-out infinite;
 }
 
@@ -447,10 +446,10 @@ nav button {
 .hero-word {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: clamp(3rem, 8vw, 7.5rem);
+    font-size: clamp(2.2rem, 5.5vw, 5.5rem);
     color: #ffffff;
     line-height: 0.95;
-    letter-spacing: -3px;
+    letter-spacing: -2px;
     display: inline-block;
 }
 
@@ -464,10 +463,10 @@ nav button {
 .hero-word-purple {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
-    font-size: clamp(3rem, 8vw, 7.5rem);
+    font-size: clamp(2.2rem, 5.5vw, 5.5rem);
     color: #7a00e0;
     line-height: 0.95;
-    letter-spacing: -3px;
+    letter-spacing: -2px;
     display: inline-block;
 }
 
@@ -483,24 +482,24 @@ nav button {
     padding-bottom: 8px;
 }
 
-/* Sub row — description + divider + stats */
+/* Sub row — description left, divider, buttons right — all centred */
 .hero-sub-row {
     display: flex;
     align-items: center;
     gap: 32px;
-    max-width: 860px;
+    max-width: 900px;
     width: 100%;
-    margin-bottom: 44px;
+    margin-bottom: 0;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .sub-hero-text {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(0.88rem, 1.4vw, 1rem);
+    font-size: clamp(0.85rem, 1.3vw, 0.95rem);
     color: rgba(255,255,255,0.5);
     line-height: 1.75;
-    max-width: 380px;
+    max-width: 340px;
     text-align: left;
 }
 
@@ -511,45 +510,13 @@ nav button {
     flex-shrink: 0;
 }
 
-.hero-stat-pills {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.hero-stat-pill {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 10px;
-    padding: 8px 16px;
-}
-
-.hero-stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1;
-}
-
-.hero-stat-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.4);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-/* Buttons */
+/* Buttons sit in the sub-row, aligned right */
 .hero-btn-group {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 18px;
+    gap: 14px;
     flex-wrap: wrap;
+    flex-shrink: 0;
 }
 
 .swipe-btn {
@@ -637,8 +604,8 @@ nav button {
 
     .hero-word,
     .hero-word-purple {
-        font-size: clamp(2.8rem, 14vw, 5rem);
-        letter-spacing: -2px;
+        font-size: clamp(2rem, 12vw, 3.5rem);
+        letter-spacing: -1.5px;
     }
 
     .hero-word-outline {
@@ -647,7 +614,7 @@ nav button {
 
     .hero-sub-row {
         flex-direction: column;
-        gap: 20px;
+        gap: 24px;
         align-items: center;
     }
 
@@ -658,13 +625,9 @@ nav button {
 
     .hero-sub-divider { display: none; }
 
-    .hero-stat-pills {
-        flex-direction: row;
-        flex-wrap: wrap;
+    .hero-btn-group {
         justify-content: center;
     }
-
-    .hero-stat-pill { padding: 6px 14px; }
 
     .hero-orb-1 { width: 300px; height: 300px; top: -60px; left: -80px; }
     .hero-orb-2 { width: 260px; height: 260px; bottom: -40px; right: -60px; }
@@ -679,6 +642,7 @@ nav button {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    justify-content: center;
 }
 
 .card {
@@ -1327,12 +1291,13 @@ nav button {
     font-family: 'Inter', sans-serif;
     width: 100%;
     padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 80px);
+    display: flex;
+    justify-content: center;
 }
 
 .about-container {
     max-width: 1200px;
     width: 100%;
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -1847,129 +1812,3 @@ address,
         padding: 0px 0px;
     }
 
-    .BrandContainerGlassEffect {
-        width: 100%;
-        height: auto;
-        background-color: #ffffff06;
-        backdrop-filter: blur(30px);
-        padding: 0px 15px 50px 15px;
-    }
-
-    .hero-title     { font-size: clamp(2rem, 10vw, 4rem); }
-    .sub-hero-text  { font-size: clamp(12px, 3vw, 16px); }
-
-    .badge {
-        font-size: clamp(10px, 2.5vw, 14px);
-        padding: 6px 12px;
-    }
-
-    .swipe-btn { font-size: 16px; padding: 3px 6px; }
-    .swipe-btn .arrow { width: 28px; height: 28px; font-size: 18px; }
-
-    .solutions-btn { font-size: 15px; }
-    .solutions-btn .sol-icon { width: 30px; height: 30px; font-size: 14px; }
-
-    .hero-btn-group { gap: 12px; }
-
-    .action-card { align-items: flex-start; gap: 20px; }
-
-    .services-cards-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .video-container-video {
-        width: 95% !important;
-        height: 70vh;
-        border-radius: 10px;
-    }
-
-    .video-comecode { padding: 0px 0px; }
-    .connect-section { padding: 0px 0px; }
-    .video-container-text { text-align: left; padding: 0px 20px; }
-
-    .about-image  { flex: 1 1 253px !important; }
-    .about-content { flex: 1 1 340px !important; }
-    .about-description p { max-width: 100%; margin-left: auto; margin-right: auto; }
-    .about-container { flex-direction: column; text-align: left !important; }
-
-    .footer-grid { text-align: left; justify-content: center; }
-    .social-icons { justify-content: left; }
-
-    .partners-container {
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 0 13px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .logo-grid { align-items: center; justify-content: center; }
-}
-
-@media (max-width:900px) and (min-width:769px) {
-    .about-content { flex: 1 1 250px; }
-
-    .connect-container {
-        width: clamp(320px, 95vw, 1200px);
-        display: flex;
-        flex-wrap: nowrap;
-    }
-
-    .about-container {
-        flex-direction: column;
-        text-align: left;
-    }
-
-    .about-description p {
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
-    }
-
-    .video-container-video { width: 95%; }
-
-    .footer-grid {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: 40px;
-        justify-content: space-between;
-    }
-
-    .partners-container { flex-direction: column; text-align: center; }
-    .partners-title { max-width: 100%; }
-    .logo-grid { justify-content: center; gap: 30px; }
-
-    .services-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width:1069px) and (min-width:901px) {
-    .logo-grid { flex-wrap: nowrap; }
-    .BrandContainerGlassEffect { padding: 0px 0px 50px 0px; }
-
-    .about-container {
-        width: clamp(320px, 95vw, 1200px);
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
-        gap: 40px;
-    }
-
-    .about-container { text-align: left !important; }
-
-    .video-container-video { width: 85%; }
-    .connect-container { flex-wrap: nowrap; }
-
-    .testimonial-wrapper {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: var(--gap-base);
-    }
-
-    .footer-grid { flex-wrap: nowrap; }
-}
