@@ -604,7 +604,7 @@ nav button {
 
     .hero-word,
     .hero-word-purple {
-        font-size: clamp(2rem, 12vw, 3.5rem);
+        font-size: clamp(2rem, 12vw, 3.4rem);
         letter-spacing: -1.5px;
     }
 
@@ -1287,7 +1287,7 @@ nav button {
 }
 
 .about-container {
-    width: clamp(320px, 95vw, 1200px);
+    width: clamp(320px, 100vw, 1200px);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
