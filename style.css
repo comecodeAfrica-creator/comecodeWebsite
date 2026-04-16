@@ -627,22 +627,20 @@ nav button {
 
     .hero-btn-group {
         justify-content: center;
+        flex-direction:row;
     }
 
     .hero-orb-1 { width: 300px; height: 300px; top: -60px; left: -80px; }
     .hero-orb-2 { width: 260px; height: 260px; bottom: -40px; right: -60px; }
 }
 
-
 /* INFO CARDS */
 .info-section {
     display: flex;
     gap: 20px;
-    padding: 40px clamp(20px, 5vw, 80px);
-    width: 100%;
+    padding: 40px;
     max-width: 1200px;
-    margin: 0 auto;
-    justify-content: center;
+    width: 100%;
 }
 
 .card {
@@ -755,10 +753,6 @@ nav button {
 }
 
 .branding-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 clamp(20px, 5vw, 80px);
     display: flex;
     flex-wrap: wrap;
     gap: var(--gap-base);
@@ -817,14 +811,13 @@ nav button {
     background-color: var(--bg-dark);
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
-    width: 100%;
-    padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 80px);
+    display: flex;
+    justify-content: center;
+    padding: clamp(40px, 6vw, 80px) 20px;
 }
 
 .services-container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
+    width: clamp(320px, 95vw, 1200px);
 }
 
 .services-header {
@@ -981,9 +974,9 @@ nav button {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
-    width: 100%;
-    padding: clamp(60px, 10vw, 120px) clamp(20px, 5vw, 80px);
+    padding: clamp(60px, 10vw, 120px) 20px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
 }
@@ -1289,15 +1282,12 @@ nav button {
     background-color: var(--bg-dark);
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
-    width: 100%;
-    padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 80px);
     display: flex;
     justify-content: center;
 }
 
 .about-container {
-    max-width: 1200px;
-    width: 100%;
+    width: clamp(320px, 95vw, 1200px);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -1355,20 +1345,19 @@ nav button {
 /* CONNECT */
 .connect-section {
     color: var(--text-main);
-    padding: 80px clamp(20px, 5vw, 80px);
+    padding: 80px 0px;
     font-family: 'Inter', sans-serif;
-    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .connect-container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
+    width: clamp(320px, 95vw, 1200px);
     display: flex;
     flex-wrap: wrap;
     gap: clamp(40px, 5vw, 100px);
     align-items: center;
-    padding: 40px 0;
+    padding: 40px 0px;
 }
 
 .connect-content { flex: 1 1 450px; }
@@ -1460,17 +1449,13 @@ button {
     background-color: var(--bg-dark);
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
-    width: 100%;
-    padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 80px);
+    display: flex;
+    justify-content: center;
     position: relative;
     overflow: hidden;
 }
 
-.testimonials-container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-}
+.testimonials-container { width: var(--wrapper-width); }
 
 .testimonial-header {
     display: flex;
@@ -1811,4 +1796,131 @@ address,
         width: 100% !important;
         padding: 0px 0px;
     }
+
+    .BrandContainerGlassEffect {
+        width: 100%;
+        height: auto;
+        background-color: #ffffff06;
+        backdrop-filter: blur(30px);
+        padding: 0px 15px 50px 15px;
+    }
+
+    .hero-title     { font-size: clamp(2rem, 10vw, 4rem); }
+    .sub-hero-text  { font-size: clamp(12px, 3vw, 16px); }
+
+    .badge {
+        font-size: clamp(10px, 2.5vw, 14px);
+        padding: 6px 12px;
+    }
+
+    .swipe-btn { font-size: 16px; padding: 3px 6px; }
+    .swipe-btn .arrow { width: 28px; height: 28px; font-size: 18px; }
+
+    .solutions-btn { font-size: 15px; }
+    .solutions-btn .sol-icon { width: 30px; height: 30px; font-size: 14px; }
+
+    .hero-btn-group { gap: 12px; }
+
+    .action-card { align-items: flex-start; gap: 20px; }
+
+    .services-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-container-video {
+        width: 95% !important;
+        height: 70vh;
+        border-radius: 10px;
+    }
+
+    .video-comecode { padding: 0px 0px; }
+    .connect-section { padding: 0px 0px; }
+    .video-container-text { text-align: left; padding: 0px 20px; }
+
+    .about-image  { flex: 1 1 253px !important; }
+    .about-content { flex: 1 1 340px !important; }
+    .about-description p { max-width: 100%; margin-left: auto; margin-right: auto; }
+    .about-container { flex-direction: column; text-align: left !important; }
+
+    .footer-grid { text-align: left; justify-content: center; }
+    .social-icons { justify-content: left; }
+
+    .partners-container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 13px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .logo-grid { align-items: center; justify-content: center; }
+}
+
+@media (max-width:900px) and (min-width:769px) {
+    .about-content { flex: 1 1 250px; }
+
+    .connect-container {
+        width: clamp(320px, 95vw, 1200px);
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .about-description p {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+
+    .video-container-video { width: 95%; }
+
+    .footer-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 40px;
+        justify-content: space-between;
+    }
+
+    .partners-container { flex-direction: column; text-align: center; }
+    .partners-title { max-width: 100%; }
+    .logo-grid { justify-content: center; gap: 30px; }
+
+    .services-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:1069px) and (min-width:901px) {
+    .logo-grid { flex-wrap: nowrap; }
+    .BrandContainerGlassEffect { padding: 0px 0px 50px 0px; }
+
+    .about-container {
+        width: clamp(320px, 95vw, 1200px);
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .about-container { text-align: left !important; }
+
+    .video-container-video { width: 85%; }
+    .connect-container { flex-wrap: nowrap; }
+
+    .testimonial-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: var(--gap-base);
+    }
+
+    .footer-grid { flex-wrap: nowrap; }
+}
 
