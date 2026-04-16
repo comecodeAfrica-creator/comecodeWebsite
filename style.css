@@ -604,7 +604,7 @@ nav button {
 
     .hero-word,
     .hero-word-purple {
-        font-size: clamp(2rem, 12vw, 3.4rem);
+        font-size: clamp(1.9rem, 11vw, 3.4rem);
         letter-spacing: -1.5px;
     }
 
@@ -814,10 +814,13 @@ nav button {
     display: flex;
     justify-content: center;
     padding: clamp(40px, 6vw, 80px) 20px;
+    width: 100vw;
+    margin:0;
 }
 
 .services-container {
-    width: clamp(320px, 95vw, 1200px);
+    width: 100vw;
+    margin:0;
 }
 
 .services-header {
@@ -1284,10 +1287,13 @@ nav button {
     font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
+    width: 100vw;
+    margin:0;
 }
 
 .about-container {
-    width: clamp(320px, 100vw, 1200px);
+    width: 100vw;
+    margin:0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
