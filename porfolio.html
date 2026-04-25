@@ -17,12 +17,14 @@
 
     <!-- PAGE LOADER -->
     <div class="page-loader" id="pageLoader">
-        <div class="loader-content">
-            <div class="loader-logo">C</div>
-            <div class="loader-bar-track">
-                <div class="loader-bar" id="loaderBar"></div>
-            </div>
-            <p class="loader-tagline">Loading experience...</p>
+        <div class="loader-logo-wrap">
+            <svg class="loader-c-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle class="loader-orbit" cx="60" cy="60" r="52" stroke="rgba(122,0,224,0.18)" stroke-width="1" stroke-dasharray="6 6"/>
+                <circle class="loader-arc" cx="60" cy="60" r="52" stroke="#7a00e0" stroke-width="2" stroke-linecap="round"
+                    stroke-dasharray="326" stroke-dashoffset="326"/>
+                <circle class="loader-dot" cx="112" cy="60" r="4" fill="#7a00e0"/>
+            </svg>
+            <img src="img/comecode-logo.jpg" alt="ComeCode Logo" class="logo" style="max-height: 40px; border-radius: 5px;">
         </div>
     </div>
 
@@ -52,7 +54,7 @@
     </header>
 
 
-    <!-- ===== PORTFOLIO HERO ===== -->
+    <!-- PORTFOLIO HERO -->
     <section class="port-hero">
         <div class="port-hero-inner">
             <div class="port-hero-label" data-aos="fade-up" data-aos-duration="700">
@@ -64,23 +66,20 @@
             <p class="port-hero-sub" data-aos="fade-up" data-aos-delay="200" data-aos-duration="900">
                 Designing and building digital products that scale — from brand identities to fully deployed web applications.
             </p>
-
-            <!-- count strip -->
             <div class="port-count-strip" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
-                <span><strong>50+</strong> Projects</span>
+                <span><strong>10+</strong> Projects</span>
                 <span class="port-strip-dot"></span>
                 <span><strong>20+</strong> Happy Clients</span>
                 <span class="port-strip-dot"></span>
                 <span><strong>5+</strong> Industries</span>
             </div>
         </div>
-
         <div class="port-ring port-ring-1"></div>
         <div class="port-ring port-ring-2"></div>
     </section>
 
 
-    <!-- ===== PARTNERS ===== -->
+    <!-- PARTNERS -->
     <section class="partners-section">
         <div class="partners-container">
             <p class="partners-title" data-aos="fade-down" data-aos-duration="800">Trusted by the world's fastest-growing companies:</p>
@@ -93,10 +92,9 @@
     </section>
 
 
-    <!-- ===== PORTFOLIO GRID ===== -->
+    <!-- PORTFOLIO GRID -->
     <section class="port-grid-section">
 
-        <!-- Filter bar -->
         <div class="port-filter-bar" data-aos="fade-up" data-aos-duration="700">
             <button class="port-filter-btn active" data-filter="all">All Work</button>
             <button class="port-filter-btn" data-filter="web">Web Dev</button>
@@ -105,9 +103,9 @@
             <button class="port-filter-btn" data-filter="app">App Dev</button>
         </div>
 
-        <!-- Grid -->
         <div class="port-grid" id="portGrid">
 
+            <!-- Regular items (no catalogue) -->
             <div class="port-item" data-category="ui" data-aos="fade-up" data-aos-delay="50" data-aos-duration="700">
                 <div class="port-item-img">
                     <img src="https://i.pinimg.com/736x/be/bd/dd/bebddddd7d371e943a6139dadee85596.jpg" alt="SaaS Dashboard">
@@ -116,15 +114,12 @@
                             <span class="port-item-tag">UI/UX Design</span>
                             <h3>SaaS Dashboard</h3>
                             <p>Analytics interface with real-time data visualisation and role-based views.</p>
-                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="contact.html" class="port-item-cta">Get in Touch <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="port-item-meta">
-                    <div>
-                        <h4>SaaS Dashboard</h4>
-                        <span>UI/UX Design · Frontend</span>
-                    </div>
+                    <div><h4>SaaS Dashboard</h4><span>UI/UX Design · Frontend</span></div>
                     <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
                 </div>
             </div>
@@ -137,15 +132,12 @@
                             <span class="port-item-tag">App Dev</span>
                             <h3>Mobile App UI</h3>
                             <p>Cross-platform mobile experience built for performance and delight.</p>
-                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="contact.html" class="port-item-cta">Get in Touch <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="port-item-meta">
-                    <div>
-                        <h4>Mobile App UI</h4>
-                        <span>App Dev · Product Design</span>
-                    </div>
+                    <div><h4>Mobile App UI</h4><span>App Dev · Product Design</span></div>
                     <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
                 </div>
             </div>
@@ -158,15 +150,12 @@
                             <span class="port-item-tag">Web Dev</span>
                             <h3>E-commerce Store</h3>
                             <p>Full Shopify store with custom theme, product management, and checkout flow.</p>
-                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="contact.html" class="port-item-cta">Get in Touch <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="port-item-meta">
-                    <div>
-                        <h4>E-commerce Store</h4>
-                        <span>Web Dev · Shopify</span>
-                    </div>
+                    <div><h4>E-commerce Store</h4><span>Web Dev · Shopify</span></div>
                     <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
                 </div>
             </div>
@@ -179,20 +168,20 @@
                             <span class="port-item-tag">Web Dev</span>
                             <h3>Conversion Landing Page</h3>
                             <p>High-converting landing page engineered to drive leads and reduce bounce.</p>
-                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="contact.html" class="port-item-cta">Get in Touch <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="port-item-meta">
-                    <div>
-                        <h4>Conversion Landing Page</h4>
-                        <span>Web Dev · Conversion UI</span>
-                    </div>
+                    <div><h4>Conversion Landing Page</h4><span>Web Dev · Conversion UI</span></div>
                     <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
                 </div>
             </div>
 
-            <div class="port-item port-item--tall" data-category="brand" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+            <!-- BRAND ITEMS with catalogue — add data-catalogue key -->
+            <div class="port-item port-item--tall port-item--catalogue" data-category="brand"
+                 data-catalogue="brand-identity-1"
+                 data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
                 <div class="port-item-img">
                     <img src="https://i.pinimg.com/1200x/3a/b2/4c/3ab24ccd84abe5bb566c7f8e24a17306.jpg" alt="Brand Identity">
                     <div class="port-item-overlay">
@@ -200,20 +189,19 @@
                             <span class="port-item-tag">Branding</span>
                             <h3>Brand Identity</h3>
                             <p>Complete visual identity system — logo, colours, guidelines, and collateral.</p>
-                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <span class="port-item-cta">View Catalogue <i class="fa-solid fa-images"></i></span>
                         </div>
                     </div>
                 </div>
                 <div class="port-item-meta">
-                    <div>
-                        <h4>Brand Identity</h4>
-                        <span>Branding · Visual Design</span>
-                    </div>
-                    <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+                    <div><h4>Brand Identity</h4><span>Branding · Visual Design</span></div>
+                    <div class="port-item-arrow port-catalogue-arrow"><i class="fa-solid fa-images"></i></div>
                 </div>
             </div>
 
-            <div class="port-item" data-category="brand" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+            <div class="port-item port-item--catalogue" data-category="brand"
+                 data-catalogue="logo-design-1"
+                 data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
                 <div class="port-item-img">
                     <img src="https://i.pinimg.com/1200x/3a/b2/4c/3ab24ccd84abe5bb566c7f8e24a17306.jpg" alt="Logo Design">
                     <div class="port-item-overlay">
@@ -221,16 +209,13 @@
                             <span class="port-item-tag">Branding</span>
                             <h3>Logo Design</h3>
                             <p>Wordmark and icon suite built for versatility across digital and print.</p>
-                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <span class="port-item-cta">View Catalogue <i class="fa-solid fa-images"></i></span>
                         </div>
                     </div>
                 </div>
                 <div class="port-item-meta">
-                    <div>
-                        <h4>Logo Design</h4>
-                        <span>Branding · Identity</span>
-                    </div>
-                    <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+                    <div><h4>Logo Design</h4><span>Branding · Identity</span></div>
+                    <div class="port-item-arrow port-catalogue-arrow"><i class="fa-solid fa-images"></i></div>
                 </div>
             </div>
 
@@ -242,38 +227,72 @@
                             <span class="port-item-tag">UI/UX</span>
                             <h3>Web Application</h3>
                             <p>User research, wireframes, and high-fidelity prototype for a fintech product.</p>
-                            <a href="contact.html" class="port-item-cta">View Details <i class="fa-solid fa-arrow-right"></i></a>
+                            <a href="contact.html" class="port-item-cta">Get in Touch <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="port-item-meta">
-                    <div>
-                        <h4>Web Application</h4>
-                        <span>UI/UX · Fintech</span>
-                    </div>
+                    <div><h4>Web Application</h4><span>UI/UX · Fintech</span></div>
                     <div class="port-item-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
                 </div>
             </div>
 
         </div>
 
-        <!-- CTA row -->
         <div class="port-cta-row" data-aos="fade-up" data-aos-duration="700">
             <p>Have a project in mind?</p>
-            <a href="contact.html" class="port-cta-btn">
-                Let's Talk <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <a href="contact.html" class="port-cta-btn">Let's Talk <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
     </section>
 
 
-    <!-- ===== FOOTER ===== -->
+    <!-- ===== CATALOGUE LIGHTBOX ===== -->
+    <div class="catalogue-backdrop" id="catalogueBackdrop" aria-hidden="true">
+        <div class="catalogue-modal" role="dialog" aria-modal="true">
+
+            <div class="catalogue-header">
+                <div class="catalogue-header-text">
+                    <span class="catalogue-tag" id="catalogueTag">Branding</span>
+                    <h2 class="catalogue-title" id="catalogueTitle">Project Title</h2>
+                    <p class="catalogue-desc" id="catalogueDesc"></p>
+                </div>
+                <button class="catalogue-close" id="catalogueClose" aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="catalogue-viewer">
+                <button class="catalogue-nav catalogue-prev" id="cataloguePrev" aria-label="Previous">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="catalogue-main-img-wrap">
+                    <img class="catalogue-main-img" id="catalogueMainImg" src="" alt="Project image">
+                    <div class="catalogue-img-counter" id="catalogueCounter">1 / 4</div>
+                </div>
+                <button class="catalogue-nav catalogue-next" id="catalogueNext" aria-label="Next">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="catalogue-thumbs" id="catalogueThumbs"></div>
+
+            <div class="catalogue-footer">
+                <a href="contact.html" class="catalogue-cta">
+                    Start a Similar Project <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- FOOTER -->
     <footer class="edens-footer">
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-col brand-col">
-                    <img src="img/comecode-logo-with-name.jpg" alt="ComeCode Logo" class="footer-logo">
+                    <img src="img/comecode-logo-with-name.jpg" alt="ComeCode" class="footer-logo">
                     <p class="brand-bio">We are a data-driven, customer-centric digital marketing and web design agency in Nigeria, serving clients all over the world.</p>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/profile.php?id=61563500577128" target="_blank" class="icon facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -312,8 +331,6 @@
         </div>
     </footer>
 
-
-    <!-- Floating contact buttons -->
     <div class="email-message-container" id="messageContainer">
         <a href="#"><div class="email-messageButton action-btn email"><i class="fa-solid fa-envelope"></i></div></a>
         <a href="#"><div class="email-messageButton action-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></div></a>
@@ -327,43 +344,151 @@
     <script src="main.js"></script>
 
     <script>
-        // Page loader
+        /* ---- LOADER ---- */
         window.addEventListener('load', function () {
             const loader = document.getElementById('pageLoader');
-            const bar = document.getElementById('loaderBar');
-            bar.style.width = '100%';
-            setTimeout(function () {
+            setTimeout(() => {
                 loader.classList.add('loader-hidden');
-                setTimeout(function () { loader.style.display = 'none'; }, 600);
-            }, 1800);
+                setTimeout(() => loader.style.display = 'none', 700);
+            }, 2000);
         });
 
-        // Filter
-        const filterBtns = document.querySelectorAll('.port-filter-btn');
-        const portItems  = document.querySelectorAll('.port-item');
-
-        filterBtns.forEach(btn => {
+        /* ---- FILTER ---- */
+        document.querySelectorAll('.port-filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.port-filter-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-
                 const filter = btn.dataset.filter;
-
-                portItems.forEach(item => {
+                document.querySelectorAll('.port-item').forEach(item => {
                     const match = filter === 'all' || item.dataset.category === filter;
-                    item.style.opacity    = '0';
-                    item.style.transform  = 'scale(0.96)';
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.96)';
                     setTimeout(() => {
                         item.style.display = match ? '' : 'none';
-                        if (match) {
-                            requestAnimationFrame(() => {
-                                item.style.opacity   = '1';
-                                item.style.transform = 'scale(1)';
-                            });
-                        }
+                        if (match) requestAnimationFrame(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        });
                     }, 200);
                 });
             });
+        });
+
+        /* ====================================================
+           CATALOGUE DATA
+           Each key must match the data-catalogue="" on the card.
+           Replace image URLs with your real project photos.
+        ==================================================== */
+        const catalogues = {
+            'brand-identity-1': {
+                tag:   'Branding',
+                title: 'Brand Identity',
+                desc:  'A complete visual identity system for a fast-growing Nigerian brand. Covers logo, colour palette, typography, stationery, brand guidelines, and social media kit.',
+                images: [
+                    'https://i.pinimg.com/1200x/3a/b2/4c/3ab24ccd84abe5bb566c7f8e24a17306.jpg',
+                    'https://i.pinimg.com/736x/be/bd/dd/bebddddd7d371e943a6139dadee85596.jpg',
+                    'https://i.pinimg.com/736x/b1/bf/3d/b1bf3df29c186bd02fa15cfcb8c0def5.jpg',
+                    'https://i.pinimg.com/736x/9e/3d/d7/9e3dd793793b608fceda93c37b442118.jpg',
+                    'https://i.pinimg.com/1200x/0d/c8/10/0dc810c1255569183350fcbc64d32fdb.jpg',
+                ]
+            },
+            'logo-design-1': {
+                tag:   'Branding',
+                title: 'Logo Design',
+                desc:  'A versatile wordmark and icon suite built for digital and print. Delivered in full colour, monochrome, and reversed variants with clear usage guidelines.',
+                images: [
+                    'https://i.pinimg.com/1200x/3a/b2/4c/3ab24ccd84abe5bb566c7f8e24a17306.jpg',
+                    'https://i.pinimg.com/736x/9e/3d/d7/9e3dd793793b608fceda93c37b442118.jpg',
+                    'https://i.pinimg.com/736x/b1/bf/3d/b1bf3df29c186bd02fa15cfcb8c0def5.jpg',
+                ]
+            },
+        };
+
+        /* ====================================================
+           LIGHTBOX ENGINE
+        ==================================================== */
+        const backdrop   = document.getElementById('catalogueBackdrop');
+        const closeBtn   = document.getElementById('catalogueClose');
+        const mainImg    = document.getElementById('catalogueMainImg');
+        const thumbsWrap = document.getElementById('catalogueThumbs');
+        const counter    = document.getElementById('catalogueCounter');
+        const prevBtn    = document.getElementById('cataloguePrev');
+        const nextBtn    = document.getElementById('catalogueNext');
+        const titleEl    = document.getElementById('catalogueTitle');
+        const tagEl      = document.getElementById('catalogueTag');
+        const descEl     = document.getElementById('catalogueDesc');
+
+        let currentImages = [];
+        let currentIndex  = 0;
+
+        function showImage(index) {
+            currentIndex = (index + currentImages.length) % currentImages.length;
+            mainImg.style.opacity = '0';
+            mainImg.style.transform = 'scale(0.97)';
+            setTimeout(() => {
+                mainImg.src = currentImages[currentIndex];
+                mainImg.style.opacity = '1';
+                mainImg.style.transform = 'scale(1)';
+            }, 150);
+            counter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+            document.querySelectorAll('.catalogue-thumb').forEach((t, i) => {
+                t.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        function buildThumbs() {
+            thumbsWrap.innerHTML = '';
+            currentImages.forEach((src, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'catalogue-thumb' + (i === 0 ? ' active' : '');
+                btn.setAttribute('aria-label', `Image ${i + 1}`);
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = '';
+                btn.appendChild(img);
+                btn.addEventListener('click', () => showImage(i));
+                thumbsWrap.appendChild(btn);
+            });
+        }
+
+        function openCatalogue(key) {
+            const data = catalogues[key];
+            if (!data) return;
+            currentImages = data.images;
+            currentIndex  = 0;
+            titleEl.textContent = data.title;
+            tagEl.textContent   = data.tag;
+            descEl.textContent  = data.desc;
+            mainImg.src = data.images[0];
+            mainImg.style.opacity = '1';
+            mainImg.style.transform = 'scale(1)';
+            counter.textContent = `1 / ${data.images.length}`;
+            buildThumbs();
+            backdrop.classList.add('open');
+            backdrop.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCatalogue() {
+            backdrop.classList.remove('open');
+            backdrop.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        /* Wire up catalogue cards */
+        document.querySelectorAll('.port-item--catalogue[data-catalogue]').forEach(item => {
+            item.addEventListener('click', () => openCatalogue(item.dataset.catalogue));
+        });
+
+        prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showImage(currentIndex - 1); });
+        nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showImage(currentIndex + 1); });
+        closeBtn.addEventListener('click', closeCatalogue);
+        backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeCatalogue(); });
+        document.addEventListener('keydown', (e) => {
+            if (!backdrop.classList.contains('open')) return;
+            if (e.key === 'Escape')     closeCatalogue();
+            if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+            if (e.key === 'ArrowLeft')  showImage(currentIndex - 1);
         });
     </script>
 
