@@ -105,14 +105,14 @@
         if (callButton) {
             callButton.style.cursor = 'pointer';
             callButton.addEventListener('click', () => {
-                window.location.href = 'tel:+2348000000000';
+                window.location.href = 'tel:+2347070685345';
             });
             // keyboard accessibility
             callButton.setAttribute('tabindex', '0');
             callButton.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    window.location.href = 'tel:+2348000000000';
+                    window.location.href = 'tel:+2347070685345';
                 }
             });
         }
