@@ -228,13 +228,13 @@
 
     <!-- Floating contact buttons -->
     <div class="email-message-container" id="messageContainer">
-        <a href="#"><div class="email-messageButton action-btn email"><i class="fa-solid fa-envelope"></i></div></a>
-        <a href="#"><div class="email-messageButton action-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></div></a>
-        <div class="email-messageButton action-btn call"><i class="fa-solid fa-phone"></i></div>
-        <div class="message-button" id="messageToggle">
-            <i class="fa-solid fa-comment message-icon"></i>
-            <i class="fa-solid fa-xmark close-icon"></i>
-        </div>
+        <a href="mailto:comecode31@gmail.com"><div class="email-messageButton action-btn email" title="Email us"><i class="fa-solid fa-envelope"></i></div></a>
+        <a href="https://wa.me/2348000000000" target="_blank" rel="noopener noreferrer"><div class="email-messageButton action-btn whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></div></a>
+        <div class="email-messageButton action-btn call" title="Call"><i class="fa-solid fa-phone"></i></div>
+        <button class="message-button" id="messageToggle" aria-expanded="false" aria-label="Open contact actions">
+            <i class="fa-solid fa-comment message-icon" aria-hidden="true"></i>
+            <i class="fa-solid fa-xmark close-icon" aria-hidden="true"></i>
+        </button>
     </div>
 
     <script src="main.js"></script>

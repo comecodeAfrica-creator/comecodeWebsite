@@ -70,9 +70,49 @@
             });
         });
 
-        // FLOATING MESSAGE TOGGLE
+        // FLOATING MESSAGE TOGGLE + ACTIONS
         const container = document.getElementById("messageContainer");
         const toggleBtn = document.getElementById("messageToggle");
-        toggleBtn.addEventListener("click", () => {
-            container.classList.toggle("active");
-        });
+        if (toggleBtn && container) {
+            const setExpanded = (val) => toggleBtn.setAttribute('aria-expanded', String(val));
+
+            const toggle = (evt) => {
+                const isActive = container.classList.toggle('active');
+                setExpanded(isActive);
+                // If event was a keyboard event, prevent default scrolling
+                if (evt && (evt.type === 'keydown')) evt.preventDefault();
+            };
+
+            toggleBtn.addEventListener('click', toggle);
+            // keyboard support: Enter / Space
+            toggleBtn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') toggle(e);
+            });
+
+            // Close the container when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!container.classList.contains('active')) return;
+                if (!container.contains(e.target)) {
+                    container.classList.remove('active');
+                    setExpanded(false);
+                }
+            });
+        }
+
+        // CALL BUTTON FUNCTIONALITY
+        // Uses tel: protocol to open the dialer on supported devices
+        const callButton = document.querySelector('.email-message-container .call');
+        if (callButton) {
+            callButton.style.cursor = 'pointer';
+            callButton.addEventListener('click', () => {
+                window.location.href = 'tel:+2348000000000';
+            });
+            // keyboard accessibility
+            callButton.setAttribute('tabindex', '0');
+            callButton.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    window.location.href = 'tel:+2348000000000';
+                }
+            });
+        }
