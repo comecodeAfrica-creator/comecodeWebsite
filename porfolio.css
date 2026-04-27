@@ -90,7 +90,6 @@
     margin: 0;
 }
 
-/* Stroke text effect for "Works" */
 .port-hero-stroke {
     -webkit-text-stroke: 2px rgba(255,255,255,0.9);
     color: transparent;
@@ -105,7 +104,6 @@
     margin: 0 auto;
 }
 
-/* Count strip */
 .port-count-strip {
     display: flex;
     align-items: center;
@@ -192,12 +190,10 @@
     width: 100%;
 }
 
-/* Tall item spans 2 rows */
 .port-item--tall .port-item-img {
     aspect-ratio: 3/4;
 }
 
-/* Wide item spans 2 columns */
 .port-item--wide {
     grid-column: span 2;
 }
@@ -238,8 +234,6 @@
     filter: grayscale(0%);
 }
 
-
-/* Overlay */
 .port-item-overlay {
     position: absolute;
     inset: 0;
@@ -306,6 +300,10 @@
     text-decoration: none;
     margin-top: 4px;
     transition: gap 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
 }
 
 .port-item-cta:hover {
@@ -317,8 +315,6 @@
     font-size: 0.75rem;
 }
 
-
-/* Meta bar below image */
 .port-item-meta {
     display: flex;
     justify-content: space-between;
@@ -402,9 +398,7 @@
     white-space: nowrap;
 }
 
-.port-cta-btn i {
-    transition: transform 0.3s ease;
-}
+.port-cta-btn i { transition: transform 0.3s ease; }
 
 .port-cta-btn:hover {
     filter: brightness(1.15);
@@ -412,49 +406,31 @@
     box-shadow: 0 14px 34px rgba(122,0,224,0.45);
 }
 
-.port-cta-btn:hover i {
-    transform: translateX(4px);
-}
+.port-cta-btn:hover i { transform: translateX(4px); }
 
 
-/* ===== RESPONSIVE ===== */
+/* ===== GRID RESPONSIVE ===== */
 @media (max-width: 900px) {
-    .port-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .port-item--wide {
-        grid-column: span 2;
-    }
-
-    .port-hero-title {
-        letter-spacing: -3px;
-    }
+    .port-grid { grid-template-columns: repeat(2, 1fr); }
+    .port-item--wide { grid-column: span 2; }
+    .port-hero-title { letter-spacing: -3px; }
 }
 
 @media (max-width: 600px) {
-    .port-grid {
-        grid-template-columns: 1fr;
-    }
+    .port-grid { grid-template-columns: 1fr; }
 
     .port-item--wide,
-    .port-item--tall {
-        grid-column: span 1;
-    }
+    .port-item--tall { grid-column: span 1; }
 
     .port-item--wide .port-item-img,
-    .port-item--tall .port-item-img {
-        aspect-ratio: 4/3;
-    }
+    .port-item--tall .port-item-img { aspect-ratio: 4/3; }
 
     .port-hero-title {
         font-size: clamp(3.2rem, 16vw, 5rem);
         letter-spacing: -2px;
     }
 
-    .port-hero-stroke {
-        -webkit-text-stroke: 1.5px rgba(255,255,255,0.9);
-    }
+    .port-hero-stroke { -webkit-text-stroke: 1.5px rgba(255,255,255,0.9); }
 
     .port-count-strip {
         flex-direction: column;
@@ -465,16 +441,9 @@
 
     .port-strip-dot { display: none; }
 
-    .port-cta-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
+    .port-cta-row { flex-direction: column; align-items: flex-start; gap: 16px; }
 
-    .port-cta-btn {
-        width: 100%;
-        justify-content: center;
-    }
+    .port-cta-btn { width: 100%; justify-content: center; }
 }
 
 
@@ -482,16 +451,13 @@
    CATALOGUE LIGHTBOX
 ===================================================== */
 
-/* Purple images icon on catalogue cards */
 .port-catalogue-arrow {
     background: rgba(122,0,224,0.12) !important;
     border-color: rgba(122,0,224,0.3) !important;
     color: #7a00e0 !important;
 }
 
-.port-item--catalogue {
-    cursor: pointer;
-}
+.port-item--catalogue { cursor: pointer; }
 
 /* Backdrop */
 .catalogue-backdrop {
@@ -514,7 +480,7 @@
     visibility: visible;
 }
 
-/* Modal box */
+/* Modal */
 .catalogue-modal {
     background: #111111;
     border: 1px solid rgba(255,255,255,0.09);
@@ -525,7 +491,6 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 0;
     transform: scale(0.95) translateY(16px);
     transition: transform 0.35s ease;
     scrollbar-width: thin;
@@ -604,9 +569,7 @@
 .catalogue-viewer {
     display: flex;
     align-items: center;
-    gap: 0;
     padding: 24px 16px;
-    position: relative;
 }
 
 .catalogue-main-img-wrap {
@@ -641,7 +604,7 @@
     backdrop-filter: blur(4px);
 }
 
-/* Prev / Next nav */
+/* Nav buttons */
 .catalogue-nav {
     width: 44px;
     height: 44px;
@@ -669,7 +632,7 @@
 .catalogue-prev { margin-right: 12px; }
 .catalogue-next { margin-left: 12px; }
 
-/* Thumbnail strip */
+/* Thumbnails */
 .catalogue-thumbs {
     display: flex;
     gap: 10px;
@@ -690,8 +653,8 @@
     background: #0a0a0a;
     cursor: pointer;
     padding: 0;
-    transition: border-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
     opacity: 0.5;
+    transition: border-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
 .catalogue-thumb img {
@@ -701,15 +664,8 @@
     display: block;
 }
 
-.catalogue-thumb:hover {
-    opacity: 0.8;
-    transform: scale(1.04);
-}
-
-.catalogue-thumb.active {
-    border-color: #7a00e0;
-    opacity: 1;
-}
+.catalogue-thumb:hover { opacity: 0.8; transform: scale(1.04); }
+.catalogue-thumb.active { border-color: #7a00e0; opacity: 1; }
 
 /* Footer */
 .catalogue-footer {
@@ -736,38 +692,135 @@
 }
 
 .catalogue-cta i { transition: transform 0.3s ease; }
-
-.catalogue-cta:hover {
-    filter: brightness(1.15);
-    transform: translateY(-2px);
-}
-
+.catalogue-cta:hover { filter: brightness(1.15); transform: translateY(-2px); }
 .catalogue-cta:hover i { transform: translateX(4px); }
 
-/* Responsive */
-@media (max-width: 600px) {
-    .catalogue-modal {
-        border-radius: 16px;
-        max-height: 95vh;
+
+/* ===== CATALOGUE MOBILE ===== */
+@media (max-width: 768px) {
+    /* Slide up from bottom instead of centre-floating */
+    .catalogue-backdrop {
+        padding: 0;
+        align-items: flex-end;
     }
 
-    .catalogue-header { padding: 20px 20px 16px; }
-    .catalogue-viewer { padding: 16px 8px; }
-    .catalogue-prev { margin-right: 6px; }
-    .catalogue-next { margin-left: 6px; }
-    .catalogue-thumbs { padding: 0 20px 20px; }
-    .catalogue-footer { padding: 16px 20px 20px; }
+    .catalogue-modal {
+        border-radius: 22px 22px 0 0;
+        max-width: 100%;
+        max-height: 94vh;
+        width: 100%;
+        /* Entry animation: slide up */
+        transform: translateY(100%);
+    }
 
-    .catalogue-nav {
+    .catalogue-backdrop.open .catalogue-modal {
+        transform: translateY(0);
+    }
+
+    /* Drag handle hint */
+    .catalogue-modal::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 4px;
+        background: rgba(255,255,255,0.18);
+        border-radius: 99px;
+        margin: 14px auto 0;
+        flex-shrink: 0;
+    }
+
+    /* Header */
+    .catalogue-header {
+        padding: 16px 20px 14px;
+        gap: 12px;
+    }
+
+    .catalogue-title {
+        font-size: 1.25rem;
+        letter-spacing: -0.3px;
+    }
+
+    .catalogue-desc {
+        font-size: 0.8rem;
+        /* cap at 2 lines so header stays compact */
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .catalogue-close {
         width: 36px;
         height: 36px;
-        font-size: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    /* Main image — square-ish and big */
+    .catalogue-viewer {
+        padding: 14px 10px;
+    }
+
+    .catalogue-main-img-wrap {
+        /* 4:3 gives a big, comfortable image on phone */
+        aspect-ratio: 4/3;
+        border-radius: 14px;
+    }
+
+    /* Larger nav buttons — easy to tap */
+    .catalogue-nav {
+        width: 46px;
+        height: 46px;
+        font-size: 1rem;
+    }
+
+    .catalogue-prev { margin-right: 8px; }
+    .catalogue-next { margin-left: 8px; }
+
+    /* Thumbnail strip — easier to tap */
+    .catalogue-thumbs {
+        padding: 0 16px 16px;
+        gap: 10px;
     }
 
     .catalogue-thumb {
-        width: 56px;
-        height: 44px;
+        width: 76px;
+        height: 58px;
+        border-radius: 10px;
+        opacity: 0.55;
     }
 
-    .catalogue-cta { width: 100%; justify-content: center; }
+    .catalogue-thumb.active {
+        opacity: 1;
+        border-width: 2px;
+    }
+
+    /* Footer */
+    .catalogue-footer {
+        padding: 14px 16px 24px;
+    }
+
+    .catalogue-cta {
+        width: 100%;
+        justify-content: center;
+        padding: 15px 20px;
+        font-size: 1rem;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .catalogue-main-img-wrap {
+        aspect-ratio: 1/1;
+    }
+
+    .catalogue-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    .catalogue-thumb {
+        width: 60px;
+        height: 46px;
+    }
 }
