@@ -604,7 +604,7 @@ nav button {
 
     .hero-word,
     .hero-word-purple {
-        font-size: clamp(2rem, 12vw, 3.5rem);
+        font-size: clamp(1.9rem, 11vw, 3.4rem);
         letter-spacing: -1.5px;
     }
 
@@ -627,22 +627,20 @@ nav button {
 
     .hero-btn-group {
         justify-content: center;
+        flex-direction:row;
     }
 
     .hero-orb-1 { width: 300px; height: 300px; top: -60px; left: -80px; }
     .hero-orb-2 { width: 260px; height: 260px; bottom: -40px; right: -60px; }
 }
 
-
 /* INFO CARDS */
 .info-section {
     display: flex;
     gap: 20px;
-    padding: 40px clamp(20px, 5vw, 80px);
-    width: 100%;
+    padding: 40px;
     max-width: 1200px;
-    margin: 0 auto;
-    justify-content: center;
+    width: 100%;
 }
 
 .card {
@@ -755,10 +753,6 @@ nav button {
 }
 
 .branding-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 clamp(20px, 5vw, 80px);
     display: flex;
     flex-wrap: wrap;
     gap: var(--gap-base);
@@ -817,14 +811,16 @@ nav button {
     background-color: var(--bg-dark);
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
-    width: 100%;
-    padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 80px);
+    display: flex;
+    justify-content: center;
+    padding: clamp(40px, 6vw, 80px) 20px;
+    width: 100vw;
+    margin:0;
 }
 
 .services-container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
+    width: 100vw;
+    margin:0;
 }
 
 .services-header {
@@ -981,9 +977,9 @@ nav button {
     background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
-    width: 100%;
-    padding: clamp(60px, 10vw, 120px) clamp(20px, 5vw, 80px);
+    padding: clamp(60px, 10vw, 120px) 20px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
 }
@@ -1289,15 +1285,16 @@ nav button {
     background-color: var(--bg-dark);
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
-    width: 100%;
-    padding: clamp(60px, 8vw, 110px) clamp(20px, 5vw, 80px);
     display: flex;
     justify-content: center;
+    width: 100vw;
+    margin:0;
+    padding:10px;
 }
 
 .about-container {
-    max-width: 1200px;
-    width: 100%;
+    width: 100vw;
+    margin:0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -1355,20 +1352,19 @@ nav button {
 /* CONNECT */
 .connect-section {
     color: var(--text-main);
-    padding: 80px clamp(20px, 5vw, 80px);
+    padding: 80px 0px;
     font-family: 'Inter', sans-serif;
-    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .connect-container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
+    width: clamp(320px, 95vw, 1200px);
     display: flex;
     flex-wrap: wrap;
     gap: clamp(40px, 5vw, 100px);
     align-items: center;
-    padding: 40px 0;
+    padding: 40px 0px;
 }
 
 .connect-content { flex: 1 1 450px; }
@@ -1460,17 +1456,13 @@ button {
     background-color: var(--bg-dark);
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
-    width: 100%;
-    padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 80px);
+    display: flex;
+    justify-content: center;
     position: relative;
     overflow: hidden;
 }
 
-.testimonials-container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-}
+.testimonials-container { width: var(--wrapper-width); }
 
 .testimonial-header {
     display: flex;
@@ -1742,6 +1734,17 @@ address,
 .email-message-container.active .close-icon {
     opacity: 1;
     transform: rotate(0);
+}
+
+/* Accessibility: focus states for keyboard users */
+.action-btn:focus {
+    outline: 3px solid rgba(122,0,224,0.25);
+    transform: translateY(-3px) scale(1.04) !important;
+}
+
+.message-button:focus {
+    outline: 3px solid rgba(122,0,224,0.32);
+    box-shadow: 0 6px 18px rgba(122,0,224,0.14);
 }
 
 .whatsapp { background-color: #25d366; }
