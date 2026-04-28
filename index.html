@@ -27,8 +27,7 @@
                 <!-- Dot that travels the arc -->
                 <circle class="loader-dot" cx="112" cy="60" r="4" fill="#7a00e0"/>
             </svg>
-           
-            <img src="img/comecode-logo.jpg" alt="ComeCode Logo" class="logo" style="max-height: 40px; border-radius: 5px;">
+            <img src="edens-logo.png" alt="ComeCode" class="loader-c-img"/>
         </div>
     </div>
 
@@ -39,7 +38,9 @@
     </script>
 
     <header>
-          <a href="index.html"><img src="img/comecode-logo.jpg" alt="ComeCode Logo" class="logo" style="max-height: 40px; border-radius: 5px;"></a>
+        <a href="index.html">
+            <div class="logo">C</div>
+        </a>
 
         <nav id="navbar">
             <ul class="nav-links">
@@ -75,11 +76,11 @@
 
                 <!-- Floating welcome pill -->
                 <div class="hero-welcome-pill" data-aos="fade-down" data-aos-duration="800">
-                    
+                    <span class="hero-pill-dot"></span>
                     <i class="fa-solid fa-star" style="color:#7a00e0; font-size:0.7em;"></i>
                     &nbsp;WELCOME TO ComeCode&nbsp;
                     <i class="fa-solid fa-star" style="color:#7a00e0; font-size:0.7em;"></i>
-                   
+                    <span class="hero-pill-dot"></span>
                 </div>
 
                 <!-- Main headline — split lines for drama -->
@@ -128,16 +129,19 @@
 
     <section class="branding-section">
         <div class="BrandContainerGlassEffect">
-    <section class="partners-section">
-        <div class="partners-container">
-            <p class="partners-title" data-aos="fade-down" data-aos-duration="800">Trusted by the world's fastest-growing companies:</p>
-            <div class="logo-grid" data-aos="zoom-in" data-aos-duration="1000">
-                <img src="img/Artboard 1.png" alt="SamSab Consult" class="footer-logo">
-                <img src="img/Artboard 4.png" alt="route" class="footer-logo">
-                <img src="img/easy crown.png" alt="Easy Crown Realty" class="footer-logo">
-            </div>
-        </div>
-    </section>
+            <section class="partners-section">
+                <div class="partners-container">
+                    <p class="partners-title" data-aos="fade-down" data-aos-duration="800">Trusted by the world's fastest-growing companies:</p>
+
+                    <div class="logo-grid" data-aos="zoom-in" data-aos-duration="1000">
+                        <img src="kenna-logo.png" alt="Kenna Partners" class="partner-logo">
+                        <img src="ailes-logo.png" alt="Ailes Group" class="partner-logo">
+                        <img src="channels-logo.png" alt="Channels" class="partner-logo">
+                        <img src="healthtracka-logo.png" alt="Healthtracka" class="partner-logo">
+                        <img src="procept-logo.png" alt="Procept Africa" class="partner-logo">
+                    </div>
+                </div>
+            </section>
             <br><br>
             <div id="about_target"></div>
             <div class="branding-container">
@@ -164,7 +168,23 @@
                     </div>
                 </section>
 
-              
+                <section class="info-section">
+                    <div class="card mint" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1000">
+                        <h3>OUR VISION</h3>
+                        <p>Our vision is to achieve global relevant in the business technology space.</p>
+                    </div>
+
+                    <div class="card peach" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
+                        <h3>OUR MISSION</h3>
+                        <p>We will achieve our vision by delivering value to our clients all over the world</p>
+                    </div>
+
+                    <div class="card mint" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">
+                        <h3>OUR GOALS</h3>
+                        <p>Our goal is to be one of the top digital agency in Africa within the next 10 years.</p>
+                    </div>
+                </section>
+
 
                 <!-- SERVICES SECTION — Card Style with Icons -->
                 <section class="services-section" id="solutions">
@@ -178,127 +198,115 @@
 
                             <div class="service-card" data-aos="fade-up" data-aos-delay="50" data-aos-duration="700">
                                 <div class="service-card-icon">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <i class="fa-solid fa-chess"></i>
                                 </div>
                                 <div class="service-card-tags">
-                                    <span><i class="fa-solid fa-circle-check"></i> Availability Check</span>
-                                    <span><i class="fa-solid fa-scale-balanced"></i> Compliance</span>
+                                    <span><i class="fa-solid fa-bullseye"></i> Positioning</span>
+                                    <span><i class="fa-solid fa-users"></i> Audience</span>
                                 </div>
                                 <span class="service-card-number">01</span>
-                                <h3>Business Name Review</h3>
-                                <p>We help you find the perfect business name — available, compliant, and built to last.</p>
+                                <h3>Strategic Planning</h3>
+                                <p>We shape your concept into a market-ready business with clarity and direction.</p>
+                                <ul class="service-card-list">
+                                    <li><i class="fa-solid fa-circle-dot"></i> Market positioning &amp; differentiation</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Target audience definition</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Value proposition development</li>
+                                </ul>
                                 <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
 
                             <div class="service-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
                                 <div class="service-card-icon">
-                                    <i class="fa-solid fa-file-contract"></i>
+                                    <i class="fa-solid fa-building-columns"></i>
                                 </div>
                                 <div class="service-card-tags">
-                                    <span><i class="fa-solid fa-bolt"></i> Fast Processing</span>
-                                    <span><i class="fa-solid fa-handshake"></i> End-to-End</span>
+                                    <span><i class="fa-solid fa-file-contract"></i> CAC / Corporate</span>
+                                    <span><i class="fa-solid fa-trademark"></i> Trademarking</span>
                                 </div>
                                 <span class="service-card-number">02</span>
-                                <h3>CAC Business Registration</h3>
-                                <p>Fast, stress-free CAC business name registration handled end-to-end by our team.</p>
+                                <h3>Business Structuring</h3>
+                                <p>We handle the legal and structural groundwork so you launch with confidence.</p>
+                                <ul class="service-card-list">
+                                    <li><i class="fa-solid fa-circle-dot"></i> Business name review &amp; selection</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> CAC / Corporate registration</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Trademarking</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Legal &amp; operational structure setup</li>
+                                </ul>
                                 <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
 
                             <div class="service-card" data-aos="fade-up" data-aos-delay="150" data-aos-duration="700">
                                 <div class="service-card-icon">
-                                    <i class="fa-solid fa-building"></i>
+                                    <i class="fa-solid fa-palette"></i>
                                 </div>
                                 <div class="service-card-tags">
-                                    <span><i class="fa-solid fa-stamp"></i> Official Docs</span>
-                                    <span><i class="fa-solid fa-user-tie"></i> Full Support</span>
+                                    <span><i class="fa-solid fa-pen-nib"></i> Visual Identity</span>
+                                    <span><i class="fa-solid fa-swatchbook"></i> Guidelines</span>
                                 </div>
                                 <span class="service-card-number">03</span>
-                                <h3>CAC Company Registration</h3>
-                                <p>Full company incorporation with the Corporate Affairs Commission — done right the first time.</p>
+                                <h3>Brand Identity</h3>
+                                <p>We craft cohesive, memorable identities that command attention and build trust.</p>
+                                <ul class="service-card-list">
+                                    <li><i class="fa-solid fa-circle-dot"></i> Visual identity design</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Brand voice, messaging &amp; positioning</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Usage guidelines</li>
+                                </ul>
                                 <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
 
                             <div class="service-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
                                 <div class="service-card-icon">
-                                    <i class="fa-solid fa-hand-holding-heart"></i>
+                                    <i class="fa-solid fa-code"></i>
                                 </div>
                                 <div class="service-card-tags">
-                                    <span><i class="fa-solid fa-leaf"></i> Non-Profit</span>
-                                    <span><i class="fa-solid fa-file-pen"></i> Paperwork Done</span>
+                                    <span><i class="fa-solid fa-rocket"></i> High Performance</span>
+                                    <span><i class="fa-solid fa-mobile-screen"></i> Mobile-First</span>
                                 </div>
                                 <span class="service-card-number">04</span>
-                                <h3>NGO Registration</h3>
-                                <p>We handle the paperwork so your non-profit can focus on its mission from day one.</p>
+                                <h3>Website Development</h3>
+                                <p>We design and build high-performance websites that represent your brand and convert visitors into customers.</p>
+                                <ul class="service-card-list">
+                                    <li><i class="fa-solid fa-circle-dot"></i> Custom website design &amp; development</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Responsive, mobile-first experience</li>
+                                </ul>
                                 <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
 
                             <div class="service-card" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
                                 <div class="service-card-icon">
-                                    <i class="fa-solid fa-trademark"></i>
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
                                 </div>
                                 <div class="service-card-tags">
-                                    <span><i class="fa-solid fa-lock"></i> Brand Protection</span>
-                                    <span><i class="fa-solid fa-gavel"></i> Legal Cover</span>
+                                    <span><i class="fa-solid fa-apple-whole"></i> iOS &amp; Android</span>
+                                    <span><i class="fa-solid fa-layer-group"></i> Scalable</span>
                                 </div>
                                 <span class="service-card-number">05</span>
-                                <h3>Trademark</h3>
-                                <p>Protect your brand with trademark registration — we guide you through every step.</p>
+                                <h3>Mobile App Development</h3>
+                                <p>We build scalable mobile applications that bring your business ideas to life.</p>
+                                <ul class="service-card-list">
+                                    <li><i class="fa-solid fa-circle-dot"></i> Android &amp; iOS app development</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> User-friendly interface design</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Performance &amp; scalability optimization</li>
+                                </ul>
                                 <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
 
                             <div class="service-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
                                 <div class="service-card-icon">
-                                    <i class="fa-solid fa-palette"></i>
+                                    <i class="fa-solid fa-chart-line"></i>
                                 </div>
                                 <div class="service-card-tags">
-                                    <span><i class="fa-solid fa-pen-nib"></i> Logo & Visual</span>
-                                    <span><i class="fa-solid fa-swatchbook"></i> Guidelines</span>
+                                    <span><i class="fa-solid fa-magnifying-glass-chart"></i> SEO</span>
+                                    <span><i class="fa-solid fa-bullhorn"></i> Launch</span>
                                 </div>
                                 <span class="service-card-number">06</span>
-                                <h3>Brand Identity Design</h3>
-                                <p>Developing unique brand languages — logos, guidelines, and visuals — that resonate and stand out.</p>
-                                <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-
-                            <div class="service-card" data-aos="fade-up" data-aos-delay="350" data-aos-duration="700">
-                                <div class="service-card-icon">
-                                    <i class="fa-solid fa-code"></i>
-                                </div>
-                                <div class="service-card-tags">
-                                    <span><i class="fa-solid fa-rocket"></i> High Performance</span>
-                                    <span><i class="fa-solid fa-layer-group"></i> Scalable</span>
-                                </div>
-                                <span class="service-card-number">07</span>
-                                <h3>Web Development</h3>
-                                <p>Building high-performance, scalable websites using modern frameworks and clean code.</p>
-                                <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-
-                            <div class="service-card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="700">
-                                <div class="service-card-icon">
-                                    <i class="fa-solid fa-mobile-screen-button"></i>
-                                </div>
-                                <div class="service-card-tags">
-                                    <span><i class="fa-solid fa-apple-whole"></i> iOS & Android</span>
-                                    <span><i class="fa-solid fa-puzzle-piece"></i> Custom Logic</span>
-                                </div>
-                                <span class="service-card-number">08</span>
-                                <h3>App Development</h3>
-                                <p>Custom mobile and web apps built to solve real business problems and delight your users.</p>
-                                <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            </div>
-
-                            <div class="service-card" data-aos="fade-up" data-aos-delay="450" data-aos-duration="700">
-                                <div class="service-card-icon">
-                                    <i class="fa-solid fa-shield-halved"></i>
-                                </div>
-                                <div class="service-card-tags">
-                                    <span><i class="fa-solid fa-gauge-high"></i> Performance</span>
-                                    <span><i class="fa-solid fa-arrows-rotate"></i> Updates</span>
-                                </div>
-                                <span class="service-card-number">09</span>
-                                <h3>Website Management</h3>
-                                <p>We keep your website fast, secure, and up-to-date — so you never have to worry about it.</p>
+                                <h3>Market Visibility</h3>
+                                <p>We position your brand for discovery, credibility, and momentum from launch.</p>
+                                <ul class="service-card-list">
+                                    <li><i class="fa-solid fa-circle-dot"></i> Social media channel setup &amp; branding</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Online reputation &amp; SEO foundations</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Launch strategy &amp; campaign readiness</li>
+                                </ul>
                                 <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
 
@@ -515,22 +523,32 @@
             </section>
 
 
-           <!-- FOOTER -->
+            <!-- FOOTER -->
             <footer class="edens-footer">
                 <div class="footer-container">
                     <div class="footer-grid">
                         <div class="footer-col brand-col">
-                            <img src="img/comecode-logo-with-name.jpg" alt="ComeCode Logo" class="footer-logo">
+                            <img src="edens-logo.png" alt="ComeCode" class="footer-logo">
                             <p class="brand-bio">
                                 We are a data-driven, customer-centric digital marketing and web design agency
                                 in Nigeria, serving clients all over the world.
                             </p>
                             <div class="social-icons">
-                                <a href="https://www.facebook.com/profile.php?id=61563500577128" target="_blank" class="icon facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="https://twitter.com/YOUR_HANDLE" target="_blank" class="icon twitter" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                                <a href="https://www.linkedin.com/company/comecodeafrica/posts/" target="_blank" class="icon linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                                <a href="https://www.instagram.com/comecodeafrica/" target="_blank" class="icon instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="https://www.youtube.com/@COMECODE01" target="_blank" class="icon youtube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="https://facebook.com/YOUR_PAGE" target="_blank" class="icon facebook" aria-label="Facebook">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="https://twitter.com/YOUR_HANDLE" target="_blank" class="icon twitter" aria-label="Twitter / X">
+                                    <i class="fa-brands fa-x-twitter"></i>
+                                </a>
+                                <a href="https://linkedin.com/company/YOUR_COMPANY" target="_blank" class="icon linkedin" aria-label="LinkedIn">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://instagram.com/YOUR_HANDLE" target="_blank" class="icon instagram" aria-label="Instagram">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" class="icon youtube" aria-label="YouTube">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
                             </div>
                         </div>
 
@@ -557,7 +575,7 @@
                         <div class="footer-col">
                             <h4>CONTACT</h4>
                             <p>For more information contact us on</p>
-                            <p class="contact-highlight">+2347070685345</p>
+                            <p class="contact-highlight">+2348000000000</p>
                             <p class="contact-email">admin@comecode.come</p>
                             <p class="contact-email">comecode31@gmail.com</p>
                         </div>
@@ -571,19 +589,30 @@
 
         </div>
     </div>
+
     <!-- Floating contact buttons -->
     <div>
         <div class="email-message-container" id="messageContainer">
-            <a href="mailto:comecode31@gmail.com"><div class="email-messageButton action-btn email" title="Email us"><i class="fa-solid fa-envelope"></i></div></a>
+            <a href="#">
+                <div class="email-messageButton action-btn email">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+            </a>
 
-            <a href="https://wa.me/2347070685345" target="_blank" rel="noopener noreferrer"><div class="email-messageButton action-btn whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></div></a>
+            <a href="#">
+                <div class="email-messageButton action-btn whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+            </a>
 
-            <div class="email-messageButton action-btn call" title="Call"><i class="fa-solid fa-phone"></i></div>
+            <div class="email-messageButton action-btn call">
+                <i class="fa-solid fa-phone"></i>
+            </div>
 
-            <button class="message-button" id="messageToggle" aria-expanded="false" aria-label="Open contact actions">
-                <i class="fa-solid fa-comment message-icon" aria-hidden="true"></i>
-                <i class="fa-solid fa-xmark close-icon" aria-hidden="true"></i>
-            </button>
+            <div class="message-button" id="messageToggle">
+                <i class="fa-solid fa-comment message-icon"></i>
+                <i class="fa-solid fa-xmark close-icon"></i>
+            </div>
         </div>
     </div>
 
