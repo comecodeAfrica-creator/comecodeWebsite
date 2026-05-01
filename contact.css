@@ -373,3 +373,50 @@
         width: 100%;
     }
 }
+
+
+/* ===== TOAST NOTIFICATION ===== */
+.cf-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 14px 24px;
+    border-radius: 12px;
+    max-width: clamp(280px, 90vw, 480px);
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999999;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.cf-toast--visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.cf-toast--success {
+    border-color: rgba(122,0,224,0.5);
+    background: #0e0e0e;
+}
+
+.cf-toast--error {
+    border-color: rgba(220,38,38,0.4);
+    background: #0e0e0e;
+}
+
+/* Loading spinner state on submit button */
+.contact-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
