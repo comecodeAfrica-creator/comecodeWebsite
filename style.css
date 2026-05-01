@@ -805,22 +805,20 @@ nav button {
     }
 }
 
-
 /* ===== SERVICES — CARD GRID STYLE ===== */
 .services-section {
     background-color: var(--bg-dark);
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    padding: clamp(40px, 6vw, 80px) 20px;
     width: 100vw;
-    margin:0;
+    margin: 0;
+    padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 80px);
 }
 
 .services-container {
-    width: 100vw;
-    margin:0;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .services-header {
@@ -952,6 +950,32 @@ nav button {
     flex: 1;
 }
 
+.service-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.service-card-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.4;
+}
+
+.service-card-list li i {
+    font-size: 0.45rem;
+    color: #7a00e0;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
 .service-card-link {
     display: inline-flex;
     align-items: center;
@@ -969,7 +993,7 @@ nav button {
     gap: 12px;
 }
 
-.service-card-link i { font-size: 0.75rem; }
+.service-card-link i { font-size: 0.75rem; }/* ===== PACKAGES SECTION ===== */
 
 
 /* ===== PACKAGES SECTION ===== */
@@ -1289,6 +1313,7 @@ nav button {
     justify-content: center;
     width: 100vw;
     margin:0;
+    padding:40px;
 }
 
 .about-container {
@@ -1304,6 +1329,8 @@ nav button {
 
 .about-image img {
     width: 100%;
+    max-width: 520px;
+    max-height: 460px;
     height: auto;
     border-radius: 20px;
     object-fit: cover;
@@ -1940,4 +1967,3 @@ address,
 
     .footer-grid { flex-wrap: nowrap; }
 }
-
