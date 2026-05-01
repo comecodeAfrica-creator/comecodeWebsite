@@ -11,41 +11,35 @@
     <link rel="stylesheet" href="aos.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
- <!-- PAGE LOADER -->
+
+    <!-- PAGE LOADER -->
     <div class="page-loader" id="pageLoader">
-        <div class="loader-logo-wrap">
-            <svg class="loader-c-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Spinning orbit ring -->
-                <circle class="loader-orbit" cx="60" cy="60" r="52" stroke="rgba(122,0,224,0.18)" stroke-width="1" stroke-dasharray="6 6"/>
-                <!-- Arc that fills in -->
-                <circle class="loader-arc" cx="60" cy="60" r="52" stroke="#7a00e0" stroke-width="2" stroke-linecap="round"
-                    stroke-dasharray="326" stroke-dashoffset="326"/>
-                <!-- Dot that travels the arc -->
-                <circle class="loader-dot" cx="112" cy="60" r="4" fill="#7a00e0"/>
-            </svg>
-           
-            <img src="img/comecode-logo.jpg" alt="ComeCode Logo" class="logo" style="max-height: 40px; border-radius: 5px;">
+        <div class="loader-content">
+            <div class="loader-logo">C</div>
+            <div class="loader-bar-track">
+                <div class="loader-bar" id="loaderBar"></div>
+            </div>
+            <p class="loader-tagline">Loading experience...</p>
         </div>
     </div>
-
-  
 
     <div class="grid-lines"></div>
     <script>AOS.init();</script>
 
     <!-- HEADER -->
     <header>
-        <a href="index.html"><img src="img/comecode-logo.jpg" alt="ComeCode Logo" class="logo" style="max-height: 40px; border-radius: 5px;"></a>
-
+        <a href="index.html"><div class="logo">C</div></a>
         <nav id="navbar">
             <ul class="nav-links">
                 <li><span class="dot"></span><a href="index.html">HOME</a></li>
                 <li><span class="dot"></span><a href="about.html">ABOUT US</a></li>
                 <li><span class="dot"></span><a href="porfolio.html">WORKS</a></li>
-              //<li><span class="dot"></span><a href="backend/community.php">COMMUNITY</a></li>
+                <!--<li><span class="dot"></span><a href="backend/community.php">COMMUNITY</a></li>-->
                 <li class="mobile-only"><a href="contact.html"><button class="btn-outline">CONTACT NOW</button></a></li>
             </ul>
         </nav>
@@ -115,7 +109,7 @@
                     <a href="https://twitter.com/YOUR_HANDLE" target="_blank" class="contact-social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
                     <a href="https://instagram.com/YOUR_HANDLE" target="_blank" class="contact-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     <a href="https://linkedin.com/company/YOUR_COMPANY" target="_blank" class="contact-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://wa.me/2347070685345" target="_blank" class="contact-social-btn contact-social-btn--wa" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://wa.me/2348000000000" target="_blank" class="contact-social-btn contact-social-btn--wa" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
 
                 <div class="contact-response-badge">
@@ -127,52 +121,53 @@
 
             <!-- RIGHT — form -->
             <div class="contact-right" data-aos="fade-left" data-aos-duration="900">
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" novalidate>
 
                     <div class="form-row">
                         <div class="form-group" data-aos="fade-up" data-aos-delay="80" data-aos-duration="600">
-                            <label>Your Name</label>
-                            <input type="text" placeholder="e.g. John Doe" required />
+                            <label for="cf-name">Your Name</label>
+                            <input id="cf-name" name="from_name" type="text" placeholder="e.g. John Doe" required />
                         </div>
                         <div class="form-group" data-aos="fade-up" data-aos-delay="120" data-aos-duration="600">
-                            <label>Email Address</label>
-                            <input type="email" placeholder="e.g. hello@brand.com" required />
+                            <label for="cf-email">Email Address</label>
+                            <input id="cf-email" name="from_email" type="email" placeholder="e.g. hello@brand.com" required />
                         </div>
                     </div>
 
                     <div class="form-group" data-aos="fade-up" data-aos-delay="160" data-aos-duration="600">
-                        <label>Company / Brand Name</label>
-                        <input type="text" placeholder="e.g. Acme Corp (optional)" />
+                        <label for="cf-company">Company / Brand Name</label>
+                        <input id="cf-company" name="company" type="text" placeholder="e.g. Acme Corp (optional)" />
                     </div>
 
                     <div class="form-group" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
-                        <label>Service Needed</label>
-                        <select required>
+                        <label for="cf-service">Service Needed</label>
+                        <select id="cf-service" name="service" required>
                             <option value="" disabled selected>Select a service</option>
-                            <option>Business Name Review</option>
-                            <option>CAC Business Registration</option>
-                            <option>CAC Company Registration</option>
-                            <option>NGO Registration</option>
-                            <option>Trademark</option>
-                            <option>Brand Identity Design</option>
-                            <option>Web Development</option>
-                            <option>App Development</option>
-                            <option>Website Management</option>
+                            <option>Strategic Planning</option>
+                            <option>Business Structuring</option>
+                            <option>Brand Identity</option>
+                            <option>Website Development</option>
+                            <option>Mobile App Development</option>
+                            <option>Market Visibility</option>
                             <option>Other</option>
                         </select>
                     </div>
 
                     <div class="form-group" data-aos="fade-up" data-aos-delay="240" data-aos-duration="600">
-                        <label>Project Details</label>
-                        <textarea placeholder="Tell us about your project, goals, or any questions you have..." required></textarea>
+                        <label for="cf-message">Project Details</label>
+                        <textarea id="cf-message" name="message" placeholder="Tell us about your project, goals, or any questions you have..." required></textarea>
                     </div>
 
-                    <button type="submit" class="contact-submit" data-aos="fade-up" data-aos-delay="280" data-aos-duration="600">
-                        <span>Send Message</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                    <button type="submit" class="contact-submit" id="contactSubmitBtn" data-aos="fade-up" data-aos-delay="280" data-aos-duration="600">
+                        <span class="btn-label">Send Message</span>
+                        <i class="fa-solid fa-arrow-right btn-icon"></i>
+                        <i class="fa-solid fa-circle-notch fa-spin btn-spinner" style="display:none;"></i>
                     </button>
 
                 </form>
+
+                <!-- Toast notification -->
+                <div class="cf-toast" id="cfToast" aria-live="polite"></div>
             </div>
 
         </div>
@@ -184,16 +179,16 @@
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-col brand-col">
-                    <img src="img/comecode-logo-with-name.jpg" alt="ComeCode Logo" class="footer-logo">
+                    <img src="edens-logo.png" alt="ComeCode" class="footer-logo">
                     <p class="brand-bio">
                         We are a data-driven, customer-centric digital marketing and web design agency in Nigeria, serving clients all over the world.
                     </p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/profile.php?id=61563500577128" target="_blank" class="icon facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/YOUR_HANDLE" target="_blank" class="icon twitter" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="https://www.linkedin.com/company/comecodeafrica/posts/" target="_blank" class="icon linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/comecodeafrica/" target="_blank" class="icon instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@COMECODE01" target="_blank" class="icon youtube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://facebook.com/YOUR_PAGE" target="_blank" class="icon facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/YOUR_HANDLE" target="_blank" class="icon twitter" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://linkedin.com/company/YOUR_COMPANY" target="_blank" class="icon linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://instagram.com/YOUR_HANDLE" target="_blank" class="icon instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" class="icon youtube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -214,7 +209,7 @@
                 <div class="footer-col">
                     <h4>CONTACT</h4>
                     <p>For more information contact us on</p>
-                    <p class="contact-highlight">+2347070685345</p>
+                    <p class="contact-highlight">+2348000000000</p>
                     <p class="contact-email">admin@comecode.come</p>
                     <p class="contact-email">comecode31@gmail.com</p>
                 </div>
@@ -227,33 +222,104 @@
 
 
     <!-- Floating contact buttons -->
-    <div>
-        <div class="email-message-container" id="messageContainer">
-            <a href="mailto:comecode31@gmail.com"><div class="email-messageButton action-btn email" title="Email us"><i class="fa-solid fa-envelope"></i></div></a>
-
-            <a href="https://wa.me/2347070685345" target="_blank" rel="noopener noreferrer"><div class="email-messageButton action-btn whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></div></a>
-
-            <div class="email-messageButton action-btn call" title="Call"><i class="fa-solid fa-phone"></i></div>
-
-            <button class="message-button" id="messageToggle" aria-expanded="false" aria-label="Open contact actions">
-                <i class="fa-solid fa-comment message-icon" aria-hidden="true"></i>
-                <i class="fa-solid fa-xmark close-icon" aria-hidden="true"></i>
-            </button>
+    <div class="email-message-container" id="messageContainer">
+        <a href="#"><div class="email-messageButton action-btn email"><i class="fa-solid fa-envelope"></i></div></a>
+        <a href="#"><div class="email-messageButton action-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></div></a>
+        <div class="email-messageButton action-btn call"><i class="fa-solid fa-phone"></i></div>
+        <div class="message-button" id="messageToggle">
+            <i class="fa-solid fa-comment message-icon"></i>
+            <i class="fa-solid fa-xmark close-icon"></i>
         </div>
     </div>
 
     <script src="main.js"></script>
 
-    <!-- Page Loader Script -->
     <script>
+        /* ---- PAGE LOADER ---- */
         window.addEventListener('load', function () {
             const loader = document.getElementById('pageLoader');
             setTimeout(function () {
                 loader.classList.add('loader-hidden');
-                setTimeout(function () {
-                    loader.style.display = 'none';
-                }, 700);
+                setTimeout(function () { loader.style.display = 'none'; }, 700);
             }, 2000);
+        });
+
+        /* ================================================================
+           EMAIL JS SETUP
+           ----------------------------------------------------------------
+           STEPS TO ACTIVATE:
+           1. Go to https://www.emailjs.com and create a free account
+           2. Add an Email Service (Gmail) → connect comecode31@gmail.com
+              → copy the Service ID (e.g. "service_xxxxxxx") → paste below
+           3. Create an Email Template with these variables in the body:
+                From:    {{from_name}} <{{from_email}}>
+                Company: {{company}}
+                Service: {{service}}
+                Message: {{message}}
+              → copy the Template ID (e.g. "template_xxxxxxx") → paste below
+           4. Go to Account → copy your Public Key → paste below
+           ================================================================ */
+        const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // ← replace
+        const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // ← replace
+        const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // ← replace
+
+        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+        /* ---- TOAST helper ---- */
+        function showToast(message, type /* 'success' | 'error' */) {
+            const toast = document.getElementById('cfToast');
+            toast.textContent = message;
+            toast.className = 'cf-toast cf-toast--' + type + ' cf-toast--visible';
+            setTimeout(() => toast.classList.remove('cf-toast--visible'), 5000);
+        }
+
+        /* ---- FORM SUBMIT ---- */
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const form      = e.target;
+            const btn       = document.getElementById('contactSubmitBtn');
+            const label     = btn.querySelector('.btn-label');
+            const icon      = btn.querySelector('.btn-icon');
+            const spinner   = btn.querySelector('.btn-spinner');
+
+            // Basic client-side validation
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Show loading state
+            btn.disabled        = true;
+            label.textContent   = 'Sending…';
+            icon.style.display  = 'none';
+            spinner.style.display = 'inline-block';
+
+            // Collect form data
+            const templateParams = {
+                from_name:  form.from_name.value.trim(),
+                from_email: form.from_email.value.trim(),
+                company:    form.company.value.trim() || 'Not provided',
+                service:    form.service.value,
+                message:    form.message.value.trim(),
+                to_email:   'comecode31@gmail.com',
+            };
+
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+                .then(function () {
+                    showToast(' Message sent! We\'ll get back to you within 24 hours.', 'success');
+                    form.reset();
+                })
+                .catch(function (err) {
+                    console.error('EmailJS error:', err);
+                    showToast(' Something went wrong. Please try emailing us directly at comecode31@gmail.com', 'error');
+                })
+                .finally(function () {
+                    btn.disabled          = false;
+                    label.textContent     = 'Send Message';
+                    icon.style.display    = 'inline-block';
+                    spinner.style.display = 'none';
+                });
         });
     </script>
 
