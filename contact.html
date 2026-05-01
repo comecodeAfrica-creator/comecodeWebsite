@@ -249,24 +249,11 @@
             }, 2000);
         });
 
-        /* ================================================================
-           EMAIL JS SETUP
-           ----------------------------------------------------------------
-           STEPS TO ACTIVATE:
-           1. Go to https://www.emailjs.com and create a free account
-           2. Add an Email Service (Gmail) → connect comecode31@gmail.com
-              → copy the Service ID (e.g. "service_xxxxxxx") → paste below
-           3. Create an Email Template with these variables in the body:
-                From:    {{from_name}} <{{from_email}}>
-                Company: {{company}}
-                Service: {{service}}
-                Message: {{message}}
-              → copy the Template ID (e.g. "template_xxxxxxx") → paste below
-           4. Go to Account → copy your Public Key → paste below
-           ================================================================ */
-        const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // ← replace
-        const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // ← replace
-        const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // ← replace
+       
+         
+        const EMAILJS_SERVICE_ID  = 'service_vh4nwvp';  
+        const EMAILJS_TEMPLATE_ID = 'template_yf4xfyl';  
+        const EMAILJS_PUBLIC_KEY  = 'zgzSFTCmzieHvGCGq';    
 
         emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
