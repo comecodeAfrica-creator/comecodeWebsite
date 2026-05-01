@@ -53,6 +53,7 @@ a {
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    margin: 0;
 }
 
 img, picture, video, iframe {
@@ -810,9 +811,10 @@ nav button {
     background-color: var(--bg-dark);
     color: var(--text-white);
     font-family: 'Inter', sans-serif;
-    width: 100vw;
+    width: 100%;
     margin: 0;
-    padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 80px);
+    //padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 80px);
+    padding:10px;
 }
 
 .services-container {
@@ -1313,7 +1315,7 @@ nav button {
     justify-content: center;
     width: 100vw;
     margin:0;
-    padding:40px;
+    padding:20px;
 }
 
 .about-container {
