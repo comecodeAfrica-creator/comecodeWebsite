@@ -925,6 +925,18 @@
 <div class="toast" id="toast"></div>
 
 <script>
+    <!-- Page Loader Script -->
+    <script>
+        window.addEventListener('load', function () {
+            const loader = document.getElementById('pageLoader');
+            setTimeout(function () {
+                loader.classList.add('loader-hidden');
+                setTimeout(function () {
+                    loader.style.display = 'none';
+                }, 700);
+            }, 2000);
+        });
+    </script>
     /* =====================================================
        API ENDPOINT — replace with your real endpoint
        e.g. an EmailJS call, a Google Sheets API, 
