@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Talk 1.0 — Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <style>
+        /* ===== RESET & ROOT ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black:   #070707;
+            --white:   #ffffff;
+            --purple:  #7a00e0;
+            --purple-soft: rgba(122,0,224,0.14);
+            --purple-border: rgba(122,0,224,0.45);
+            --dim:     rgba(255,255,255,0.5);
+            --dimmer:  rgba(255,255,255,0.12);
+            --card:    #111111;
+            --input-bg:#0e0e0e;
+            --radius:  14px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ===== BACKGROUND ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 50% at 10% 0%, rgba(122,0,224,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 90% 100%, rgba(122,0,224,0.12) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+            pointer-events: none;
+            z-index: 0;
+            mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+        }
+
+        /* ===== LAYOUT ===== */
+        .page-wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 40px) 80px;
+        }
+
+        /* ===== HEADER ===== */
+        .form-header {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .form-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03);
+            padding: 8px 18px;
+            border-radius: 99px;
+            margin-bottom: 28px;
+        }
+
+        .form-header-badge i { color: var(--purple); }
+
+        .form-header h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.4rem, 7vw, 4.2rem);
+            font-weight: 800;
+            line-height: 1.0;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+        }
+
+        .form-header h1 span {
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(255,255,255,0.7);
+        }
+
+        .form-header p {
+            font-size: clamp(0.88rem, 1.5vw, 1rem);
+            color: var(--dim);
+            line-height: 1.7;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 44px;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            flex: 1;
+            cursor: default;
+        }
+
+        .progress-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.15);
+            background: var(--card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--dim);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-step.active .progress-dot {
+            border-color: var(--purple);
+            background: var(--purple);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(122,0,224,0.4);
+        }
+
+        .progress-step.done .progress-dot {
+            border-color: var(--purple);
+            background: var(--purple-soft);
+            color: var(--purple);
+        }
+
+        .progress-label {
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--dimmer);
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .progress-step.active .progress-label,
+        .progress-step.done .progress-label { color: rgba(255,255,255,0.5); }
+
+        .progress-line {
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.08);
+            margin-bottom: 22px;
+            transition: background 0.4s ease;
+        }
+
+        .progress-line.done { background: var(--purple-border); }
+
+        /* ===== FORM SECTIONS ===== */
+        .form-section {
+            display: none;
+            animation: fadeSlide 0.4s ease forwards;
+        }
+
+        .form-section.active { display: block; }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .section-heading-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 11px;
+            background: var(--purple-soft);
+            border: 1px solid var(--purple-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--purple);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .section-heading-text h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .section-heading-text p {
+            font-size: 0.8rem;
+            color: var(--dim);
+            margin-top: 2px;
+        }
+
+        /* ===== FIELD GROUPS ===== */
+        .field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 8px;
+        }
+
+        .field-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .field label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .field label .req { color: var(--purple); margin-left: 3px; }
+
+        .field input,
+        .field select,
+        .field textarea {
+            background: var(--input-bg);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: var(--radius);
+            padding: 13px 16px;
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.92rem;
+            outline: none;
+            transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .field select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        .field select option { background: #111; color: #fff; }
+
+        .field input::placeholder,
+        .field textarea::placeholder { color: rgba(255,255,255,0.2); }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            border-color: var(--purple-border);
+            background: rgba(122,0,224,0.05);
+            box-shadow: 0 0 0 3px rgba(122,0,224,0.1);
+        }
+
+        .field textarea {
+            resize: vertical;
+            min-height: 110px;
+            line-height: 1.6;
+        }
+
+        /* ===== RADIO / CHECKBOX GROUPS ===== */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-group.inline {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--input-bg);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            user-select: none;
+        }
+
+        .radio-group.inline .radio-option {
+            flex: 1 1 calc(50% - 5px);
+            min-width: 140px;
+        }
+
+        .radio-option:hover {
+            border-color: rgba(122,0,224,0.3);
+            background: rgba(122,0,224,0.04);
+        }
+
+        .radio-option input[type="radio"],
+        .radio-option input[type="checkbox"] {
+            display: none;
+        }
+
+        .radio-custom {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: border-color 0.2s ease;
+        }
+
+        .radio-custom::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--purple);
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.2s ease;
+        }
+
+        .radio-option input[type="radio"]:checked ~ .radio-custom,
+        .radio-option input[type="checkbox"]:checked ~ .radio-custom {
+            border-color: var(--purple);
+        }
+
+        .radio-option input[type="radio"]:checked ~ .radio-custom::after,
+        .radio-option input[type="checkbox"]:checked ~ .radio-custom::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .radio-option:has(input:checked) {
+            border-color: var(--purple-border);
+            background: var(--purple-soft);
+        }
+
+        .radio-label {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.3;
+        }
+
+        /* ===== CONDITIONAL FIELD ===== */
+        .conditional-field {
+            display: none;
+            padding: 16px;
+            border-left: 2px solid var(--purple-border);
+            margin-top: 4px;
+            background: rgba(122,0,224,0.04);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .conditional-field.visible { display: block; }
+
+        /* ===== NAVIGATION BUTTONS ===== */
+        .form-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            gap: 16px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.55);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 13px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-back:hover {
+            border-color: rgba(255,255,255,0.3);
+            color: #fff;
+        }
+
+        .btn-next, .btn-submit {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--purple);
+            border: none;
+            color: #fff;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 800;
+            padding: 14px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: filter 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 8px 24px rgba(122,0,224,0.3);
+            letter-spacing: 0.3px;
+        }
+
+        .btn-next:hover, .btn-submit:hover {
+            filter: brightness(1.15);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(122,0,224,0.45);
+        }
+
+        .btn-next i, .btn-submit i { transition: transform 0.25s ease; }
+        .btn-next:hover i, .btn-submit:hover i { transform: translateX(4px); }
+
+        .btn-submit:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* ===== SUCCESS STATE ===== */
+        .success-screen {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            animation: fadeSlide 0.5s ease forwards;
+        }
+
+        .success-screen.visible { display: block; }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--purple-soft);
+            border: 2px solid var(--purple-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--purple);
+            margin: 0 auto 28px;
+            animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0); opacity: 0; }
+            to   { transform: scale(1); opacity: 1; }
+        }
+
+        .success-screen h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .success-screen p {
+            color: var(--dim);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 400px;
+            margin: 0 auto 32px;
+        }
+
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--purple);
+            color: #fff;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: filter 0.25s ease, transform 0.25s ease;
+            box-shadow: 0 8px 24px rgba(122,0,224,0.3);
+        }
+
+        .btn-home:hover { filter: brightness(1.15); transform: translateY(-2px); }
+
+        /* ===== TOAST ===== */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #1a1a1a;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 0.88rem;
+            padding: 13px 22px;
+            border-radius: 12px;
+            max-width: clamp(280px, 90vw, 460px);
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        }
+
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        .toast.error { border-color: rgba(220,38,38,0.4); }
+        .toast.success { border-color: var(--purple-border); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .field-row { grid-template-columns: 1fr; }
+            .radio-group.inline .radio-option { flex: 1 1 100%; }
+            .form-nav { flex-direction: column-reverse; }
+            .btn-back, .btn-next, .btn-submit { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+    <!-- HEADER -->
+    <div class="form-header">
+        <div class="form-header-badge">
+            <i class="fa-solid fa-microphone-lines"></i>
+            ComeCode Africa Presents
+        </div>
+        <h1>Business Talk <span>1.0</span></h1>
+        <p>Join us for an immersive business experience. Fill in your details below to secure your spot.</p>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap" id="progressWrap">
+        <div class="progress-step active" data-step="1">
+            <div class="progress-dot">1</div>
+            <span class="progress-label">Personal</span>
+        </div>
+        <div class="progress-line" id="line-1"></div>
+        <div class="progress-step" data-step="2">
+            <div class="progress-dot">2</div>
+            <span class="progress-label">Business</span>
+        </div>
+        <div class="progress-line" id="line-2"></div>
+        <div class="progress-step" data-step="3">
+            <div class="progress-dot">3</div>
+            <span class="progress-label">Event</span>
+        </div>
+    </div>
+
+    <!-- FORM -->
+    <form id="registrationForm" novalidate>
+
+        <!-- ===== STEP 1 — PERSONAL INFO ===== -->
+        <div class="form-section active" data-section="1">
+            <div class="section-heading">
+                <div class="section-heading-icon"><i class="fa-solid fa-user"></i></div>
+                <div class="section-heading-text">
+                    <h2>Personal Information</h2>
+                    <p>Tell us a bit about yourself</p>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field-row">
+                    <div class="field">
+                        <label>Full Name <span class="req">*</span></label>
+                        <input type="text" name="full_name" placeholder="e.g. Chidi Okonkwo" required>
+                    </div>
+                    <div class="field">
+                        <label>Email Address <span class="req">*</span></label>
+                        <input type="email" name="email" placeholder="e.g. hello@brand.com" required>
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field">
+                        <label>Phone Number <span class="req">*</span></label>
+                        <input type="tel" name="phone" placeholder="e.g. +234 810 000 0000" required>
+                    </div>
+                    <div class="field">
+                        <label>Location (City / State / Country) <span class="req">*</span></label>
+                        <input type="text" name="location" placeholder="e.g. Lagos, Nigeria" required>
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field">
+                        <label>Gender <span class="req">*</span></label>
+                        <select name="gender" required>
+                            <option value="" disabled selected>Select gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Prefer not to say</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Age Range <span class="req">*</span></label>
+                        <select name="age_range" required>
+                            <option value="" disabled selected>Select age range</option>
+                            <option>Under 18</option>
+                            <option>18 – 24</option>
+                            <option>25 – 34</option>
+                            <option>35 – 44</option>
+                            <option>45 – 54</option>
+                            <option>55+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>You Are? <span class="req">*</span></label>
+                    <div class="radio-group inline" id="role-group">
+                        <label class="radio-option">
+                            <input type="radio" name="role" value="Student" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Student</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="role" value="Entrepreneur">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Entrepreneur</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="role" value="Business Owner">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Business Owner</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="role" value="Freelancer">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Freelancer</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="role" value="Other">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Other</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-nav">
+                <span></span>
+                <button type="button" class="btn-next" onclick="nextSection(1)">
+                    Next — Business Info <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- ===== STEP 2 — BUSINESS INFO ===== -->
+        <div class="form-section" data-section="2">
+            <div class="section-heading">
+                <div class="section-heading-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="section-heading-text">
+                    <h2>Business Information</h2>
+                    <p>Help us understand your business journey</p>
+                </div>
+            </div>
+
+            <div class="field-group">
+
+                <div class="field">
+                    <label>Do you currently own or run a business? <span class="req">*</span></label>
+                    <div class="radio-group inline">
+                        <label class="radio-option">
+                            <input type="radio" name="has_business" value="Yes" id="has_business_yes" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">Yes</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="has_business" value="No">
+                            <span class="radio-custom"></span>
+                            <span class="radio-label">No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Conditional: only shows if has_business = Yes -->
+                <div class="conditional-field" id="business-details">
+                    <div class="field-group">
+                        <div class="field-row">
+                            <div class="field">
+                                <label>Brand / Business Name</label>
+                                <input type="text" name="business_name" placeholder="e.g. Bolt Creatives">
+                            </div>
+                            <div class="field">
+                                <label>Your Position</label>
+                                <select name="position">
+                                    <option value="" disabled selected>Select position</option>
+                                    <option>CEO</option>
+                                    <option>Founder</option>
+                                    <option>Co-Founder</option>
+                                    <option>Managing Director (MD)</option>
+                                    <option>Creative Director</option>
+                                    <option>Manager</option>
+                                    <option>Team Member</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>What industry is your business in? <span class="req">*</span></label>
+                    <div class="radio-group inline">
+                        <label class="radio-option"><input type="radio" name="industry" value="Fashion" required><span class="radio-custom"></span><span class="radio-label">Fashion</span></label>
+                        <label class="radio-option"><input type="radio" name="industry" value="Food & Hospitality"><span class="radio-custom"></span><span class="radio-label">Food &amp; Hospitality</span></label>
+                        <label class="radio-option"><input type="radio" name="industry" value="Tech"><span class="radio-custom"></span><span class="radio-label">Tech</span></label>
+                        <label class="radio-option"><input type="radio" name="industry" value="Beauty"><span class="radio-custom"></span><span class="radio-label">Beauty</span></label>
+                        <label class="radio-option"><input type="radio" name="industry" value="Agriculture"><span class="radio-custom"></span><span class="radio-label">Agriculture</span></label>
+                        <label class="radio-option"><input type="radio" name="industry" value="Education"><span class="radio-custom"></span><span class="radio-label">Education</span></label>
+                        <label class="radio-option"><input type="radio" name="industry" value="Logistics"><span class="radio-custom"></span><span class="radio-label">Logistics</span></label>
+                        <label class="radio-option"><input type="radio" name="industry" value="Media"><span class="radio-custom"></span><span class="radio-label">Media</span></label>
+                        <label class="radio-option"><input type="radio" name="industry" value="Finance"><span class="radio-custom"></span><span class="radio-label">Finance</span></label>
+                        <label class="radio-option"><input type="radio" name="industry" value="Other"><span class="radio-custom"></span><span class="radio-label">Other</span></label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>What stage is your business in? <span class="req">*</span></label>
+                    <div class="radio-group inline">
+                        <label class="radio-option"><input type="radio" name="stage" value="Idea Stage" required><span class="radio-custom"></span><span class="radio-label">Idea Stage</span></label>
+                        <label class="radio-option"><input type="radio" name="stage" value="Startup Stage"><span class="radio-custom"></span><span class="radio-label">Startup Stage</span></label>
+                        <label class="radio-option"><input type="radio" name="stage" value="Growing Business"><span class="radio-custom"></span><span class="radio-label">Growing Business</span></label>
+                        <label class="radio-option"><input type="radio" name="stage" value="Established Business"><span class="radio-custom"></span><span class="radio-label">Established Business</span></label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Is your business registered? <span class="req">*</span></label>
+                    <div class="radio-group inline">
+                        <label class="radio-option"><input type="radio" name="registered" value="Yes" required><span class="radio-custom"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="registered" value="No"><span class="radio-custom"></span><span class="radio-label">No</span></label>
+                        <label class="radio-option"><input type="radio" name="registered" value="In Progress"><span class="radio-custom"></span><span class="radio-label">In Progress</span></label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Biggest challenge in your business <span class="req">*</span></label>
+                    <textarea name="biggest_challenge" placeholder="Describe the biggest challenge you currently face..." required></textarea>
+                </div>
+
+            </div>
+
+            <div class="form-nav">
+                <button type="button" class="btn-back" onclick="prevSection(2)">
+                    <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <button type="button" class="btn-next" onclick="nextSection(2)">
+                    Next — Event Info <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- ===== STEP 3 — EVENT INFO ===== -->
+        <div class="form-section" data-section="3">
+            <div class="section-heading">
+                <div class="section-heading-icon"><i class="fa-solid fa-calendar-star"></i></div>
+                <div class="section-heading-text">
+                    <h2>Event Information</h2>
+                    <p>Almost there — just a few more questions</p>
+                </div>
+            </div>
+
+            <div class="field-group">
+
+                <div class="field">
+                    <label>What do you hope to gain from Business Talk 1.0? <span class="req">*</span></label>
+                    <textarea name="expectations" placeholder="Share your goals and expectations for this event..." required></textarea>
+                </div>
+
+                <div class="field">
+                    <label>How did you hear about Business Talk 1.0? <span class="req">*</span></label>
+                    <div class="radio-group inline">
+                        <label class="radio-option"><input type="radio" name="referral_source" value="Instagram" required><span class="radio-custom"></span><span class="radio-label">Instagram</span></label>
+                        <label class="radio-option"><input type="radio" name="referral_source" value="WhatsApp"><span class="radio-custom"></span><span class="radio-label">WhatsApp</span></label>
+                        <label class="radio-option"><input type="radio" name="referral_source" value="Facebook"><span class="radio-custom"></span><span class="radio-label">Facebook</span></label>
+                        <label class="radio-option"><input type="radio" name="referral_source" value="LinkedIn"><span class="radio-custom"></span><span class="radio-label">LinkedIn</span></label>
+                        <label class="radio-option"><input type="radio" name="referral_source" value="Twitter/X"><span class="radio-custom"></span><span class="radio-label">Twitter/X</span></label>
+                        <label class="radio-option"><input type="radio" name="referral_source" value="Referral/Friend"><span class="radio-custom"></span><span class="radio-label">Referral / Friend</span></label>
+                        <label class="radio-option"><input type="radio" name="referral_source" value="ComeCode Africa"><span class="radio-custom"></span><span class="radio-label">ComeCode Africa</span></label>
+                        <label class="radio-option"><input type="radio" name="referral_source" value="Other"><span class="radio-custom"></span><span class="radio-label">Other</span></label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Have you attended a ComeCode Africa event before? <span class="req">*</span></label>
+                    <div class="radio-group inline">
+                        <label class="radio-option"><input type="radio" name="attended_before" value="Yes" required><span class="radio-custom"></span><span class="radio-label">Yes</span></label>
+                        <label class="radio-option"><input type="radio" name="attended_before" value="No"><span class="radio-custom"></span><span class="radio-label">No</span></label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Would you like to join the ComeCode Africa business community? <span class="req">*</span></label>
+                    <div class="radio-group inline">
+                        <label class="radio-option"><input type="radio" name="join_community" value="Yes" required><span class="radio-custom"></span><span class="radio-label">Yes, I'm in!</span></label>
+                        <label class="radio-option"><input type="radio" name="join_community" value="No"><span class="radio-custom"></span><span class="radio-label">No thanks</span></label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-nav">
+                <button type="button" class="btn-back" onclick="prevSection(3)">
+                    <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span class="btn-label">Submit Registration</span>
+                    <i class="fa-solid fa-paper-plane btn-icon"></i>
+                    <i class="fa-solid fa-circle-notch fa-spin btn-spinner" style="display:none;"></i>
+                </button>
+            </div>
+        </div>
+
+    </form>
+
+    <!-- SUCCESS SCREEN -->
+    <div class="success-screen" id="successScreen">
+        <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+        <h2>You're Registered! 🎉</h2>
+        <p>Thank you for signing up for Business Talk 1.0. We'll be in touch with event details very soon.</p>
+        <a href="index.html" class="btn-home">
+            Back to Home <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+    /* =====================================================
+       API ENDPOINT — replace with your real endpoint
+       e.g. an EmailJS call, a Google Sheets API, 
+       a backend route, or Formspree/Getform URL.
+    ===================================================== */
+    const API_ENDPOINT = 'https://YOUR_API_ENDPOINT_HERE';
+
+    /* ---- TOAST ---- */
+    function showToast(msg, type = 'error') {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.className = 'toast ' + type;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 5000);
+    }
+
+    /* ---- PROGRESS ---- */
+    function updateProgress(currentStep) {
+        document.querySelectorAll('.progress-step').forEach(el => {
+            const s = parseInt(el.dataset.step);
+            el.classList.toggle('active', s === currentStep);
+            el.classList.toggle('done', s < currentStep);
+        });
+        document.querySelectorAll('.progress-line').forEach((line, i) => {
+            line.classList.toggle('done', i + 1 < currentStep);
+        });
+    }
+
+    /* ---- NAVIGATION ---- */
+    function nextSection(currentNum) {
+        if (!validateSection(currentNum)) return;
+
+        const current = document.querySelector(`[data-section="${currentNum}"]`);
+        const next    = document.querySelector(`[data-section="${currentNum + 1}"]`);
+        if (!next) return;
+
+        current.classList.remove('active');
+        next.classList.add('active');
+        updateProgress(currentNum + 1);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function prevSection(currentNum) {
+        const current = document.querySelector(`[data-section="${currentNum}"]`);
+        const prev    = document.querySelector(`[data-section="${currentNum - 1}"]`);
+        if (!prev) return;
+
+        current.classList.remove('active');
+        prev.classList.add('active');
+        updateProgress(currentNum - 1);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ---- VALIDATION ---- */
+    function validateSection(num) {
+        const section = document.querySelector(`[data-section="${num}"]`);
+        const inputs  = section.querySelectorAll('input[required], select[required], textarea[required]');
+        let valid = true;
+
+        inputs.forEach(input => {
+            if (input.type === 'radio') {
+                // Check if at least one radio in the group is selected
+                const group = section.querySelectorAll(`input[name="${input.name}"]`);
+                const checked = [...group].some(r => r.checked);
+                if (!checked) {
+                    valid = false;
+                    // Highlight the group's parent
+                    const wrap = input.closest('.radio-group');
+                    if (wrap) {
+                        wrap.style.outline = '1px solid rgba(220,38,38,0.5)';
+                        wrap.style.borderRadius = '10px';
+                        setTimeout(() => {
+                            wrap.style.outline = '';
+                        }, 2500);
+                    }
+                }
+            } else if (!input.value.trim()) {
+                valid = false;
+                input.style.borderColor = 'rgba(220,38,38,0.6)';
+                input.addEventListener('input', () => input.style.borderColor = '', { once: true });
+            }
+        });
+
+        if (!valid) {
+            showToast('⚠️ Please fill in all required fields before continuing.', 'error');
+        }
+
+        return valid;
+    }
+
+    /* ---- CONDITIONAL: show business fields if has_business = Yes ---- */
+    document.querySelectorAll('input[name="has_business"]').forEach(radio => {
+        radio.addEventListener('change', () => {
+            const panel = document.getElementById('business-details');
+            panel.classList.toggle('visible', radio.value === 'Yes' && radio.checked);
+        });
+    });
+
+    /* ---- COLLECT ALL FORM DATA ---- */
+    function collectFormData() {
+        const data = {};
+        const form = document.getElementById('registrationForm');
+
+        // Text / email / tel / select / textarea
+        form.querySelectorAll('input:not([type="radio"]), select, textarea').forEach(el => {
+            if (el.name) data[el.name] = el.value.trim();
+        });
+
+        // Radio buttons — get checked value per group
+        const radioGroups = {};
+        form.querySelectorAll('input[type="radio"]').forEach(r => {
+            if (!radioGroups[r.name]) radioGroups[r.name] = null;
+            if (r.checked) radioGroups[r.name] = r.value;
+        });
+        Object.assign(data, radioGroups);
+
+        // Timestamp
+        data.submitted_at = new Date().toISOString();
+
+        return data;
+    }
+
+    /* ---- SUBMIT ---- */
+    document.getElementById('registrationForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        if (!validateSection(3)) return;
+
+        const btn     = document.getElementById('submitBtn');
+        const label   = btn.querySelector('.btn-label');
+        const icon    = btn.querySelector('.btn-icon');
+        const spinner = btn.querySelector('.btn-spinner');
+
+        // Loading state
+        btn.disabled         = true;
+        label.textContent    = 'Submitting…';
+        icon.style.display   = 'none';
+        spinner.style.display = 'inline-block';
+
+        const payload = collectFormData();
+
+        try {
+            const response = await fetch(API_ENDPOINT, {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body:    JSON.stringify(payload),
+            });
+
+            if (!response.ok) throw new Error(`Server responded with ${response.status}`);
+
+            // Success
+            document.getElementById('registrationForm').style.display = 'none';
+            document.getElementById('progressWrap').style.display     = 'none';
+            document.getElementById('successScreen').classList.add('visible');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        } catch (err) {
+            console.error('Submission error:', err);
+            showToast('❌ Submission failed. Please try again or email comecode31@gmail.com', 'error');
+
+            // Reset button
+            btn.disabled          = false;
+            label.textContent     = 'Submit Registration';
+            icon.style.display    = 'inline-block';
+            spinner.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
