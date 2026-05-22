@@ -1,0 +1,22 @@
+{
+  "hero_title": "We are comecode",
+  "hero_subtitle": "We are your trusted partner",
+  "hero_description": "Building digital solutions for the fastest-growing companies.",
+  "mission": "Our mission is to deliver exceptional digital experiences that drive growth and innovation.",
+  "vision": "To be the leading digital solutions provider trusted by businesses worldwide.",
+  "values": [
+    {
+      "title": "Innovation",
+      "description": "Constantly pushing boundaries with cutting-edge technology."
+    },
+    {
+      "title": "Quality",
+      "description": "Delivering excellence in every project we undertake."
+    },
+    {
+      "title": "Partnership",
+      "description": "Building long-term relationships with our clients."
+    }
+  ],
+  "team": []
+}
