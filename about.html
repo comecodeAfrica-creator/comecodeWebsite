@@ -4,34 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>comecode</title>
+    <title>About — ComeCode</title>
+   <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="aos.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+   <!-- PAGE LOADER -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-logo-wrap">
+            <svg class="loader-c-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Spinning orbit ring -->
+                <circle class="loader-orbit" cx="60" cy="60" r="52" stroke="rgba(122,0,224,0.18)" stroke-width="1" stroke-dasharray="6 6"/>
+                <!-- Arc that fills in -->
+                <circle class="loader-arc" cx="60" cy="60" r="52" stroke="#7a00e0" stroke-width="2" stroke-linecap="round"
+                    stroke-dasharray="326" stroke-dashoffset="326"/>
+                <!-- Dot that travels the arc -->
+                <circle class="loader-dot" cx="112" cy="60" r="4" fill="#7a00e0"/>
+            </svg>
+           
+            <img src="img/comecode-logo.jpg" alt="ComeCode Logo" class="logo" style="max-height: 40px; border-radius: 5px;">
+        </div>
+    </div>
     <div class="grid-lines"></div>
+    <script>AOS.init();</script>
 
-    <script>
-        AOS.init();
-    </script>
-
-    <header>
-        <a href="index.html">
-            <div class="logo">C</div>
-        </a>
+   <header>
+          <a href="index.html"><img src="img/comecode-logo.jpg" alt="ComeCode Logo" class="logo" style="max-height: 40px; border-radius: 5px;"></a>
 
         <nav id="navbar">
             <ul class="nav-links">
-                <li><span class="dot"></span><a href="about.html">ABOUT US</a></li>
-                <!-- <li><span class="dot"></span><a href="#">SERVICES</a></li> -->
+                <li><span class="dot"></span><a href="index.html">HOME</a></li>
+                <li><span class="dot"></span><a href="about.html" id="aboutNavLink">ABOUT US</a></li>
                 <li><span class="dot"></span><a href="porfolio.html">WORKS</a></li>
-                <li><span class="dot"></span><a href="backend/community.php">COMMUNITY</a></li>
+                 <li><span class="dot"></span><a href="businessTalk.html">BUSINESS TALK</a></li>
+               <!--<li><span class="dot"></span><a href="backend/community.php">COMMUNITY</a></li>-->
                 <li class="mobile-only"><a href="contact.html"><button class="btn-outline">CONTACT NOW</button></a></li>
             </ul>
         </nav>
@@ -46,253 +63,353 @@
         </div>
     </header>
 
+       
 
-    <!-- mainnnnnn -->
-    <main class="hero">
-        <div class="trust-badge" data-aos="fade-up" data-aos-duration="1000">
-            100% trusted
-            <span class="pointer"></span>
+    <!-- ===== ABOUT HERO ===== -->
+    <section class="about-hero">
+        <div class="about-hero-inner">
+            <div class="about-hero-label" data-aos="fade-up" data-aos-duration="700">
+                <i class="fa-solid fa-circle-info"></i> ABOUT US
+            </div>
+            <h1 class="about-hero-title" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900">
+                We Are <span class="about-hero-accent">ComeCode</span>
+            </h1>
+            <p class="about-hero-sub" data-aos="fade-up" data-aos-delay="200" data-aos-duration="900">
+                A dedicated collective of innovators committed to empowering young minds and driving business growth through transformative technology.
+            </p>
+
+            <!-- Stats strip -->
+            <div class="about-stats" data-aos="fade-up" data-aos-delay="300" data-aos-duration="900">
+                <div class="about-stat">
+                    <span class="about-stat-num">5+</span>
+                    <span class="about-stat-label">Projects Delivered</span>
+                </div>
+                <div class="about-stat-divider"></div>
+                <div class="about-stat">
+                    <span class="about-stat-num">3+</span>
+                    <span class="about-stat-label">Years of Experience</span>
+                </div>
+                <div class="about-stat-divider"></div>
+                <div class="about-stat">
+                    <span class="about-stat-num">100%</span>
+                    <span class="about-stat-label">Client Satisfaction</span>
+                </div>
+                <div class="about-stat-divider"></div>
+                <div class="about-stat">
+                    <span class="about-stat-num">5+</span>
+                    <span class="about-stat-label">Industries Served</span>
+                </div>
+            </div>
         </div>
-        <div class="heroContenGlassEffect">
-            <div class="heroContenGlassEffectContent ">
-            
 
-<div class="hero-text">
-    
-
-    <div class="video-comecode">
-        <h1 data-aos="fade-up" data-aos-duration="1000">We are comecode</h1>
-
-        <div class="video-container-text" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
-            <h2>We are your truster partner</h2>
-        </div>
-        <div class="video-container-video" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
-            <video
-                src="https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/v1/video-attachments/generic_asset/asset/4934b0c8f6441211d97f83585a7c9c00-1722433273322/Vontelle%20Cutdown-%20Breakthrough%20V5"
-                controls></video>
-        </div>
-
-        <div>
-           
-        </div>
-    </div>
-</div>
-        </div>
-
-        <div class="hero-glass-effect">
-
-        </div>
-
-    </main>
+        <!-- Decorative elements -->
+        <div class="about-hero-ring about-hero-ring-1"></div>
+        <div class="about-hero-ring about-hero-ring-2"></div>
+    </section>
 
 
-    <section class="branding-section">
-        <div class="BrandContainerGlassEffect">
-            <section class="partners-section ">
-                <div class="partners-container">
-                    <p class="partners-title" data-aos="fade-down" data-aos-duration="800">Trusted by the world's fastest-growing companies:</p>
-
-                    <div class="logo-grid" data-aos="zoom-in" data-aos-duration="1000">
-                        <img src="kenna-logo.png" alt="Kenna Partners" class="partner-logo">
-                        <img src="ailes-logo.png" alt="Ailes Group" class="partner-logo">
-                        <img src="channels-logo.png" alt="Channels" class="partner-logo">
-                        <img src="healthtracka-logo.png" alt="Healthtracka" class="partner-logo">
-                        <img src="procept-logo.png" alt="Procept Africa" class="partner-logo">
+    <!-- ===== WHO WE ARE ===== -->
+    <section class="who-section">
+        <div class="who-container">
+            <div class="who-image-col" data-aos="fade-right" data-aos-duration="1000">
+                <div class="who-image-wrapper">
+                    <img src="img/about.png" alt="ComeCode Team">
+                    <div class="who-image-badge">
+                        <i class="fa-solid fa-star"></i>
+                        <span>Trusted Partner</span>
                     </div>
                 </div>
+            </div>
 
-            </section> <br> <br>
-            <div class="branding-container">
-                <section class="about-section ">
-                    <div class="about-container">
-                        <div class="about-image" data-aos="slide-right" data-aos-duration="1000">
-                            <img src="https://i.pinimg.com/736x/27/14/9f/27149f6d52c779c38caf336608ab0c1f.jpg"
-                                alt="ComeCode Team at work">
-                        </div>
-
-                        <div class="about-content" data-aos="slide-left" data-aos-duration="1000">
-                            <h2 class="about-title">Ready To Empower Minds & Grow Your Business?</h2>
-
-                            <div class="about-description">
-                                <p>
-                                    At <strong>ComeCode</strong>, we are more than just a software company; we are a
-                                    dedicated collective of innovators committed to empowering young minds and driving
-                                    business growth through transformative technology.
-                                </p>
-
-                            </div>
-
-                            <button class="btn-primary">LEARN MORE &rarr;</button>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="info-section">
-                    <div class="card mint" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1000">
-                      <h3>OUR VISION</h3>
-                      <p>Our vision is to achieve global relevant in the business technology space.</p>
-                    </div>
-                  
-                    <div class="card peach" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
-                      <h3>OUR MISSION</h3>
-                      <p>We will achieve our vision by delivering value to our clients all over the world</p>
-                    </div>
-                  
-                    <div class="card mint" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">
-                      <h3>OUR GOALS</h3>
-                      <p>Our goal is to be one of the top digital agency in Africa within the next 10 years.</p>
-                    </div>
-                  </section>
+            <div class="who-text-col" data-aos="fade-left" data-aos-duration="1000">
+                <span class="who-eyebrow">WHO WE ARE</span>
+                <h2 class="who-title">Ready To Empower Minds &amp; Grow Your Business?</h2>
+                <p class="who-body">
+                    <strong>ComeCode</strong> Africa is a business development company for aspiring 
+                                    entrepreneurs and early-stage business owners turn ideas into fully branded, 
+                                    visible, and growth-ready businesses using our proven launch system. From brand identity
+                                    to market visibility, we help you launch with clarity and scale with confidence.
+                </p>
+                
+                <a href="contact.html" class="who-cta">
+                    Work With Us <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
 
-                <section class="services-section">
+    <!-- ===== VIDEO SECTION ===== -->
+    <section class="about-video-section">
+        <div class="about-video-inner">
+            <div class="about-video-text" data-aos="fade-up" data-aos-duration="900">
+                <span class="who-eyebrow">SEE US IN ACTION</span>
+                <h2>Building the future,<br><em>one product at a time.</em></h2>
+            </div>
+            <div class="about-video-frame" data-aos="fade-up" data-aos-delay="150" data-aos-duration="900">
+                <video
+                    src="https://fiverr-res.cloudinary.com/video/upload/t_fiverr_hd/v1/video-attachments/generic_asset/asset/4934b0c8f6441211d97f83585a7c9c00-1722433273322/Vontelle%20Cutdown-%20Breakthrough%20V5"
+                    controls></video>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== VISION / MISSION / GOALS ===== -->
+    <section class="vmg-section">
+        <div class="vmg-header" data-aos="fade-up" data-aos-duration="800">
+            <span class="who-eyebrow">OUR FOUNDATION</span>
+            <h2 class="vmg-title">What Drives Us</h2>
+        </div>
+
+        <div class="vmg-grid">
+            <div class="vmg-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                <div class="vmg-icon"><i class="fa-solid fa-eye"></i></div>
+                <h3>Our Vision</h3>
+                <p>To become Africa's leading startup launch platform,helping thousands
+                    of entrepreneurs build businesses faster,smarter, and more professionally.</p>
+            </div>
+
+            <div class="vmg-card vmg-card--accent" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                <div class="vmg-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <h3>Our Mission</h3>
+                <p>To empower aspiring entrepreneurs and early-stage business owners by providing
+                    structured,accessible,and effective solutions that help them launch and grow successful businesses.</p>
+            </div>
+
+            <div class="vmg-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                <div class="vmg-icon"><i class="fa-solid fa-flag-checkered"></i></div>
+                <h3>Our Goals</h3>
+                <p>To be one of the top digital agencies in Africa within the next 10 years — trusted, celebrated, and impactful.</p>
+            </div>
+        </div>
+    </section>
+
+ <!-- SERVICES SECTION — Card Style with Icons -->
+                <section class="services-section" id="solutions">
                     <div class="services-container">
                         <div class="services-header" data-aos="fade-up" data-aos-duration="800">
                             <span class="eyebrow">OUR SERVICES</span>
                             <h2 class="services-main-title">What We Do.</h2>
                         </div>
 
-                        <div class="services-list">
-                            <div class="service-row" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-                                <div class="service-name">
-                                    <span class="service-number">01</span>
-                                    <h3>UI/UX Design</h3>
+                        <div class="services-cards-grid">
+
+                            <div class="service-card" data-aos="fade-up" data-aos-delay="50" data-aos-duration="700">
+                                <div class="service-card-icon">
+                                    <i class="fa-solid fa-chess"></i>
                                 </div>
-                                <p class="service-desc">Crafting intuitive and visually stunning interfaces that provide
-                                    seamless user journeys.</p>
-                                <a href="#" class="service-link">View Project <span>↗</span></a>
+                                <div class="service-card-tags">
+                                    <span><i class="fa-solid fa-bullseye"></i> Positioning</span>
+                                    <span><i class="fa-solid fa-users"></i> Audience</span>
+                                </div>
+                                <span class="service-card-number">01</span>
+                                <h3>Strategic Planning</h3>
+                                <p>We shape your concept into a market-ready business with clarity and direction.</p>
+                                <ul class="service-card-list">
+                                    <li><i class="fa-solid fa-circle-dot"></i> Market positioning &amp; differentiation</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Target audience definition</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Value proposition development</li>
+                                </ul>
+                                <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
 
-                            <div class="service-row" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-                                <div class="service-name">
-                                    <span class="service-number">02</span>
-                                    <h3>Web Development</h3>
+                            <div class="service-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                                <div class="service-card-icon">
+                                    <i class="fa-solid fa-building-columns"></i>
                                 </div>
-                                <p class="service-desc">Building high-performance, scalable websites using modern
-                                    frameworks and clean code.</p>
-                                <a href="#" class="service-link">View Project <span>↗</span></a>
+                                <div class="service-card-tags">
+                                    <span><i class="fa-solid fa-file-contract"></i> CAC / Corporate</span>
+                                    <span><i class="fa-solid fa-trademark"></i> Trademarking</span>
+                                </div>
+                                <span class="service-card-number">02</span>
+                                <h3>Business Structuring</h3>
+                                <p>We handle the legal and structural groundwork so you launch with confidence.</p>
+                                <ul class="service-card-list">
+                                    <li><i class="fa-solid fa-circle-dot"></i> Business name review &amp; selection</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> CAC / Corporate registration</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Trademarking</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Legal &amp; operational structure setup</li>
+                                </ul>
+                                <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
 
-                            <div class="service-row" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
-                                <div class="service-name">
-                                    <span class="service-number">03</span>
-                                    <h3>Brand Identity</h3>
+                            <div class="service-card" data-aos="fade-up" data-aos-delay="150" data-aos-duration="700">
+                                <div class="service-card-icon">
+                                    <i class="fa-solid fa-palette"></i>
                                 </div>
-                                <p class="service-desc">Developing unique brand languages that resonate with your
-                                    audience and stand out.</p>
-                                <a href="#" class="service-link">View Project <span>↗</span></a>
+                                <div class="service-card-tags">
+                                    <span><i class="fa-solid fa-pen-nib"></i> Visual Identity</span>
+                                    <span><i class="fa-solid fa-swatchbook"></i> Guidelines</span>
+                                </div>
+                                <span class="service-card-number">03</span>
+                                <h3>Brand Identity</h3>
+                                <p>We craft cohesive, memorable identities that command attention and build trust.</p>
+                                <ul class="service-card-list">
+                                    <li><i class="fa-solid fa-circle-dot"></i> Visual identity design</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Brand voice, messaging &amp; positioning</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Usage guidelines</li>
+                                </ul>
+                                <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
+
+                            <div class="service-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                                <div class="service-card-icon">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                                <div class="service-card-tags">
+                                    <span><i class="fa-solid fa-rocket"></i> High Performance</span>
+                                    <span><i class="fa-solid fa-mobile-screen"></i> Mobile-First</span>
+                                </div>
+                                <span class="service-card-number">04</span>
+                                <h3>Website Development</h3>
+                                <p>We design and build high-performance websites that represent your brand and convert visitors into customers.</p>
+                                <ul class="service-card-list">
+                                    <li><i class="fa-solid fa-circle-dot"></i> Custom website design &amp; development</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Responsive, mobile-first experience</li>
+                                </ul>
+                                <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+
+                            <div class="service-card" data-aos="fade-up" data-aos-delay="250" data-aos-duration="700">
+                                <div class="service-card-icon">
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
+                                </div>
+                                <div class="service-card-tags">
+                                    <span><i class="fa-solid fa-apple-whole"></i> iOS &amp; Android</span>
+                                    <span><i class="fa-solid fa-layer-group"></i> Scalable</span>
+                                </div>
+                                <span class="service-card-number">05</span>
+                                <h3>Mobile App Development</h3>
+                                <p>We build scalable mobile applications that bring your business ideas to life.</p>
+                                <ul class="service-card-list">
+                                    <li><i class="fa-solid fa-circle-dot"></i> Android &amp; iOS app development</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> User-friendly interface design</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Performance &amp; scalability optimization</li>
+                                </ul>
+                                <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+
+                            <div class="service-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                                <div class="service-card-icon">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+                                <div class="service-card-tags">
+                                    <span><i class="fa-solid fa-magnifying-glass-chart"></i> SEO</span>
+                                    <span><i class="fa-solid fa-bullhorn"></i> Launch</span>
+                                </div>
+                                <span class="service-card-number">06</span>
+                                <h3>Market Visibility</h3>
+                                <p>We position your brand for discovery, credibility, and momentum from launch.</p>
+                                <ul class="service-card-list">
+                                    <li><i class="fa-solid fa-circle-dot"></i> Social media channel setup &amp; branding</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Online reputation &amp; SEO foundations</li>
+                                    <li><i class="fa-solid fa-circle-dot"></i> Launch strategy &amp; campaign readiness</li>
+                                </ul>
+                                <a href="contact.html" class="service-card-link">Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+
                         </div>
                     </div>
                 </section>
             </div>
         </div>
-
     </section>
 
-    <div class="newsection">
-        <div class="newsectionGlassEffect">
-       
+    <!-- ===== PARTNERS ===== -->
+    <section class="partners-section">
+        <div class="partners-container">
+            <p class="partners-title" data-aos="fade-down" data-aos-duration="800">Trusted by the world's fastest-growing companies:</p>
+            <div class="logo-grid" data-aos="zoom-in" data-aos-duration="1000">
+                <img src="img/Artboard 1.png" alt="SamSab Consult" class="footer-logo">
+                <img src="img/Artboard 4.png" alt="route" class="footer-logo">
+                <img src="img/easy crown.png" alt="Easy Crown Realty" class="footer-logo">
+            </div>
+        </div>
+    </section>
 
-            
 
-            <footer class="edens-footer">
-                <div class="footer-container">
-                    <div class="footer-grid">
-                        <div class="footer-col brand-col">
-                            <img src="edens-logo.png" alt="ComeCode" class="footer-logo">
-                            <p class="brand-bio">
-                                We are a data-driven, customer-centric digital marketing and web design agency
-                                in nigeria, serving clients all over the world.
-                            </p>
-                            <div class="social-icons">
-                                <a href="#" class="icon facebook">f</a>
-                                <a href="#" class="icon twitter">t</a>
-                                <a href="#" class="icon linkedin">in</a>
-                                <a href="#" class="icon instagram">ig</a>
-                                <a href="#" class="icon youtube">y</a>
-                            </div>
-                        </div>
-
-                        <div class="footer-col">
-                            <h4>SERVICES</h4>
-                            <ul class="footer-links">
-                                <li><a href="#">Web development</a></li>
-                                <li><a href="#">Branding</a></li>
-                                <li><a href="#">Apps dev</a></li>
-                                <li><a href="#">Social Media Management</a></li>
-                                <li><a href="#">Get Started</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="footer-col">
-                            <h4>ADDRESS</h4>
-                            <address>
-                                Ugbowo,Benin City<br>
-                                Nigeria.
-                            </address>
-                        </div>
-
-                        <div class="footer-col">
-                            <h4>CONTACT</h4>
-                            <p>For more information contact us on</p>
-                            <p class="contact-highlight">+2348000000000</p>
-                            <p class="contact-email">admin@comecode.come</p>
-                            <p class="contact-email">comecode@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div class="footer-bottom">
-                        <p>© 2026 - ComeCode. Top software company in nigeria. All Rights Reserved.</p>
+    <!-- ===== FOOTER ===== -->
+    <footer class="edens-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <img src="img/comecode-logo-with-name.jpg" alt="ComeCode Logo" class="footer-logo">
+                    <p class="brand-bio">
+                        We are a data-driven, customer-centric digital marketing and web design agency in Nigeria, serving clients all over the world.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61563500577128" target="_blank" class="icon facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/YOUR_HANDLE" target="_blank" class="icon twitter" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/comecodeafrica/posts/" target="_blank" class="icon linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/comecodeafrica/" target="_blank" class="icon instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@COMECODE01" target="_blank" class="icon youtube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
-            </footer>
 
+                <div class="footer-col">
+                    <h4>SERVICES</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">CAC Registration</a></li>
+                        <li><a href="#">Brand Identity</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">App Development</a></li>
+                        <li><a href="#">Website Management</a></li>
+                        <li><a href="contact.html">Get Started</a></li>
+                    </ul>
+                </div>
 
+                <div class="footer-col">
+                    <h4>ADDRESS</h4>
+                    <address>Ugbowo, Benin City<br>Nigeria.</address>
+                </div>
 
+                <div class="footer-col">
+                    <h4>CONTACT</h4>
+                    <p>For more information contact us on</p>
+                    <p class="contact-highlight">+2347070685345</p>
+                    <p class="contact-email">admin@comecode.come</p>
+                    <p class="contact-email">comecode31@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 - ComeCode. Top software company in Nigeria. All Rights Reserved.</p>
+            </div>
         </div>
-    </div>
-    <!-- overlay button at the bottom -->
+    </footer>
+
+
+    <!-- Floating contact buttons -->
     <div>
-
         <div class="email-message-container" id="messageContainer">
+            <a href="mailto:comecode31@gmail.com"><div class="email-messageButton action-btn email" title="Email us"><i class="fa-solid fa-envelope"></i></div></a>
 
-            <!-- Hidden action buttons -->
-            <a href="#">
-                <div class="email-messageButton action-btn email">
-                    <i class="fa-solid fa-envelope"></i>
-                </div>
-            </a>
+            <a href="https://wa.me/2347070685345" target="_blank" rel="noopener noreferrer"><div class="email-messageButton action-btn whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></div></a>
 
-            <a href="#">
-                <div class="email-messageButton action-btn whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </div>
-            </a>
+            <div class="email-messageButton action-btn call" title="Call"><i class="fa-solid fa-phone"></i></div>
 
-            <div class="email-messageButton action-btn call">
-                <i class="fa-solid fa-phone"></i>
-            </div>
-
-            <!-- Main toggle button -->
-            <div class="message-button" id="messageToggle">
-                <i class="fa-solid fa-comment message-icon"></i>
-                <i class="fa-solid fa-xmark close-icon"></i>
-            </div>
-
+            <button class="message-button" id="messageToggle" aria-expanded="false" aria-label="Open contact actions">
+                <i class="fa-solid fa-comment message-icon" aria-hidden="true"></i>
+                <i class="fa-solid fa-xmark close-icon" aria-hidden="true"></i>
+            </button>
         </div>
-
     </div>
-
-
-
-
-
 
     <script src="main.js"></script>
 
-
+    <!-- Page Loader Script -->
+    <script>
+        window.addEventListener('load', function () {
+            const loader = document.getElementById('pageLoader');
+            setTimeout(function () {
+                loader.classList.add('loader-hidden');
+                setTimeout(function () {
+                    loader.style.display = 'none';
+                }, 700);
+            }, 2000);
+        });
+    </script>
 
 </body>
-
 </html>
