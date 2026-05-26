@@ -714,10 +714,12 @@ nav button {
     font-size: 1.1rem;
     max-width: 250px;
     line-height: 1.3;
+    text-align:center;
 }
 
 .logo-grid {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-end;
     gap: 50px;
@@ -1893,8 +1895,8 @@ address,
 
     .partners-container {
         max-width: 100%;
-        margin: 0 auto;
-        padding: 0 13px;
+        margin: 0px 0px;
+        padding: 0 5px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -1902,7 +1904,10 @@ address,
         gap: 40px;
     }
 
-    .logo-grid { align-items: center; justify-content: center; }
+    .logo-grid {padding-left:10px;padding-right: 10px; align-items: center; gap:5px; justify-content: space-evenly; }
+    .logo-grid img{
+        width:83px;
+    }
 }
 
 @media (max-width:900px) and (min-width:769px) {
