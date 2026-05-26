@@ -181,7 +181,7 @@ $events = $data['events'];
                     <p>For more information contact us on</p>
                     <p class="contact-highlight">+2347070685345</p>
                     <p class="contact-email">admin@comecode.come</p>
-                    <p class="contact-email">comecode31@gmail.com</p>
+                    <p class="contact-email">hello@comecodeafrica.com</p>
                 </div>
             </div>
 
