@@ -5,11 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COMECODE</title>
-<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
-<link rel="shortcut icon" href="/favicon/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-<link rel="manifest" href="/favicon/site.webmanifest" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="aos.css">
@@ -32,8 +27,7 @@
                 <!-- Dot that travels the arc -->
                 <circle class="loader-dot" cx="112" cy="60" r="4" fill="#7a00e0"/>
             </svg>
-           
-            <img src="img/comecode-logo.jpg" alt="ComeCode Logo" class="logo" style="max-height: 40px; border-radius: 5px;">
+            <img src="edens-logo.png" alt="ComeCode" class="loader-c-img"/>
         </div>
     </div>
 
@@ -44,15 +38,16 @@
     </script>
 
     <header>
-          <a href="index.html"><img src="img/comecode-logo.jpg" alt="ComeCode Logo" class="logo" style="max-height: 40px; border-radius: 5px;"></a>
+        <a href="index.html">
+            <div class="logo">C</div>
+        </a>
 
         <nav id="navbar">
             <ul class="nav-links">
                 <li><span class="dot"></span><a href="index.html">HOME</a></li>
                 <li><span class="dot"></span><a href="about.html" id="aboutNavLink">ABOUT US</a></li>
                 <li><span class="dot"></span><a href="porfolio.html">WORKS</a></li>
-                 <li><span class="dot"></span><a href="businessTalk.html">BUSINESS TALK</a></li>
-               <!--<li><span class="dot"></span><a href="backend/community.php">COMMUNITY</a></li>-->
+                <li><span class="dot"></span><a href="backend/community.php">COMMUNITY</a></li>
                 <li class="mobile-only"><a href="contact.html"><button class="btn-outline">CONTACT NOW</button></a></li>
             </ul>
         </nav>
@@ -81,11 +76,11 @@
 
                 <!-- Floating welcome pill -->
                 <div class="hero-welcome-pill" data-aos="fade-down" data-aos-duration="800">
-                    
+                    <span class="hero-pill-dot"></span>
                     <i class="fa-solid fa-star" style="color:#7a00e0; font-size:0.7em;"></i>
                     &nbsp;WELCOME TO ComeCode&nbsp;
                     <i class="fa-solid fa-star" style="color:#7a00e0; font-size:0.7em;"></i>
-                   
+                    <span class="hero-pill-dot"></span>
                 </div>
 
                 <!-- Main headline — split lines for drama -->
@@ -134,23 +129,26 @@
 
     <section class="branding-section">
         <div class="BrandContainerGlassEffect">
-    <section class="partners-section">
-        <div class="partners-container">
-            <p class="partners-title" data-aos="fade-down" data-aos-duration="800">Trusted by the world's fastest-growing companies:</p>
-            <div class="logo-grid" data-aos="zoom-in" data-aos-duration="1000">
-                <img src="img/Artboard 1.png" alt="SamSab Consult" class="footer-logo">
-                <img src="img/Artboard 4.png" alt="route" class="footer-logo">
-                <img src="img/easy crown.png" alt="Easy Crown Realty" class="footer-logo">
-            </div>
-        </div>
-    </section>
+            <section class="partners-section">
+                <div class="partners-container">
+                    <p class="partners-title" data-aos="fade-down" data-aos-duration="800">Trusted by the world's fastest-growing companies:</p>
+
+                    <div class="logo-grid" data-aos="zoom-in" data-aos-duration="1000">
+                        <img src="kenna-logo.png" alt="Kenna Partners" class="partner-logo">
+                        <img src="ailes-logo.png" alt="Ailes Group" class="partner-logo">
+                        <img src="channels-logo.png" alt="Channels" class="partner-logo">
+                        <img src="healthtracka-logo.png" alt="Healthtracka" class="partner-logo">
+                        <img src="procept-logo.png" alt="Procept Africa" class="partner-logo">
+                    </div>
+                </div>
+            </section>
             <br><br>
             <div id="about_target"></div>
             <div class="branding-container">
                 <section class="about-section">
                     <div class="about-container">
                         <div class="about-image" data-aos="slide-right" data-aos-duration="1000">
-                            <img src="img/about.png"
+                            <img src="https://i.pinimg.com/736x/27/14/9f/27149f6d52c779c38caf336608ab0c1f.jpg"
                                 alt="ComeCode Team at work">
                         </div>
 
@@ -159,25 +157,36 @@
 
                             <div class="about-description">
                                 <p>
-                                     <strong>ComeCode</strong> Africa is a business development company for aspiring 
-                                    entrepreneurs and early-stage business owners turn ideas into fully branded, 
-                                    visible, and growth-ready businesses using our proven launch system. From brand identity
-                                    to market visibility, we help you launch with clarity and scale with confidence.
+                                    At <strong>ComeCode</strong>, we are more than just a software company; we are a
+                                    dedicated collective of innovators committed to empowering young minds and driving
+                                    business growth through transformative technology.
                                 </p>
                             </div>
 
-                            <button class="btn-primary" onclick="window.location.href='about.html'">LEARN MORE &rarr;</button>
-                             
-  
+                            <button class="btn-primary">LEARN MORE &rarr;</button>
                         </div>
                     </div>
                 </section>
-                 </div>
-        </div>
-    </section><br><br><br><br><br>
-              
 
-               <!-- SERVICES SECTION — Card Style with Icons -->
+                <section class="info-section">
+                    <div class="card mint" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1000">
+                        <h3>OUR VISION</h3>
+                        <p>Our vision is to achieve global relevant in the business technology space.</p>
+                    </div>
+
+                    <div class="card peach" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
+                        <h3>OUR MISSION</h3>
+                        <p>We will achieve our vision by delivering value to our clients all over the world</p>
+                    </div>
+
+                    <div class="card mint" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">
+                        <h3>OUR GOALS</h3>
+                        <p>Our goal is to be one of the top digital agency in Africa within the next 10 years.</p>
+                    </div>
+                </section>
+
+
+                <!-- SERVICES SECTION — Card Style with Icons -->
                 <section class="services-section" id="solutions">
                     <div class="services-container">
                         <div class="services-header" data-aos="fade-up" data-aos-duration="800">
@@ -304,7 +313,11 @@
                         </div>
                     </div>
                 </section>
-           
+            </div>
+        </div>
+    </section>
+
+
     <!-- VIDEO + TESTIMONIALS + CONNECT -->
     <div class="newsection">
         <div class="newsectionGlassEffect">
@@ -332,17 +345,15 @@
                             <div class="quote-icon">""</div>
                             <h3 class="review-title">Exceptional Design And Seamless Experience</h3>
                             <p class="review-body">
-                                First of all, I want to appreciate ComeCode Africa for the great job they did in helping my NGO gain visibility.
-                                At first, I reached out to several website builders, but they didn’t understand what I wanted
-                                to build. With ComeCode Africa, however, they helped bring my dream and vision to life. 
-                                At ComeCode Africa, they don’t just build websites; they brand your ideas, making you 
-                                scalable in the marketplace.Thank you, ComeCode Africa. You represent the face of African youths full of creativity
+                                comecode delivered an exceptional design that exceeded our expectations. The user
+                                interface is sleek, intuitive, and has significantly improved our user
+                                experience. We couldn't be happier with the results!
                             </p>
                             <div class="client-profile">
-                                <div class="avatar blue-glow">ABJ</div>
+                                <div class="avatar blue-glow">III</div>
                                 <div class="client-info">
-                                    <p class="client-name">Abila James</p>
-                                    <p class="client-meta">MD, TPHDI</p>
+                                    <p class="client-name">Sculpted</p>
+                                    <p class="client-meta">Nicholas, Company CEO</p>
                                 </div>
                             </div>
                         </div>
@@ -495,7 +506,7 @@
                         <div class="action-card" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="800">
                             <div class="card-text">
                                 <p class="label">Prefer email?</p>
-                                <p class="info" id="emailText">hello@comecodeafrica.com</p>
+                                <p class="info" id="emailText">comecode31@gmail.com</p>
                             </div>
                             <button class="btn-outline" id="copyBtn">Copy mail</button>
                         </div>
@@ -512,22 +523,32 @@
             </section>
 
 
-           <!-- FOOTER -->
+            <!-- FOOTER -->
             <footer class="edens-footer">
                 <div class="footer-container">
                     <div class="footer-grid">
                         <div class="footer-col brand-col">
-                            <img src="img/comecode-logo-with-name.jpg" alt="ComeCode Logo" class="footer-logo">
+                            <img src="edens-logo.png" alt="ComeCode" class="footer-logo">
                             <p class="brand-bio">
                                 We are a data-driven, customer-centric digital marketing and web design agency
                                 in Nigeria, serving clients all over the world.
                             </p>
                             <div class="social-icons">
-                                <a href="https://www.facebook.com/profile.php?id=61563500577128" target="_blank" class="icon facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="https://twitter.com/YOUR_HANDLE" target="_blank" class="icon twitter" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                                <a href="https://www.linkedin.com/company/comecodeafrica/posts/" target="_blank" class="icon linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                                <a href="https://www.instagram.com/comecodeafrica/" target="_blank" class="icon instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="https://www.youtube.com/@COMECODE01" target="_blank" class="icon youtube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                                <a href="https://facebook.com/YOUR_PAGE" target="_blank" class="icon facebook" aria-label="Facebook">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="https://twitter.com/YOUR_HANDLE" target="_blank" class="icon twitter" aria-label="Twitter / X">
+                                    <i class="fa-brands fa-x-twitter"></i>
+                                </a>
+                                <a href="https://linkedin.com/company/YOUR_COMPANY" target="_blank" class="icon linkedin" aria-label="LinkedIn">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://instagram.com/YOUR_HANDLE" target="_blank" class="icon instagram" aria-label="Instagram">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" class="icon youtube" aria-label="YouTube">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
                             </div>
                         </div>
 
@@ -554,9 +575,9 @@
                         <div class="footer-col">
                             <h4>CONTACT</h4>
                             <p>For more information contact us on</p>
-                            <p class="contact-highlight">+2347070685345</p>
+                            <p class="contact-highlight">+2348000000000</p>
                             <p class="contact-email">admin@comecode.come</p>
-                            <p class="contact-email">hello@comecodeafrica.com</p>
+                            <p class="contact-email">comecode31@gmail.com</p>
                         </div>
                     </div>
 
@@ -568,38 +589,410 @@
 
         </div>
     </div>
+
     <!-- Floating contact buttons -->
     <div>
         <div class="email-message-container" id="messageContainer">
-            <a href="mailto:hello@comecodeafrica.com"><div class="email-messageButton action-btn email" title="Email us"><i class="fa-solid fa-envelope"></i></div></a>
+            <a href="#">
+                <div class="email-messageButton action-btn email">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+            </a>
 
-            <a href="https://wa.me/2347070685345" target="_blank" rel="noopener noreferrer"><div class="email-messageButton action-btn whatsapp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></div></a>
+            <a href="#">
+                <div class="email-messageButton action-btn whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+            </a>
 
-            <div class="email-messageButton action-btn call" title="Call"><i class="fa-solid fa-phone"></i></div>
+            <div class="email-messageButton action-btn call">
+                <i class="fa-solid fa-phone"></i>
+            </div>
 
-            <button class="message-button" id="messageToggle" aria-expanded="false" aria-label="Open contact actions">
-                <i class="fa-solid fa-comment message-icon" aria-hidden="true"></i>
-                <i class="fa-solid fa-xmark close-icon" aria-hidden="true"></i>
-            </button>
+            <div class="message-button" id="messageToggle">
+                <i class="fa-solid fa-comment message-icon"></i>
+                <i class="fa-solid fa-xmark close-icon"></i>
+            </div>
         </div>
     </div>
 
 
+    <!-- ===== BUSINESS TALK POPUP ===== -->
+    <div class="bt-popup-backdrop" id="btPopupBackdrop">
+        <div class="bt-popup" id="btPopup" role="dialog" aria-modal="true" aria-labelledby="btPopupTitle">
+
+            <!-- Close button -->
+            <button class="bt-popup-close" id="btPopupClose" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Top badge -->
+            <div class="bt-popup-badge">
+                <i class="fa-solid fa-microphone-lines"></i>
+                ComeCode Africa Presents
+            </div>
+
+            <!-- Headline -->
+            <h2 class="bt-popup-title" id="btPopupTitle">
+                Business Talk <span class="bt-popup-outline">1.0</span>
+            </h2>
+
+            <!-- Tagline -->
+            <p class="bt-popup-sub">
+                An immersive business experience for entrepreneurs, founders, and aspiring business owners.
+            </p>
+
+            <!-- Details strip -->
+            <div class="bt-popup-details">
+                <div class="bt-popup-detail">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Coming Soon</span>
+                </div>
+                <div class="bt-popup-detail-divider"></div>
+                <div class="bt-popup-detail">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Benin City, Nigeria</span>
+                </div>
+                <div class="bt-popup-detail-divider"></div>
+                <div class="bt-popup-detail">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Free Registration</span>
+                </div>
+            </div>
+
+            <!-- CTAs -->
+            <div class="bt-popup-actions">
+                <a href="business-talk-register.html" class="bt-popup-btn-primary">
+                    Register Now <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <button class="bt-popup-btn-secondary" id="btPopupDismiss">
+                    Maybe Later
+                </button>
+            </div>
+
+            <!-- Decorative rings -->
+            <div class="bt-popup-ring bt-popup-ring-1"></div>
+            <div class="bt-popup-ring bt-popup-ring-2"></div>
+
+        </div>
+    </div>
+
+    <style>
+        /* ===== BUSINESS TALK POPUP ===== */
+        .bt-popup-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 999998;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+            backdrop-filter: blur(6px);
+        }
+
+        .bt-popup-backdrop.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .bt-popup {
+            position: relative;
+            background: #111111;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 24px;
+            padding: clamp(32px, 5vw, 52px) clamp(28px, 5vw, 48px);
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+            transform: scale(0.92) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+
+        .bt-popup-backdrop.open .bt-popup {
+            transform: scale(1) translateY(0);
+        }
+
+        /* Decorative rings */
+        .bt-popup-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(122, 0, 224, 0.12);
+            pointer-events: none;
+        }
+
+        .bt-popup-ring-1 {
+            width: 340px;
+            height: 340px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .bt-popup-ring-2 {
+            width: 520px;
+            height: 520px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Glow behind the popup */
+        .bt-popup::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(122, 0, 224, 0.22) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(20px);
+        }
+
+        /* Close button */
+        .bt-popup-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: transparent;
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease, color 0.2s ease;
+            z-index: 2;
+        }
+
+        .bt-popup-close:hover {
+            background: rgba(255, 255, 255, 0.07);
+            color: #fff;
+        }
+
+        /* Badge */
+        .bt-popup-badge {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 7px 16px;
+            border-radius: 99px;
+            margin-bottom: 22px;
+        }
+
+        .bt-popup-badge i {
+            color: #7a00e0;
+            font-size: 0.75rem;
+        }
+
+        /* Title */
+        .bt-popup-title {
+            position: relative;
+            z-index: 1;
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.2rem, 7vw, 3.4rem);
+            font-weight: 800;
+            line-height: 1.0;
+            letter-spacing: -2px;
+            color: #ffffff;
+            margin-bottom: 14px;
+        }
+
+        .bt-popup-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Sub text */
+        .bt-popup-sub {
+            position: relative;
+            z-index: 1;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.7;
+            max-width: 380px;
+            margin: 0 auto 28px;
+        }
+
+        /* Details strip */
+        .bt-popup-details {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            padding: 14px 20px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .bt-popup-detail {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 4px 10px;
+        }
+
+        .bt-popup-detail i {
+            color: #7a00e0;
+            font-size: 0.8rem;
+        }
+
+        .bt-popup-detail-divider {
+            width: 1px;
+            height: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        /* Action buttons */
+        .bt-popup-actions {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .bt-popup-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #7a00e0;
+            color: #fff;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            padding: 15px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            width: 100%;
+            justify-content: center;
+            transition: filter 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 8px 28px rgba(122, 0, 224, 0.4);
+            letter-spacing: 0.3px;
+        }
+
+        .bt-popup-btn-primary i {
+            transition: transform 0.25s ease;
+        }
+
+        .bt-popup-btn-primary:hover {
+            filter: brightness(1.15);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 36px rgba(122, 0, 224, 0.5);
+        }
+
+        .bt-popup-btn-primary:hover i {
+            transform: translateX(4px);
+        }
+
+        .bt-popup-btn-secondary {
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.35);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .bt-popup-btn-secondary:hover {
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .bt-popup-detail-divider { display: none; }
+            .bt-popup-detail { padding: 4px 6px; font-size: 0.75rem; }
+            .bt-popup-details { gap: 2px; }
+        }
+    </style>
+
     <script src="main.js"></script>
 
-    <!-- Page Loader Script -->
     <script>
+        /* ---- PAGE LOADER ---- */
         window.addEventListener('load', function () {
             const loader = document.getElementById('pageLoader');
             setTimeout(function () {
                 loader.classList.add('loader-hidden');
-                setTimeout(function () {
-                    loader.style.display = 'none';
-                }, 700);
+                setTimeout(function () { loader.style.display = 'none'; }, 700);
             }, 2000);
         });
+
+        /* ---- BUSINESS TALK POPUP ---- */
+        (function () {
+            const backdrop   = document.getElementById('btPopupBackdrop');
+            const closeBtn   = document.getElementById('btPopupClose');
+            const dismissBtn = document.getElementById('btPopupDismiss');
+
+            // Only show if user hasn't dismissed it this session
+            const DISMISSED_KEY = 'bt_popup_dismissed';
+
+            function openPopup() {
+                backdrop.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closePopup() {
+                backdrop.classList.remove('open');
+                document.body.style.overflow = '';
+                sessionStorage.setItem(DISMISSED_KEY, '1');
+            }
+
+            // Show after 1.8s (after loader finishes) if not dismissed
+            if (!sessionStorage.getItem(DISMISSED_KEY)) {
+                setTimeout(openPopup, 2400);
+            }
+
+            closeBtn.addEventListener('click', closePopup);
+            dismissBtn.addEventListener('click', closePopup);
+
+            // Click backdrop to close
+            backdrop.addEventListener('click', function (e) {
+                if (e.target === backdrop) closePopup();
+            });
+
+            // Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && backdrop.classList.contains('open')) closePopup();
+            });
+        })();
     </script>
 
 </body>
-
 </html>
