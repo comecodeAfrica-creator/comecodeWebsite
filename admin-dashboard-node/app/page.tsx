@@ -1,6 +1,9 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { createBrowserClient } from '@/lib/supabase-browser';
+import type { Session } from '@supabase/supabase-js';
 
 const defaultStats = {
   gallery: 0,
@@ -73,6 +76,10 @@ export default function Home() {
   const [contacts, setContacts] = useState<ContactSubmission[]>([]);
   const [about, setAbout] = useState<AboutContent>(defaultAbout);
   const [settings, setSettings] = useState<SettingsContent>(defaultSettings);
+  const [session, setSession] = useState<Session | null>(null);
+  const [authLoading, setAuthLoading] = useState(true);
+  const [supabaseClient] = useState(() => createBrowserClient());
+  const router = useRouter();
 
   const [galleryForm, setGalleryForm] = useState({ caption: '', image_url: '' });
   const [eventForm, setEventForm] = useState({ title: '', date: '', description: '', image_url: '' });
@@ -113,8 +120,29 @@ export default function Home() {
   };
 
   useEffect(() => {
-    void refreshAll();
-  }, []);
+    const loadSession = async () => {
+      const { data } = await supabaseClient.auth.getSession();
+      setSession(data.session);
+      setAuthLoading(false);
+    };
+
+    loadSession();
+    const { data: listener } = supabaseClient.auth.onAuthStateChange((_event, authSession) => {
+      setSession(authSession);
+    });
+
+    return () => listener.subscription.unsubscribe();
+  }, [supabaseClient]);
+
+  useEffect(() => {
+    if (!authLoading) {
+      if (!session) {
+        router.replace('/login');
+      } else {
+        void refreshAll();
+      }
+    }
+  }, [authLoading, session, router]);
 
   const contactCountLabel = useMemo(() => `${contacts.length} total`, [contacts.length]);
 
@@ -255,8 +283,34 @@ export default function Home() {
     showMessage('success', 'Settings updated.');
   };
 
+  const handleSignOut = async () => {
+    const { error } = await supabaseClient.auth.signOut();
+    if (error) {
+      showMessage('error', error.message || 'Unable to sign out.');
+      return;
+    }
+    setSession(null);
+    router.replace('/login');
+  };
+
+  if (authLoading) {
+    return (
+      <main className="app-shell">
+        <p className="subtle">Checking admin session…</p>
+      </main>
+    );
+  }
+
+  if (!session) {
+    return (
+      <main className="app-shell">
+        <p className="subtle">Redirecting to admin login…</p>
+      </main>
+    );
+  }
+
   return (
-    <main className="app-shell">
+      <main className="app-shell">
       <div className="topbar">
         <div className="brand">
           <div className="brand-mark">C</div>
@@ -276,6 +330,12 @@ export default function Home() {
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
+        </div>
+
+        <div>
+          <button className="secondary-btn" onClick={handleSignOut}>
+            Sign out
+          </button>
         </div>
       </div>
 
