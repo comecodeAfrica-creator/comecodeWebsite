@@ -34,9 +34,18 @@ const defaultSettings = {
   },
 };
 
-const tabs = ['dashboard', 'community', 'contacts', 'about', 'settings'] as const;
+const tabs = ['dashboard', 'community', 'contacts', 'about', 'business-talk', 'settings'] as const;
 
 type Tab = (typeof tabs)[number];
+
+type BusinessTalkRegistration = {
+  id?: string;
+  name: string;
+  email: string;
+  phone?: string;
+  company?: string;
+  [key: string]: any;
+};
 
 type GalleryItem = { id: number; image_url: string; caption: string; created_at?: string };
 type EventItem = { id: number; title: string; date: string; description: string; image_url: string; created_at?: string };
@@ -76,6 +85,8 @@ export default function Home() {
   const [contacts, setContacts] = useState<ContactSubmission[]>([]);
   const [about, setAbout] = useState<AboutContent>(defaultAbout);
   const [settings, setSettings] = useState<SettingsContent>(defaultSettings);
+  const [businessTalkRegistrations, setBusinessTalkRegistrations] = useState<BusinessTalkRegistration[]>([]);
+  const [businessTalkLoading, setBusinessTalkLoading] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
   const [authLoading, setAuthLoading] = useState(true);
   const [supabaseClient] = useState(() => createBrowserClient());
@@ -119,6 +130,36 @@ export default function Home() {
     }
   };
 
+  const fetchBusinessTalkRegistrations = async () => {
+    setBusinessTalkLoading(true);
+    try {
+      const response = await fetch('https://businesstalkexpress.onrender.com/registrations', {
+        method: 'GET',
+        headers: {
+          'x-api-key': '9f$Kx2#mQ7vLpR4@nWjT8&dYeUhC3bZs'
+        }
+      });
+
+      if (!response.ok) {
+        showMessage('error', 'Unable to fetch business talk registrations.');
+        return;
+      }
+
+      const data = await response.json();
+      setBusinessTalkRegistrations(data.registrations ?? []);
+    } catch (error) {
+      showMessage('error', 'Failed to fetch business talk data.');
+    } finally {
+      setBusinessTalkLoading(false);
+    }
+  };
+
+
+  useEffect(() => {
+    if (activeTab === 'business-talk') {
+      void fetchBusinessTalkRegistrations();
+    }
+  }, [activeTab]);
   useEffect(() => {
     const loadSession = async () => {
       const { data } = await supabaseClient.auth.getSession();
@@ -553,7 +594,61 @@ export default function Home() {
                   </div>
                 </div>
               ))
+            )}business-talk' ? (
+        <section className="content-grid">
+          <div className="panel" style={{ gridColumn: '1 / -1' }}>
+            <SectionHeader title="Business Talk Registrations" subtitle="View all attendees and registrations for upcoming business talk sessions." />
+            <div className="actions-row">
+              <button className="primary-btn" onClick={() => fetchBusinessTalkRegistrations()}>Refresh registrations</button>
+            </div>
+
+            {businessTalkLoading ? (
+              <div className="empty-state">Loading registrations...</div>
+            ) : businessTalkRegistrations.length === 0 ? (
+              <div className="empty-state">No registrations found.</div>
+            ) : (
+              <div style={{ overflowX: 'auto' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
+                  <thead>
+                    <tr style={{ borderBottom: '2px solid #e5e7eb' }}>
+                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Name</th>
+                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Email</th>
+                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Phone</th>
+                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Company</th>
+                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {businessTalkRegistrations.map((reg, idx) => (
+                      <tr key={idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                        <td style={{ padding: '0.75rem' }}>{reg.name || '—'}</td>
+                        <td style={{ padding: '0.75rem' }}>{reg.email || '—'}</td>
+                        <td style={{ padding: '0.75rem' }}>{reg.phone || '—'}</td>
+                        <td style={{ padding: '0.75rem' }}>{reg.company || '—'}</td>
+                        <td style={{ padding: '0.75rem', fontSize: '0.875rem', color: '#6b7280' }}>
+                          {Object.entries(reg)
+                            .filter(([key]) => !['name', 'email', 'phone', 'company', 'id'].includes(key))
+                            .map(([key, value]) => (
+                              <div key={key}>
+                                <strong>{key}:</strong> {String(value)}
+                              </div>
+                            ))}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             )}
+
+            <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '0.5rem' }}>
+              <p className="subtle"><strong>Total registrations:</strong> {businessTalkRegistrations.length}</p>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {activeTab === '
           </div>
         </section>
       ) : null}
