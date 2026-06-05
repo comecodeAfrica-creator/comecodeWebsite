@@ -17,7 +17,7 @@ export default function LoginPage() {
     void (async () => {
       const { data } = await supabase.auth.getSession();
       if (data.session) {
-        router.replace('/');
+        router.replace('/admin');
       }
     })();
   }, [router, supabase]);
@@ -38,7 +38,7 @@ export default function LoginPage() {
       return;
     }
 
-    router.replace('/');
+    router.replace('/admin');
   };
 
   return (
