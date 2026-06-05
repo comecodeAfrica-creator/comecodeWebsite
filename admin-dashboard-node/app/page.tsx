@@ -593,8 +593,13 @@ export default function Home() {
                     <button className="ghost-btn" onClick={() => handleDeleteContact(item.id)}>Delete</button>
                   </div>
                 </div>
-              ))
-            )}business-talk' ? (
+              ))}
+            )}
+          </div>
+        </section>
+      ) : null}
+
+      {activeTab === 'business-talk' ? (
         <section className="content-grid">
           <div className="panel" style={{ gridColumn: '1 / -1' }}>
             <SectionHeader title="Business Talk Registrations" subtitle="View all attendees and registrations for upcoming business talk sessions." />
@@ -644,11 +649,6 @@ export default function Home() {
             <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '0.5rem' }}>
               <p className="subtle"><strong>Total registrations:</strong> {businessTalkRegistrations.length}</p>
             </div>
-          </div>
-        </section>
-      ) : null}
-
-      {activeTab === '
           </div>
         </section>
       ) : null}
