@@ -6,15 +6,23 @@
       "use": "@vercel/next"
     },
     {
-      "src": "/*.html",
+      "src": "*.html",
       "use": "@vercel/static"
     },
     {
-      "src": "css/**",
+      "src": "*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.js",
       "use": "@vercel/static"
     },
     {
       "src": "img/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "favicon/**",
       "use": "@vercel/static"
     }
   ],
