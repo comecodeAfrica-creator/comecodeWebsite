@@ -4,6 +4,24 @@
     {
       "src": "admin-dashboard-node/package.json",
       "use": "@vercel/next"
+    },
+    {
+      "src": "/*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "css/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "img/**",
+      "use": "@vercel/static"
     }
+  ],
+  "routes": [
+    { "src": "^/login(?:/.*)?$", "dest": "/admin-dashboard-node/login" },
+    { "src": "^/api/(.*)$", "dest": "/admin-dashboard-node/api/$1" },
+    { "src": "^/_next/(.*)$", "dest": "/admin-dashboard-node/_next/$1" },
+    { "src": "^/(.*)$", "dest": "/$1" }
   ]
 }
