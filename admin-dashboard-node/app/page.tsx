@@ -136,8 +136,8 @@ export default function Home() {
       const response = await fetch('https://businesstalkexpress.onrender.com/registrations', {
         method: 'GET',
         headers: {
-          'x-api-key': '9f$Kx2#mQ7vLpR4@nWjT8&dYeUhC3bZs'
-        }
+          'x-api-key': '9f$Kx2#mQ7vLpR4@nWjT8&dYeUhC3bZs',
+        },
       });
 
       if (!response.ok) {
@@ -154,12 +154,12 @@ export default function Home() {
     }
   };
 
-
   useEffect(() => {
     if (activeTab === 'business-talk') {
       void fetchBusinessTalkRegistrations();
     }
   }, [activeTab]);
+
   useEffect(() => {
     const loadSession = async () => {
       const { data } = await supabaseClient.auth.getSession();
@@ -351,7 +351,7 @@ export default function Home() {
   }
 
   return (
-      <main className="app-shell">
+    <main className="app-shell">
       <div className="topbar">
         <div className="brand">
           <div className="brand-mark">C</div>
@@ -593,7 +593,7 @@ export default function Home() {
                     <button className="ghost-btn" onClick={() => handleDeleteContact(item.id)}>Delete</button>
                   </div>
                 </div>
-              ))}
+              ))
             )}
           </div>
         </section>
@@ -625,7 +625,7 @@ export default function Home() {
                   </thead>
                   <tbody>
                     {businessTalkRegistrations.map((reg, idx) => (
-                      <tr key={idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                      <tr key={reg.id ?? idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
                         <td style={{ padding: '0.75rem' }}>{reg.name || '—'}</td>
                         <td style={{ padding: '0.75rem' }}>{reg.email || '—'}</td>
                         <td style={{ padding: '0.75rem' }}>{reg.phone || '—'}</td>
