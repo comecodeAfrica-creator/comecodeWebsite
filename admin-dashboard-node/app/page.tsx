@@ -131,28 +131,23 @@ export default function Home() {
   };
 
   const fetchBusinessTalkRegistrations = async () => {
-    setBusinessTalkLoading(true);
-    try {
-      const response = await fetch('https://businesstalkexpress.onrender.com/registrations', {
-        method: 'GET',
-        headers: {
-          'x-api-key': '9f$Kx2#mQ7vLpR4@nWjT8&dYeUhC3bZs',
-        },
-      });
-
-      if (!response.ok) {
-        showMessage('error', 'Unable to fetch business talk registrations.');
-        return;
-      }
-
-      const data = await response.json();
-      setBusinessTalkRegistrations(data.registrations ?? []);
-    } catch (error) {
-      showMessage('error', 'Failed to fetch business talk data.');
-    } finally {
-      setBusinessTalkLoading(false);
+  setBusinessTalkLoading(true);
+  try {
+    const response = await fetch('/api/business-talk'); // ← changed, no headers needed
+    
+    if (!response.ok) {
+      showMessage('error', 'Unable to fetch business talk registrations.');
+      return;
     }
-  };
+
+    const data = await response.json();
+    setBusinessTalkRegistrations(data.registrations ?? []);
+  } catch (error) {
+    showMessage('error', 'Failed to fetch business talk data.');
+  } finally {
+    setBusinessTalkLoading(false);
+  }
+};
 
   useEffect(() => {
     if (activeTab === 'business-talk') {
