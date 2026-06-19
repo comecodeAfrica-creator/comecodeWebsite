@@ -596,36 +596,50 @@ export default function Home() {
 
       {activeTab === 'business-talk' ? (
         <section className="content-grid">
-          <div className="panel" style={{ gridColumn: '1 / -1' }}>
+          <div
+            className="panel"
+            style={{
+              gridColumn: '1 / -1',
+              backgroundColor: '#ffffff',
+              color: '#000000',
+              border: '1px solid #000000',
+            }}
+          >
             <SectionHeader title="Business Talk Registrations" subtitle="View all attendees and registrations for upcoming business talk sessions." />
             <div className="actions-row">
-              <button className="primary-btn" onClick={() => fetchBusinessTalkRegistrations()}>Refresh registrations</button>
+              <button
+                className="primary-btn"
+                onClick={() => fetchBusinessTalkRegistrations()}
+                style={{ backgroundColor: '#000000', color: '#ffffff', border: '1px solid #000000' }}
+              >
+                Refresh registrations
+              </button>
             </div>
 
             {businessTalkLoading ? (
-              <div className="empty-state">Loading registrations...</div>
+              <div className="empty-state" style={{ backgroundColor: '#ffffff', color: '#000000', border: '1px solid #000000' }}>Loading registrations...</div>
             ) : businessTalkRegistrations.length === 0 ? (
-              <div className="empty-state">No registrations found.</div>
+              <div className="empty-state" style={{ backgroundColor: '#ffffff', color: '#000000', border: '1px solid #000000' }}>No registrations found.</div>
             ) : (
               <div style={{ overflowX: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
                   <thead>
-                    <tr style={{ borderBottom: '2px solid #e5e7eb' }}>
-                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Name</th>
-                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Email</th>
-                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Phone</th>
-                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Company</th>
-                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Details</th>
+                    <tr style={{ borderBottom: '2px solid #000000' }}>
+                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600', color: '#000000' }}>Name</th>
+                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600', color: '#000000' }}>Email</th>
+                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600', color: '#000000' }}>Phone</th>
+                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600', color: '#000000' }}>Company</th>
+                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600', color: '#000000' }}>Details</th>
                     </tr>
                   </thead>
                   <tbody>
                     {businessTalkRegistrations.map((reg, idx) => (
-                      <tr key={reg.id ?? idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
-                        <td style={{ padding: '0.75rem' }}>{reg.name || '—'}</td>
-                        <td style={{ padding: '0.75rem' }}>{reg.email || '—'}</td>
-                        <td style={{ padding: '0.75rem' }}>{reg.phone || '—'}</td>
-                        <td style={{ padding: '0.75rem' }}>{reg.company || '—'}</td>
-                        <td style={{ padding: '0.75rem', fontSize: '0.875rem', color: '#6b7280' }}>
+                      <tr key={reg.id ?? idx} style={{ borderBottom: '1px solid #000000' }}>
+                        <td style={{ padding: '0.75rem', color: '#000000' }}>{reg.name || '—'}</td>
+                        <td style={{ padding: '0.75rem', color: '#000000' }}>{reg.email || '—'}</td>
+                        <td style={{ padding: '0.75rem', color: '#000000' }}>{reg.phone || '—'}</td>
+                        <td style={{ padding: '0.75rem', color: '#000000' }}>{reg.company || '—'}</td>
+                        <td style={{ padding: '0.75rem', fontSize: '0.875rem', color: '#000000' }}>
                           {Object.entries(reg)
                             .filter(([key]) => !['name', 'email', 'phone', 'company', 'id'].includes(key))
                             .map(([key, value]) => (
@@ -641,8 +655,8 @@ export default function Home() {
               </div>
             )}
 
-            <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '0.5rem' }}>
-              <p className="subtle"><strong>Total registrations:</strong> {businessTalkRegistrations.length}</p>
+            <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: '#ffffff', borderRadius: '0.5rem', border: '1px solid #000000' }}>
+              <p className="subtle" style={{ color: '#000000' }}><strong>Total registrations:</strong> {businessTalkRegistrations.length}</p>
             </div>
           </div>
         </section>
