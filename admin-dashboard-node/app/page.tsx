@@ -38,6 +38,24 @@ const tabs = ['dashboard', 'community', 'contacts', 'about', 'business-talk', 's
 
 type Tab = (typeof tabs)[number];
 
+const tabLabels: Record<Tab, string> = {
+  dashboard: 'Dashboard',
+  community: 'Community',
+  contacts: 'Contacts',
+  about: 'About',
+  'business-talk': 'Business Talk',
+  settings: 'Settings',
+};
+
+const tabKickers: Record<Tab, string> = {
+  dashboard: 'Overview',
+  community: 'Gallery & Events',
+  contacts: 'Inbox',
+  about: 'Page Editor',
+  'business-talk': 'Registrations',
+  settings: 'Configuration',
+};
+
 type BusinessTalkRegistration = {
   id?: string;
   name: string;
@@ -133,12 +151,7 @@ export default function Home() {
   const fetchBusinessTalkRegistrations = async () => {
     setBusinessTalkLoading(true);
     try {
-      const response = await fetch('https://businesstalkexpress.onrender.com/registrations', {
-        method: 'GET',
-        headers: {
-          'x-api-key': '9f$Kx2#mQ7vLpR4@nWjT8&dYeUhC3bZs',
-        },
-      });
+      const response = await fetch('/api/business-talk');
 
       if (!response.ok) {
         showMessage('error', 'Unable to fetch business talk registrations.');
@@ -337,7 +350,7 @@ export default function Home() {
   if (authLoading) {
     return (
       <main className="app-shell">
-        <p className="subtle">Checking admin session…</p>
+        <p className="subtle" style={{ padding: 32 }}>Checking admin session…</p>
       </main>
     );
   }
@@ -345,374 +358,380 @@ export default function Home() {
   if (!session) {
     return (
       <main className="app-shell">
-        <p className="subtle">Redirecting to admin login…</p>
+        <p className="subtle" style={{ padding: 32 }}>Redirecting to admin login…</p>
       </main>
     );
   }
 
   return (
     <main className="app-shell">
-      <div className="topbar">
+      <aside className="topbar">
         <div className="brand">
           <div className="brand-mark">C</div>
           <div>
-            <h1>ComeCode Admin Dashboard</h1>
-            <p>Supabase-backed operations for Vercel deployment.</p>
+            <h1>ComeCode Admin</h1>
+            <p>Supabase &middot; Vercel</p>
           </div>
         </div>
 
-        <div className="nav-tabs">
-          {tabs.map((tab) => (
+        <nav className="nav-tabs">
+          {tabs.map((tab, i) => (
             <button
               key={tab}
               className={`tab-button ${activeTab === tab ? 'active' : ''}`}
               onClick={() => setActiveTab(tab)}
             >
-              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              <span className="tab-index">{String(i + 1).padStart(2, '0')}</span>
+              {tabLabels[tab]}
             </button>
           ))}
-        </div>
+        </nav>
 
-        <div>
+        <div className="sidebar-foot">
           <button className="secondary-btn" onClick={handleSignOut}>
             Sign out
           </button>
         </div>
-      </div>
+      </aside>
 
-      {message ? <div className={`alert ${message.type}`}>{message.text}</div> : null}
+      <div className="main-col">
+        {message ? <div className={`alert ${message.type}`}>{message.text}</div> : null}
 
-      {activeTab === 'dashboard' ? (
-        <section>
-          <div className="dashboard-grid">
-            <div className="stat-card">
-              <p className="stat-title">Gallery</p>
-              <p className="stat-value">{stats.gallery}</p>
-              <p className="stat-trend">Curated visuals for the community page.</p>
-            </div>
-            <div className="stat-card">
-              <p className="stat-title">Events</p>
-              <p className="stat-value">{stats.events}</p>
-              <p className="stat-trend">Latest upcoming activations and campaign moments.</p>
-            </div>
-            <div className="stat-card">
-              <p className="stat-title">Contacts</p>
-              <p className="stat-value">{stats.contacts}</p>
-              <p className="stat-trend">{contactCountLabel} saved in Supabase.</p>
-            </div>
-            <div className="stat-card">
-              <p className="stat-title">New leads</p>
-              <p className="stat-value">{stats.newContacts}</p>
-              <p className="stat-trend">Ready for immediate follow-up.</p>
-            </div>
-          </div>
+        <p className="page-kicker">{tabKickers[activeTab]}</p>
+        <h2 className="page-title">{tabLabels[activeTab]}</h2>
 
-          <div className="content-grid">
-            <div className="panel">
-              <SectionHeader title="Recent Gallery" subtitle="Latest visuals are instantly available in the community section." />
-              {gallery.length === 0 ? (
-                <div className="empty-state">No gallery items yet. Add a new image in the Community tab.</div>
-              ) : (
-                <div className="preview-grid">
-                  {gallery.slice(0, 3).map((item) => (
-                    <div key={item.id} className="item-card">
-                      <div className="item-title">{item.caption || 'Untitled gallery item'}</div>
-                      <div className="item-copy">{item.image_url}</div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div className="panel">
-              <SectionHeader title="Latest contacts" subtitle="A quick snapshot of inbound interest and status." />
-              {contacts.length === 0 ? (
-                <div className="empty-state">No inquiries yet. Add a lead manually or wait for form submissions.</div>
-              ) : (
-                <div className="preview-grid">
-                  {contacts.slice(0, 3).map((item) => (
-                    <div key={item.id} className="item-card">
-                      <div className="item-title">{item.name}</div>
-                      <div className="item-copy">{item.email}</div>
-                      <div className="chip-row">
-                        <span className="chip">{item.status}</span>
-                        {item.service ? <span className="chip">{item.service}</span> : null}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      {activeTab === 'community' ? (
-        <section className="content-grid">
-          <div className="panel">
-            <SectionHeader title="Add gallery image" subtitle="Feed the site with marketing-ready visuals and captions." />
-            <div className="form-grid">
-              <div className="field">
-                <label>Image URL</label>
-                <input
-                  value={galleryForm.image_url}
-                  onChange={(event) => setGalleryForm((current) => ({ ...current, image_url: event.target.value }))}
-                  placeholder="https://example.com/gallery-image.jpg"
-                />
+        {activeTab === 'dashboard' ? (
+          <section>
+            <div className="dashboard-grid">
+              <div className="stat-card">
+                <p className="stat-title">Gallery</p>
+                <p className="stat-value">{stats.gallery}</p>
+                <p className="stat-trend">Curated visuals for the community page.</p>
               </div>
-              <div className="field">
-                <label>Caption</label>
-                <input
-                  value={galleryForm.caption}
-                  onChange={(event) => setGalleryForm((current) => ({ ...current, caption: event.target.value }))}
-                  placeholder="Short caption for the gallery"
-                />
+              <div className="stat-card">
+                <p className="stat-title">Events</p>
+                <p className="stat-value">{stats.events}</p>
+                <p className="stat-trend">Latest upcoming activations and campaign moments.</p>
               </div>
-              <button className="primary-btn" onClick={handleCreateGallery}>Save gallery image</button>
+              <div className="stat-card">
+                <p className="stat-title">Contacts</p>
+                <p className="stat-value">{stats.contacts}</p>
+                <p className="stat-trend">{contactCountLabel} saved in Supabase.</p>
+              </div>
+              <div className="stat-card">
+                <p className="stat-title">New leads</p>
+                <p className="stat-value">{stats.newContacts}</p>
+                <p className="stat-trend">Ready for immediate follow-up.</p>
+              </div>
             </div>
-          </div>
-
-          <div className="panel">
-            <SectionHeader title="Add event" subtitle="Publish events with a linkable image and rich details." />
-            <div className="form-grid">
-              <div className="field">
-                <label>Title</label>
-                <input
-                  value={eventForm.title}
-                  onChange={(event) => setEventForm((current) => ({ ...current, title: event.target.value }))}
-                  placeholder="Design Sprint Session"
-                />
-              </div>
-              <div className="field">
-                <label>Date</label>
-                <input
-                  type="date"
-                  value={eventForm.date}
-                  onChange={(event) => setEventForm((current) => ({ ...current, date: event.target.value }))}
-                />
-              </div>
-              <div className="field">
-                <label>Description</label>
-                <textarea
-                  value={eventForm.description}
-                  onChange={(event) => setEventForm((current) => ({ ...current, description: event.target.value }))}
-                  placeholder="Write a clear event description"
-                />
-              </div>
-              <div className="field">
-                <label>Image URL</label>
-                <input
-                  value={eventForm.image_url}
-                  onChange={(event) => setEventForm((current) => ({ ...current, image_url: event.target.value }))}
-                  placeholder="https://example.com/event-image.jpg"
-                />
-              </div>
-              <button className="primary-btn" onClick={handleCreateEvent}>Save event</button>
-            </div>
-          </div>
-
-          <div className="panel" style={{ gridColumn: '1 / -1' }}>
-            <SectionHeader title="Manage community content" subtitle="Delete items instantly if a campaign or image needs to be removed." />
 
             <div className="content-grid">
-              <div>
-                <h3>Gallery</h3>
+              <div className="panel">
+                <SectionHeader title="Recent Gallery" subtitle="Latest visuals are instantly available in the community section." />
                 {gallery.length === 0 ? (
-                  <div className="empty-state">No gallery items yet.</div>
+                  <div className="empty-state">No gallery items yet. Add a new image in the Community tab.</div>
                 ) : (
-                  gallery.map((item) => (
-                    <div key={item.id} className="item-card">
-                      <div className="item-title">{item.caption || 'Untitled'}</div>
-                      <div className="item-copy">{item.image_url}</div>
-                      <div className="actions-row">
-                        <button className="ghost-btn" onClick={() => handleDeleteCommunity('gallery', item.id)}>Delete</button>
+                  <div className="preview-grid">
+                    {gallery.slice(0, 3).map((item) => (
+                      <div key={item.id} className="item-card">
+                        <div className="item-title">{item.caption || 'Untitled gallery item'}</div>
+                        <div className="item-copy">{item.image_url}</div>
                       </div>
-                    </div>
-                  ))
-                )}
-              </div>
-              <div>
-                <h3>Events</h3>
-                {events.length === 0 ? (
-                  <div className="empty-state">No events yet.</div>
-                ) : (
-                  events.map((item) => (
-                    <div key={item.id} className="item-card">
-                      <div className="item-title">{item.title}</div>
-                      <div className="item-copy">{item.date}</div>
-                      <div className="item-copy">{item.description}</div>
-                      <div className="actions-row">
-                        <button className="ghost-btn" onClick={() => handleDeleteCommunity('events', item.id)}>Delete</button>
-                      </div>
-                    </div>
-                  ))
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      {activeTab === 'contacts' ? (
-        <section className="content-grid">
-          <div className="panel">
-            <SectionHeader title="Add contact manually" subtitle="Capture leads even when you want to log them directly." />
-            <div className="form-grid">
-              <div className="field"><label>Name</label><input value={contactForm.name} onChange={(event) => setContactForm((current) => ({ ...current, name: event.target.value }))} /></div>
-              <div className="field"><label>Email</label><input type="email" value={contactForm.email} onChange={(event) => setContactForm((current) => ({ ...current, email: event.target.value }))} /></div>
-              <div className="field"><label>Company</label><input value={contactForm.company} onChange={(event) => setContactForm((current) => ({ ...current, company: event.target.value }))} /></div>
-              <div className="field"><label>Service</label><input value={contactForm.service} onChange={(event) => setContactForm((current) => ({ ...current, service: event.target.value }))} /></div>
-              <div className="field"><label>Message</label><textarea value={contactForm.message} onChange={(event) => setContactForm((current) => ({ ...current, message: event.target.value }))} /></div>
-              <button className="primary-btn" onClick={handleAddContact}>Create lead</button>
-            </div>
-          </div>
-
-          <div className="panel">
-            <SectionHeader title="Inbox" subtitle="Track status and keep follow-up queues clean." />
-            {contacts.length === 0 ? (
-              <div className="empty-state">No contact submissions yet.</div>
-            ) : (
-              contacts.map((item) => (
-                <div key={item.id} className="item-card">
-                  <div className="item-title">{item.name}</div>
-                  <div className="item-copy">{item.email}</div>
-                  <div className="item-copy">{item.message}</div>
-                  <div className="chip-row">
-                    <span className="chip">{item.status}</span>
-                    {item.service ? <span className="chip">{item.service}</span> : null}
-                  </div>
-                  <div className="actions-row">
-                    <select
-                      value={item.status}
-                      onChange={(event) => handleStatusChange(item.id, event.target.value as ContactSubmission['status'])}
-                    >
-                      <option value="new">New</option>
-                      <option value="replied">Replied</option>
-                      <option value="archived">Archived</option>
-                    </select>
-                    <button className="ghost-btn" onClick={() => handleDeleteContact(item.id)}>Delete</button>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
-        </section>
-      ) : null}
-
-      {activeTab === 'business-talk' ? (
-        <section className="content-grid">
-          <div className="panel" style={{ gridColumn: '1 / -1' }}>
-            <SectionHeader title="Business Talk Registrations" subtitle="View all attendees and registrations for upcoming business talk sessions." />
-            <div className="actions-row">
-              <button className="primary-btn" onClick={() => fetchBusinessTalkRegistrations()}>Refresh registrations</button>
-            </div>
-
-            {businessTalkLoading ? (
-              <div className="empty-state">Loading registrations...</div>
-            ) : businessTalkRegistrations.length === 0 ? (
-              <div className="empty-state">No registrations found.</div>
-            ) : (
-              <div style={{ overflowX: 'auto' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
-                  <thead>
-                    <tr style={{ borderBottom: '2px solid #e5e7eb' }}>
-                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Name</th>
-                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Email</th>
-                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Phone</th>
-                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Company</th>
-                      <th style={{ textAlign: 'left', padding: '0.75rem', fontWeight: '600' }}>Details</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {businessTalkRegistrations.map((reg, idx) => (
-                      <tr key={reg.id ?? idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
-                        <td style={{ padding: '0.75rem' }}>{reg.name || '—'}</td>
-                        <td style={{ padding: '0.75rem' }}>{reg.email || '—'}</td>
-                        <td style={{ padding: '0.75rem' }}>{reg.phone || '—'}</td>
-                        <td style={{ padding: '0.75rem' }}>{reg.company || '—'}</td>
-                        <td style={{ padding: '0.75rem', fontSize: '0.875rem', color: '#6b7280' }}>
-                          {Object.entries(reg)
-                            .filter(([key]) => !['name', 'email', 'phone', 'company', 'id'].includes(key))
-                            .map(([key, value]) => (
-                              <div key={key}>
-                                <strong>{key}:</strong> {String(value)}
-                              </div>
-                            ))}
-                        </td>
-                      </tr>
                     ))}
-                  </tbody>
-                </table>
+                  </div>
+                )}
               </div>
-            )}
 
-            <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: '#f9fafb', borderRadius: '0.5rem' }}>
-              <p className="subtle"><strong>Total registrations:</strong> {businessTalkRegistrations.length}</p>
+              <div className="panel">
+                <SectionHeader title="Latest contacts" subtitle="A quick snapshot of inbound interest and status." />
+                {contacts.length === 0 ? (
+                  <div className="empty-state">No inquiries yet. Add a lead manually or wait for form submissions.</div>
+                ) : (
+                  <div className="preview-grid">
+                    {contacts.slice(0, 3).map((item) => (
+                      <div key={item.id} className="item-card">
+                        <div className="item-title">{item.name}</div>
+                        <div className="item-copy">{item.email}</div>
+                        <div className="chip-row">
+                          <span className="chip">{item.status}</span>
+                          {item.service ? <span className="chip">{item.service}</span> : null}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        </section>
-      ) : null}
+          </section>
+        ) : null}
 
-      {activeTab === 'about' ? (
-        <section className="content-grid">
-          <div className="panel">
-            <SectionHeader title="About editor" subtitle="Update the hero, mission, and vision statements for the public page." />
-            <div className="form-grid">
-              <div className="field"><label>Hero title</label><input value={about.hero_title} onChange={(event) => setAbout((current) => ({ ...current, hero_title: event.target.value }))} /></div>
-              <div className="field"><label>Hero subtitle</label><input value={about.hero_subtitle} onChange={(event) => setAbout((current) => ({ ...current, hero_subtitle: event.target.value }))} /></div>
-              <div className="field"><label>Hero description</label><textarea value={about.hero_description} onChange={(event) => setAbout((current) => ({ ...current, hero_description: event.target.value }))} /></div>
-              <div className="field"><label>Mission</label><textarea value={about.mission} onChange={(event) => setAbout((current) => ({ ...current, mission: event.target.value }))} /></div>
-              <div className="field"><label>Vision</label><textarea value={about.vision} onChange={(event) => setAbout((current) => ({ ...current, vision: event.target.value }))} /></div>
-              <button className="primary-btn" onClick={handleSaveAbout}>Save about content</button>
+        {activeTab === 'community' ? (
+          <section className="content-grid">
+            <div className="panel">
+              <SectionHeader title="Add gallery image" subtitle="Feed the site with marketing-ready visuals and captions." />
+              <div className="form-grid">
+                <div className="field">
+                  <label>Image URL</label>
+                  <input
+                    value={galleryForm.image_url}
+                    onChange={(event) => setGalleryForm((current) => ({ ...current, image_url: event.target.value }))}
+                    placeholder="https://example.com/gallery-image.jpg"
+                  />
+                </div>
+                <div className="field">
+                  <label>Caption</label>
+                  <input
+                    value={galleryForm.caption}
+                    onChange={(event) => setGalleryForm((current) => ({ ...current, caption: event.target.value }))}
+                    placeholder="Short caption for the gallery"
+                  />
+                </div>
+                <button className="primary-btn" onClick={handleCreateGallery}>Save gallery image</button>
+              </div>
             </div>
-          </div>
 
-          <div className="panel">
-            <SectionHeader title="Preview" subtitle="This is how the current content will appear on the about page." />
-            <h3>{about.hero_title || 'Hero title'}</h3>
-            <p className="subtle">{about.hero_subtitle || 'Hero subtitle'}</p>
-            <p>{about.hero_description || 'Add a short hero description.'}</p>
-            <p><strong>Mission:</strong> {about.mission || 'Mission statement will appear here.'}</p>
-            <p><strong>Vision:</strong> {about.vision || 'Vision statement will appear here.'}</p>
-          </div>
-        </section>
-      ) : null}
-
-      {activeTab === 'settings' ? (
-        <section className="content-grid">
-          <div className="panel">
-            <SectionHeader title="Site settings" subtitle="Update business contact details and social links in one place." />
-            <div className="form-grid">
-              <div className="field"><label>Site name</label><input value={settings.site_name} onChange={(event) => setSettings((current) => ({ ...current, site_name: event.target.value }))} /></div>
-              <div className="field"><label>Email</label><input value={settings.site_email} onChange={(event) => setSettings((current) => ({ ...current, site_email: event.target.value }))} /></div>
-              <div className="field"><label>Phone</label><input value={settings.site_phone} onChange={(event) => setSettings((current) => ({ ...current, site_phone: event.target.value }))} /></div>
-              <div className="field"><label>Address</label><input value={settings.site_address} onChange={(event) => setSettings((current) => ({ ...current, site_address: event.target.value }))} /></div>
-              <div className="field"><label>Description</label><textarea value={settings.site_description} onChange={(event) => setSettings((current) => ({ ...current, site_description: event.target.value }))} /></div>
-              <div className="field"><label>Facebook</label><input value={settings.social_links.facebook} onChange={(event) => setSettings((current) => ({ ...current, social_links: { ...current.social_links, facebook: event.target.value } }))} /></div>
-              <div className="field"><label>Twitter</label><input value={settings.social_links.twitter} onChange={(event) => setSettings((current) => ({ ...current, social_links: { ...current.social_links, twitter: event.target.value } }))} /></div>
-              <div className="field"><label>LinkedIn</label><input value={settings.social_links.linkedin} onChange={(event) => setSettings((current) => ({ ...current, social_links: { ...current.social_links, linkedin: event.target.value } }))} /></div>
-              <div className="field"><label>Instagram</label><input value={settings.social_links.instagram} onChange={(event) => setSettings((current) => ({ ...current, social_links: { ...current.social_links, instagram: event.target.value } }))} /></div>
-              <button className="primary-btn" onClick={handleSaveSettings}>Save settings</button>
+            <div className="panel">
+              <SectionHeader title="Add event" subtitle="Publish events with a linkable image and rich details." />
+              <div className="form-grid">
+                <div className="field">
+                  <label>Title</label>
+                  <input
+                    value={eventForm.title}
+                    onChange={(event) => setEventForm((current) => ({ ...current, title: event.target.value }))}
+                    placeholder="Design Sprint Session"
+                  />
+                </div>
+                <div className="field">
+                  <label>Date</label>
+                  <input
+                    type="date"
+                    value={eventForm.date}
+                    onChange={(event) => setEventForm((current) => ({ ...current, date: event.target.value }))}
+                  />
+                </div>
+                <div className="field">
+                  <label>Description</label>
+                  <textarea
+                    value={eventForm.description}
+                    onChange={(event) => setEventForm((current) => ({ ...current, description: event.target.value }))}
+                    placeholder="Write a clear event description"
+                  />
+                </div>
+                <div className="field">
+                  <label>Image URL</label>
+                  <input
+                    value={eventForm.image_url}
+                    onChange={(event) => setEventForm((current) => ({ ...current, image_url: event.target.value }))}
+                    placeholder="https://example.com/event-image.jpg"
+                  />
+                </div>
+                <button className="primary-btn" onClick={handleCreateEvent}>Save event</button>
+              </div>
             </div>
-          </div>
 
-          <div className="panel">
-            <SectionHeader title="Live config" subtitle="A snapshot of the current public settings payload." />
-            <p><strong>Name:</strong> {settings.site_name || 'Not set'}</p>
-            <p><strong>Email:</strong> {settings.site_email || 'Not set'}</p>
-            <p><strong>Phone:</strong> {settings.site_phone || 'Not set'}</p>
-            <p><strong>Address:</strong> {settings.site_address || 'Not set'}</p>
-            <p><strong>Description:</strong> {settings.site_description || 'Not set'}</p>
-            <div className="chip-row">
-              {Object.entries(settings.social_links).map(([key, value]) => (
-                <span key={key} className="chip">{key}: {value || 'not set'}</span>
-              ))}
+            <div className="panel" style={{ gridColumn: '1 / -1' }}>
+              <SectionHeader title="Manage community content" subtitle="Delete items instantly if a campaign or image needs to be removed." />
+
+              <div className="content-grid">
+                <div className="panel">
+                  <h3>Gallery</h3>
+                  {gallery.length === 0 ? (
+                    <div className="empty-state">No gallery items yet.</div>
+                  ) : (
+                    gallery.map((item) => (
+                      <div key={item.id} className="item-card">
+                        <div className="item-title">{item.caption || 'Untitled'}</div>
+                        <div className="item-copy">{item.image_url}</div>
+                        <div className="actions-row">
+                          <button className="ghost-btn" onClick={() => handleDeleteCommunity('gallery', item.id)}>Delete</button>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+                <div className="panel">
+                  <h3>Events</h3>
+                  {events.length === 0 ? (
+                    <div className="empty-state">No events yet.</div>
+                  ) : (
+                    events.map((item) => (
+                      <div key={item.id} className="item-card">
+                        <div className="item-title">{item.title}</div>
+                        <div className="item-copy">{item.date}</div>
+                        <div className="item-copy">{item.description}</div>
+                        <div className="actions-row">
+                          <button className="ghost-btn" onClick={() => handleDeleteCommunity('events', item.id)}>Delete</button>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-        </section>
-      ) : null}
+          </section>
+        ) : null}
 
-      {loading ? <p className="subtle">Loading dashboard...</p> : null}
+        {activeTab === 'contacts' ? (
+          <section className="content-grid">
+            <div className="panel">
+              <SectionHeader title="Add contact manually" subtitle="Capture leads even when you want to log them directly." />
+              <div className="form-grid">
+                <div className="field"><label>Name</label><input value={contactForm.name} onChange={(event) => setContactForm((current) => ({ ...current, name: event.target.value }))} /></div>
+                <div className="field"><label>Email</label><input type="email" value={contactForm.email} onChange={(event) => setContactForm((current) => ({ ...current, email: event.target.value }))} /></div>
+                <div className="field"><label>Company</label><input value={contactForm.company} onChange={(event) => setContactForm((current) => ({ ...current, company: event.target.value }))} /></div>
+                <div className="field"><label>Service</label><input value={contactForm.service} onChange={(event) => setContactForm((current) => ({ ...current, service: event.target.value }))} /></div>
+                <div className="field"><label>Message</label><textarea value={contactForm.message} onChange={(event) => setContactForm((current) => ({ ...current, message: event.target.value }))} /></div>
+                <button className="primary-btn" onClick={handleAddContact}>Create lead</button>
+              </div>
+            </div>
+
+            <div className="panel">
+              <SectionHeader title="Inbox" subtitle="Track status and keep follow-up queues clean." />
+              {contacts.length === 0 ? (
+                <div className="empty-state">No contact submissions yet.</div>
+              ) : (
+                contacts.map((item) => (
+                  <div key={item.id} className="item-card">
+                    <div className="item-title">{item.name}</div>
+                    <div className="item-copy">{item.email}</div>
+                    <div className="item-copy">{item.message}</div>
+                    <div className="chip-row">
+                      <span className="chip">{item.status}</span>
+                      {item.service ? <span className="chip">{item.service}</span> : null}
+                    </div>
+                    <div className="actions-row">
+                      <select
+                        value={item.status}
+                        onChange={(event) => handleStatusChange(item.id, event.target.value as ContactSubmission['status'])}
+                      >
+                        <option value="new">New</option>
+                        <option value="replied">Replied</option>
+                        <option value="archived">Archived</option>
+                      </select>
+                      <button className="ghost-btn" onClick={() => handleDeleteContact(item.id)}>Delete</button>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </section>
+        ) : null}
+
+        {activeTab === 'business-talk' ? (
+          <section className="content-grid">
+            <div className="panel" style={{ gridColumn: '1 / -1' }}>
+              <SectionHeader title="Business Talk Registrations" subtitle="View all attendees and registrations for upcoming business talk sessions." />
+              <div className="actions-row">
+                <button className="primary-btn" onClick={() => fetchBusinessTalkRegistrations()}>Refresh registrations</button>
+              </div>
+
+              {businessTalkLoading ? (
+                <div className="empty-state">Loading registrations…</div>
+              ) : businessTalkRegistrations.length === 0 ? (
+                <div className="empty-state">No registrations found.</div>
+              ) : (
+                <div className="data-table-wrap">
+                  <table className="data-table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Company</th>
+                        <th>Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {businessTalkRegistrations.map((reg, idx) => (
+                        <tr key={reg.id ?? idx}>
+                          <td>{reg.name || '—'}</td>
+                          <td>{reg.email || '—'}</td>
+                          <td>{reg.phone || '—'}</td>
+                          <td>{reg.company || '—'}</td>
+                          <td>
+                            {Object.entries(reg)
+                              .filter(([key]) => !['name', 'email', 'phone', 'company', 'id'].includes(key))
+                              .map(([key, value]) => (
+                                <div className="detail-line" key={key}>
+                                  <strong>{key}:</strong> {String(value)}
+                                </div>
+                              ))}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+
+              <div className="total-banner">
+                <strong>{businessTalkRegistrations.length}</strong> total registration{businessTalkRegistrations.length === 1 ? '' : 's'}
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {activeTab === 'about' ? (
+          <section className="content-grid">
+            <div className="panel">
+              <SectionHeader title="About editor" subtitle="Update the hero, mission, and vision statements for the public page." />
+              <div className="form-grid">
+                <div className="field"><label>Hero title</label><input value={about.hero_title} onChange={(event) => setAbout((current) => ({ ...current, hero_title: event.target.value }))} /></div>
+                <div className="field"><label>Hero subtitle</label><input value={about.hero_subtitle} onChange={(event) => setAbout((current) => ({ ...current, hero_subtitle: event.target.value }))} /></div>
+                <div className="field"><label>Hero description</label><textarea value={about.hero_description} onChange={(event) => setAbout((current) => ({ ...current, hero_description: event.target.value }))} /></div>
+                <div className="field"><label>Mission</label><textarea value={about.mission} onChange={(event) => setAbout((current) => ({ ...current, mission: event.target.value }))} /></div>
+                <div className="field"><label>Vision</label><textarea value={about.vision} onChange={(event) => setAbout((current) => ({ ...current, vision: event.target.value }))} /></div>
+                <button className="primary-btn" onClick={handleSaveAbout}>Save about content</button>
+              </div>
+            </div>
+
+            <div className="panel preview-block">
+              <SectionHeader title="Preview" subtitle="This is how the current content will appear on the about page." />
+              <h3>{about.hero_title || 'Hero title'}</h3>
+              <p className="subtle">{about.hero_subtitle || 'Hero subtitle'}</p>
+              <p>{about.hero_description || 'Add a short hero description.'}</p>
+              <p><strong>Mission:</strong> {about.mission || 'Mission statement will appear here.'}</p>
+              <p><strong>Vision:</strong> {about.vision || 'Vision statement will appear here.'}</p>
+            </div>
+          </section>
+        ) : null}
+
+        {activeTab === 'settings' ? (
+          <section className="content-grid">
+            <div className="panel">
+              <SectionHeader title="Site settings" subtitle="Update business contact details and social links in one place." />
+              <div className="form-grid">
+                <div className="field"><label>Site name</label><input value={settings.site_name} onChange={(event) => setSettings((current) => ({ ...current, site_name: event.target.value }))} /></div>
+                <div className="field"><label>Email</label><input value={settings.site_email} onChange={(event) => setSettings((current) => ({ ...current, site_email: event.target.value }))} /></div>
+                <div className="field"><label>Phone</label><input value={settings.site_phone} onChange={(event) => setSettings((current) => ({ ...current, site_phone: event.target.value }))} /></div>
+                <div className="field"><label>Address</label><input value={settings.site_address} onChange={(event) => setSettings((current) => ({ ...current, site_address: event.target.value }))} /></div>
+                <div className="field"><label>Description</label><textarea value={settings.site_description} onChange={(event) => setSettings((current) => ({ ...current, site_description: event.target.value }))} /></div>
+                <div className="field"><label>Facebook</label><input value={settings.social_links.facebook} onChange={(event) => setSettings((current) => ({ ...current, social_links: { ...current.social_links, facebook: event.target.value } }))} /></div>
+                <div className="field"><label>Twitter</label><input value={settings.social_links.twitter} onChange={(event) => setSettings((current) => ({ ...current, social_links: { ...current.social_links, twitter: event.target.value } }))} /></div>
+                <div className="field"><label>LinkedIn</label><input value={settings.social_links.linkedin} onChange={(event) => setSettings((current) => ({ ...current, social_links: { ...current.social_links, linkedin: event.target.value } }))} /></div>
+                <div className="field"><label>Instagram</label><input value={settings.social_links.instagram} onChange={(event) => setSettings((current) => ({ ...current, social_links: { ...current.social_links, instagram: event.target.value } }))} /></div>
+                <button className="primary-btn" onClick={handleSaveSettings}>Save settings</button>
+              </div>
+            </div>
+
+            <div className="panel">
+              <SectionHeader title="Live config" subtitle="A snapshot of the current public settings payload." />
+              <div className="kv-row"><span className="k">Name</span><span className="v">{settings.site_name || 'Not set'}</span></div>
+              <div className="kv-row"><span className="k">Email</span><span className="v">{settings.site_email || 'Not set'}</span></div>
+              <div className="kv-row"><span className="k">Phone</span><span className="v">{settings.site_phone || 'Not set'}</span></div>
+              <div className="kv-row"><span className="k">Address</span><span className="v">{settings.site_address || 'Not set'}</span></div>
+              <div className="kv-row"><span className="k">Description</span><span className="v">{settings.site_description || 'Not set'}</span></div>
+              <div className="chip-row" style={{ marginTop: 16 }}>
+                {Object.entries(settings.social_links).map(([key, value]) => (
+                  <span key={key} className="chip">{key}: {value || 'not set'}</span>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {loading ? <p className="subtle" style={{ marginTop: 24 }}>Loading dashboard...</p> : null}
+      </div>
     </main>
   );
 }
